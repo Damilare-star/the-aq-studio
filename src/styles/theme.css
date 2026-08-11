@@ -1,0 +1,90 @@
+/* ─── AQ Studio Design Tokens ─── */
+:root {
+  /* Backgrounds */
+  --bg-base:        #050505;
+  --bg-surface:     #090909;
+  --bg-elevated:    #0D0D0D;
+  --bg-overlay:     rgba(9, 9, 9, 0.85);
+
+  /* Text */
+  --text-primary:   #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-muted:     rgba(255, 255, 255, 0.30);
+  --text-dim:       rgba(255, 255, 255, 0.18);
+
+  /* Accent */
+  --accent:         #8B5CF6;
+  --accent-dim:     rgba(139, 92, 246, 0.15);
+  --accent-border:  rgba(139, 92, 246, 0.25);
+  --accent-glow:    rgba(139, 92, 246, 0.08);
+
+  /* Borders */
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+
+  /* Spacing */
+  --section-px:     clamp(2rem, 6vw, 6rem);
+  --section-py:     clamp(4rem, 7vw, 7rem);
+
+  /* Typography */
+  --font-sans:      'Inter', system-ui, sans-serif;
+  --font-serif:     'Playfair Display', Georgia, serif;
+
+  /* Transitions */
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:    cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* ─── Utility classes used across the site ─── */
+.section-padding {
+  padding-left:  var(--section-px);
+  padding-right: var(--section-px);
+  padding-top:   var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+.container-wide {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left:  var(--section-px);
+  padding-right: var(--section-px);
+}
+
+.label-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.label-tag::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background-color: var(--accent);
+}
+
+/* ─── Glass surface ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ─── Subtle noise texture overlay ─── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+}
