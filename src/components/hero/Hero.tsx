@@ -60,7 +60,7 @@ export default function Hero() {
             {/* Eyebrow */}
             <motion.div variants={fadeUp} className="mb-4 md:mb-5">
               <span className="text-[10px] tracking-[0.30em] uppercase font-medium text-[rgba(255,255,255,0.38)]">
-                AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;Cinematic&nbsp;&nbsp;•&nbsp;&nbsp;Impactful
+                Product Ads&nbsp;&nbsp;•&nbsp;&nbsp;AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;Cinematic
               </span>
             </motion.div>
 
