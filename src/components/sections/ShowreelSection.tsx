@@ -75,7 +75,7 @@ export default function ShowreelSection() {
           {/* Video */}
           <video
             ref={videoRef}
-            src="/hero-reel.mp4"
+            src="/showreel.mp4"
             loop
             playsInline
             muted
