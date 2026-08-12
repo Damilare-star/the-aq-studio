@@ -81,8 +81,7 @@ export default function Hero() {
               className="text-[rgba(255,255,255,0.45)] font-light leading-[1.70] mb-6 md:mb-7"
               style={{ fontSize: 'clamp(0.85rem, 1vw, 0.95rem)', maxWidth: '460px' }}
             >
-              Premium AI-powered advertising for beauty, fashion, food,
-              technology and lifestyle brands.
+              Premium AI-powered product advertising for eCommerce, beauty, fashion, food, technology and lifestyle brands.
             </motion.p>
 
             {/* CTAs */}

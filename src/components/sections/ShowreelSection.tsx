@@ -55,7 +55,7 @@ export default function ShowreelSection() {
             variants={fadeUp}
             className="text-[rgba(255,255,255,0.40)] text-sm leading-relaxed max-w-xs"
           >
-            45 seconds. Our full range of cinematic AI production across beauty, fashion, food, technology and lifestyle.
+            A 45-second showcase of cinematic AI product commercials built for brands across beauty, fashion, food, technology, and lifestyle.
           </motion.p>
         </motion.div>
 
@@ -136,7 +136,7 @@ export default function ShowreelSection() {
             {/* Label under button when paused */}
             {!playing && (
               <span className="absolute mt-24 text-[10px] tracking-[0.24em] uppercase text-[rgba(255,255,255,0.35)]">
-                Play Showreel
+                Watch Showreel
               </span>
             )}
           </button>
