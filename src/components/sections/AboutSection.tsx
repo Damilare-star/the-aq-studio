@@ -59,29 +59,38 @@ export default function AboutSection() {
               className="space-y-5 text-[rgba(255,255,255,0.48)] text-sm leading-[1.85] max-w-lg"
             >
               <p>
-                The gap between what brands want and what production budgets allow has always been enormous. AI closed that gap — but most studios using it are thinking like technologists, not storytellers.
+                Great products deserve more than ordinary advertising.
               </p>
               <p>
-                AQ Studio was built for brands who refuse to compromise. We bring the creative rigour of a top-tier agency, the efficiency of AI production, and the visual sensibility of a film studio.
+                Traditional product commercials can require large crews, expensive locations, complex production, and weeks of coordination.
               </p>
               <p>
-                We work with a select group of brands each quarter. Not because we can't scale — because the work requires it.
+                AI has changed what's possible — but technology alone doesn't make a great commercial.
+              </p>
+              <p>
+                The AQ Studio combines cinematic creative direction with AI-powered production to turn products into visual stories people remember.
+              </p>
+              <p>
+                From beauty and skincare to fashion, food, beverages, technology, and lifestyle products, I create cinematic commercials designed to make products impossible to ignore.
+              </p>
+              <p>
+                Every frame has a purpose. Every shot serves the product. Every commercial is built to make people stop, look, and remember.
               </p>
             </motion.div>
 
             {/* Stat row */}
             <motion.div
               variants={fadeUp}
-              className="mt-12 grid grid-cols-3 gap-6 pt-10 border-t border-[rgba(255,255,255,0.06)]"
+              className="mt-16 grid grid-cols-3 gap-6 pt-10 border-t border-[rgba(255,255,255,0.06)]"
             >
               {[
-                { value: '200+', label: 'Campaigns' },
-                { value: '40+', label: 'Brands' },
-                { value: '3×', label: 'Faster' },
+                { value: 'CINEMATIC',         label: 'Creative-first production' },
+                { value: 'AI-POWERED',        label: 'Modern visual production' },
+                { value: 'PRODUCT-FOCUSED',   label: 'Built for brands & e-commerce' },
               ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-white font-bold text-2xl leading-none mb-1">{stat.value}</p>
-                  <p className="text-[rgba(255,255,255,0.30)] text-[10px] tracking-[0.18em] uppercase">{stat.label}</p>
+                <div key={stat.value}>
+                  <p className="text-white font-bold text-sm leading-tight mb-1.5 tracking-[0.06em]">{stat.value}</p>
+                  <p className="text-[rgba(255,255,255,0.30)] text-[10px] tracking-[0.14em] uppercase leading-relaxed">{stat.label}</p>
                 </div>
               ))}
             </motion.div>

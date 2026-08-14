@@ -30,7 +30,7 @@ export default function ShowreelSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4">

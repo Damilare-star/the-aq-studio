@@ -7,29 +7,56 @@ import { SITE_EMAIL } from '../../constants'
 const socials = [
   {
     label: 'Instagram',
-    handle: '@aqstudio',
-    href: 'https://instagram.com',
+    handle: '@theaqstudio_',
+    href: 'https://www.instagram.com/theaqstudio_',
     icon: '↗',
   },
   {
     label: 'LinkedIn',
-    handle: 'AQ Studio',
-    href: 'https://linkedin.com',
+    handle: 'The AQ Studio',
+    href: 'https://www.linkedin.com/in/abdulquadri-abdulquadri-olatunji-9138871a4',
+    icon: '↗',
+  },
+  {
+    label: 'Twitter / X',
+    handle: '@AIFeedsWith_OLA',
+    href: 'https://x.com/AIFeedsWith_OLA',
     icon: '↗',
   },
 ]
 
+const FORMSPREE = 'https://formspree.io/f/xvkpqnzo'
+
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: '', brand: '', email: '', brief: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setError('')
+    try {
+      const res = await fetch(FORMSPREE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setError('Something went wrong. Please try again or email us directly.')
+      }
+    } catch {
+      setError('Something went wrong. Please try again or email us directly.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -227,15 +254,19 @@ export default function ContactSection() {
                 </motion.div>
 
                 <motion.div variants={fadeRight}>
+                  {error && (
+                    <p className="text-red-400 text-xs mb-4 leading-relaxed">{error}</p>
+                  )}
                   <motion.button
                     type="submit"
+                    disabled={submitting}
                     whileHover="hover"
                     whileTap={{ scale: 0.97 }}
                     initial="rest"
                     animate="rest"
                     variants={{ rest: { scale: 1 }, hover: { scale: 1.02 } }}
                     transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-                    className="mt-2 inline-flex items-center justify-center gap-3 rounded-full cursor-pointer whitespace-nowrap"
+                    className="mt-2 inline-flex items-center justify-center gap-3 rounded-full cursor-pointer whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{
                       height: '52px',
                       paddingLeft: '2rem',
@@ -247,16 +278,18 @@ export default function ContactSection() {
                       letterSpacing: '0.06em',
                       color: '#ffffff',
                     }}
-                    onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 36px rgba(139,92,246,0.40)' }}
+                    onMouseEnter={(e) => { if (!submitting) e.currentTarget.style.boxShadow = '0 0 36px rgba(139,92,246,0.40)' }}
                     onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 20px rgba(139,92,246,0.20)' }}
                   >
-                    Send Brief
-                    <motion.span
-                      variants={{ rest: { x: 0 }, hover: { x: 4 } }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-                    >
-                      →
-                    </motion.span>
+                    {submitting ? 'Sending…' : 'Send Brief'}
+                    {!submitting && (
+                      <motion.span
+                        variants={{ rest: { x: 0 }, hover: { x: 4 } }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+                      >
+                        →
+                      </motion.span>
+                    )}
                   </motion.button>
                 </motion.div>
               </form>

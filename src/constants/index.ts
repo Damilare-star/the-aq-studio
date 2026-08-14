@@ -13,6 +13,7 @@ export const NAV_LINKS = [
 ] as const
 
 export const SOCIAL_LINKS = [
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'LinkedIn',  href: 'https://linkedin.com' },
+  { label: 'Instagram', href: 'https://www.instagram.com/theaqstudio_' },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/abdulquadri-abdulquadri-olatunji-9138871a4' },
+  { label: 'Twitter / X', href: 'https://x.com/AIFeedsWith_OLA' },
 ] as const

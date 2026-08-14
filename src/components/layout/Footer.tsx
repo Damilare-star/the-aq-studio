@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#050505] border-t border-[rgba(255,255,255,0.06)]">
-      <div className="container-wide py-20">
+      <div className="container-wide section-padding">
         <motion.div
           variants={staggerContainer}
           initial="hidden"

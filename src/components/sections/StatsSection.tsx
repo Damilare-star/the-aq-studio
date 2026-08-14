@@ -5,7 +5,7 @@ import Divider from '../ui/Divider'
 
 export default function StatsSection() {
   return (
-    <section className="bg-[#0D0D0D] py-20">
+    <section className="bg-[#0D0D0D] section-padding">
       <div className="container-wide">
         <Divider className="mb-16" />
         <motion.div

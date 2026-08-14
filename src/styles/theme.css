@@ -38,9 +38,8 @@
 
 /* ─── Utility classes used across the site ─── */
 .section-padding {
-  padding-left:  var(--section-px);
-  padding-right: var(--section-px);
-  padding-top:   var(--section-py);
+  /* Horizontal padding lives on container-wide only — do NOT add it here */
+  padding-top:    var(--section-py);
   padding-bottom: var(--section-py);
 }
 

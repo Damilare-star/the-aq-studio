@@ -3,7 +3,7 @@ import { fadeUp, staggerContainer } from '../animations/variants'
 
 export default function CtaBanner() {
   return (
-    <section className="bg-[#0D0D0D] border-y border-[rgba(255,255,255,0.06)] py-24">
+    <section className="bg-[#0D0D0D] border-y border-[rgba(255,255,255,0.06)] section-padding">
       <div className="container-wide">
         <motion.div
           variants={staggerContainer}

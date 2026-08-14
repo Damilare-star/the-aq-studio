@@ -5,14 +5,14 @@ import { fadeUp, staggerContainer } from '../animations/variants'
 import SectionLabel from '../ui/SectionLabel'
 
 // Total duration label
-const TOTAL = '2–4 weeks'
+const TOTAL = '3–10 business days'
 
 export default function ProcessSection() {
   const [active, setActive] = useState(0)
   const step = processSteps[active]
 
   return (
-    <section id="process" className="bg-[#090909] section-padding overflow-hidden">
+    <section id="process" className="bg-[#090909] section-padding overflow-x-hidden">
       <div className="container-wide">
 
         {/* ── Header ── */}
@@ -21,7 +21,7 @@ export default function ProcessSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12"
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4">
@@ -38,7 +38,7 @@ export default function ProcessSection() {
                 className="italic font-light text-[rgba(255,255,255,0.55)]"
                 style={{ fontFamily: 'Playfair Display, serif' }}
               >
-                campaign in {TOTAL}.
+                final commercial.
               </span>
             </motion.h2>
           </div>
@@ -46,8 +46,7 @@ export default function ProcessSection() {
             variants={fadeUp}
             className="text-[rgba(255,255,255,0.35)] text-sm leading-relaxed max-w-xs shrink-0"
           >
-            Five phases. No surprises.
-            <br />A process designed so every decision has a reason.
+            A clear five-phase process from creative direction to final delivery.
           </motion.p>
         </motion.div>
 
@@ -136,13 +135,18 @@ export default function ProcessSection() {
 
             {/* Total bar */}
             <div
-              className="px-8 py-5 flex items-center justify-between mt-auto"
+              className="px-8 py-6 flex flex-col gap-2"
               style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
             >
-              <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.25)]">
-                Total turnaround
-              </span>
-              <span className="text-white text-sm font-semibold">{TOTAL}</span>
+              <div className="flex items-center justify-between">
+                <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.25)]">
+                  Total turnaround
+                </span>
+                <span className="text-white text-sm font-semibold">{TOTAL}</span>
+              </div>
+              <p className="text-[rgba(255,255,255,0.22)] text-[10px] leading-relaxed">
+                Larger campaigns and multi-asset productions are scoped separately.
+              </p>
             </div>
           </div>
 

@@ -1,10 +1,10 @@
 export interface ProcessStep {
   number: string
   title: string
-  verb: string        // short action word for large display
+  verb: string
   description: string
-  detail: string      // one extra sentence of depth
-  duration: string    // typical time for this phase
+  detail: string
+  duration: string
 }
 
 export const processSteps: ProcessStep[] = [
@@ -12,40 +12,40 @@ export const processSteps: ProcessStep[] = [
     number: '01',
     title: 'Discover',
     verb: 'Discover',
-    description: 'Understand the brand, product and audience.',
-    detail: 'We immerse ourselves in your world — your category, your competitors, your customer and the emotion you want to own.',
-    duration: '1–2 days',
+    description: 'DISCOVER',
+    detail: 'I get inside your brand, product, audience, competitors, and campaign objective to understand what the creative needs to communicate.',
+    duration: '1 day',
   },
   {
     number: '02',
     title: 'Concept',
     verb: 'Concept',
-    description: 'Develop the creative direction and visual concept.',
-    detail: 'A precise visual territory, moodboards, style frames and a locked narrative — so every frame we generate has a reason to exist.',
-    duration: '2–3 days',
+    description: 'CONCEPT',
+    detail: 'Develop the concept, visual direction, story, and creative approach around your product.',
+    duration: '1–2 days',
   },
   {
     number: '03',
     title: 'Produce',
     verb: 'Produce',
-    description: 'Use AI and cinematic production techniques to create the campaign.',
-    detail: 'Our AI pipelines generate photorealistic environments, product visuals and motion sequences — directed like a film, not prompted like a chatbot.',
-    duration: '5–8 days',
+    description: 'PRODUCE',
+    detail: 'Generate and produce cinematic product visuals using an AI-driven production workflow, then shape them into the commercial.',
+    duration: '3–5 days',
   },
   {
     number: '04',
     title: 'Refine',
     verb: 'Refine',
-    description: 'Polish the visuals, motion, sound and storytelling.',
-    detail: 'Every frame is graded, every transition timed, every sound design element placed. We iterate with you until it\'s exactly right.',
-    duration: '2–3 days',
+    description: 'REFINE',
+    detail: 'Refine the visuals, pacing, motion, sound design, transitions, and storytelling until the commercial feels finished.',
+    duration: '1–2 days',
   },
   {
     number: '05',
     title: 'Deliver',
     verb: 'Deliver',
-    description: 'Deliver campaign-ready creative assets.',
-    detail: 'Final files in every format you need — broadcast, social, digital — ready to go live the moment you are.',
+    description: 'DELIVER',
+    detail: 'Deliver the final commercial in the required formats, optimized for web, social, and paid advertising.',
     duration: '1 day',
   },
 ]

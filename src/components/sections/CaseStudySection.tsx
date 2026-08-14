@@ -17,7 +17,7 @@ export default function CaseStudySection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-16"
+          className="mb-12"
         >
           <motion.div variants={fadeUp} className="mb-4">
             <SectionLabel>Case Study</SectionLabel>
