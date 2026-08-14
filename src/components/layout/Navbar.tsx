@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS } from '../../constants'
 
-// ─── Nav link with animated underline accent ──────────────────────────────────
+// ─── Nav link with animated underline accent ─────────────────────────────────
 function NavLink({
   label,
   href,
@@ -22,7 +22,6 @@ function NavLink({
       className="relative text-[rgba(255,255,255,0.50)] hover:text-white text-[11px] tracking-[0.13em] uppercase font-medium transition-colors duration-300 cursor-pointer pb-0.5"
     >
       {label}
-      {/* Underline accent */}
       <motion.span
         className="absolute bottom-0 left-0 h-px bg-[#8B5CF6]"
         initial={false}
@@ -63,13 +62,13 @@ export default function Navbar() {
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         className="fixed top-0 left-0 right-0 z-50"
       >
-        {/* Glass surface — transitions in on scroll */}
+        {/* Glass surface */}
         <div
           className="absolute inset-0 transition-all duration-500"
           style={
             scrolled
               ? {
-                  background: 'rgba(5, 5, 5, 0.88)',
+                  background: 'rgba(5,5,5,0.88)',
                   backdropFilter: 'blur(20px)',
                   WebkitBackdropFilter: 'blur(20px)',
                   borderBottom: '1px solid rgba(255,255,255,0.06)',
@@ -85,12 +84,12 @@ export default function Navbar() {
           }
         />
 
-        {/* ── Inner constraint — matches hero padding exactly ── */}
+        {/* Inner constraint */}
         <div
           className="relative mx-auto w-full"
           style={{
             maxWidth: '1440px',
-            paddingLeft:  'clamp(2rem, 6vw, 6rem)',
+            paddingLeft: 'clamp(2rem, 6vw, 6rem)',
             paddingRight: 'clamp(2rem, 6vw, 6rem)',
           }}
         >
@@ -103,7 +102,6 @@ export default function Navbar() {
               className="flex items-center gap-0 shrink-0 z-10"
               aria-label="AQ Studio — Home"
             >
-              {/* AQ mark — larger, bolder */}
               <motion.span
                 className="text-white font-bold uppercase select-none"
                 style={{ fontSize: '18px', letterSpacing: '0.20em' }}
@@ -114,7 +112,6 @@ export default function Navbar() {
                 AQ
               </motion.span>
 
-              {/* Separator — grows down from center after AQ appears */}
               <motion.span
                 className="inline-block w-px bg-[rgba(255,255,255,0.20)] mx-3.5 self-stretch"
                 style={{ marginTop: '20px', marginBottom: '20px' }}
@@ -123,12 +120,6 @@ export default function Navbar() {
                 transition={{ delay: 0.55, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               />
 
-              {/*
-                THE AQ STUDIO — slides out from behind the AQ mark.
-                Uses clipPath to reveal left→right, starting from x:-8
-                so it literally appears to emerge from the logo.
-                Delay matches separator + a beat.
-              */}
               <motion.span
                 className="text-[rgba(255,255,255,0.50)] font-light uppercase select-none"
                 style={{ fontSize: '11px', letterSpacing: '0.24em' }}
@@ -140,14 +131,14 @@ export default function Navbar() {
               </motion.span>
             </a>
 
-            {/* ── CENTER: Navigation — truly centered between logo and CTA ── */}
+            {/* ── CENTER: Navigation ── */}
             <nav
               className="hidden lg:flex items-center gap-10 xl:gap-12 absolute left-1/2 -translate-x-1/2"
               aria-label="Primary navigation"
             >
               {NAV_LINKS.map((link) => (
                 <NavLink
-                  key={`${link.href}-${link.label}`}
+                  key={link.href + link.label}
                   label={link.label}
                   href={link.href}
                   onClick={handleNavClick}
@@ -212,7 +203,6 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 bg-[#050505]/95 backdrop-blur-xl flex flex-col"
           >
-            {/* Links */}
             <div
               className="flex-1 flex flex-col justify-center gap-1 mt-20"
               style={{ paddingLeft: 'clamp(2rem, 6vw, 6rem)', paddingRight: 'clamp(2rem, 6vw, 6rem)' }}
@@ -232,7 +222,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Mobile CTA */}
             <div
               className="pb-14 pt-6"
               style={{ paddingLeft: 'clamp(2rem, 6vw, 6rem)', paddingRight: 'clamp(2rem, 6vw, 6rem)' }}

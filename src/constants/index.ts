@@ -1,6 +1,6 @@
 export const SITE_NAME = 'AQ Studio'
 export const SITE_TAGLINE = 'Cinematic AI Creative Production'
-export const SITE_EMAIL = 'hello@aqstudio.co'
+export const SITE_EMAIL = 'theadstudio.qd@gmail.com'
 export const SITE_LOCATION = 'Global — Remote First'
 
 export const NAV_LINKS = [

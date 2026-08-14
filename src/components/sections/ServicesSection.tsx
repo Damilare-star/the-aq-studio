@@ -90,10 +90,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       />
 
       {/* Card content */}
-      <div className="relative z-10 p-8 flex flex-col flex-1">
+      <div className="relative z-10 p-9 flex flex-col flex-1 justify-between">
 
-        {/* Header row — number + icon */}
-        <div className="flex items-start justify-between mb-6">
+        {/* Top: number + icon */}
+        <div className="flex items-start justify-between mb-7">
           <span className="text-[9px] tracking-[0.24em] font-mono text-[rgba(255,255,255,0.20)]">
             {service.number}
           </span>
@@ -104,21 +104,21 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           />
         </div>
 
-        {/* Title */}
-        <h3
-          className="text-white font-semibold leading-tight mb-3 transition-colors duration-300"
-          style={{ fontSize: 'clamp(1rem, 1.3vw, 1.15rem)' }}
-        >
-          {service.title}
-        </h3>
+        {/* Middle: title + description */}
+        <div className="flex-1">
+          <h3
+            className="text-white font-semibold leading-tight mb-4 transition-colors duration-300"
+            style={{ fontSize: 'clamp(1rem, 1.3vw, 1.1rem)' }}
+          >
+            {service.title}
+          </h3>
+          <p className="text-[rgba(255,255,255,0.42)] text-sm leading-[1.85]">
+            {service.description}
+          </p>
+        </div>
 
-        {/* Description */}
-        <p className="text-[rgba(255,255,255,0.42)] text-sm leading-[1.75] mb-6 flex-1">
-          {service.description}
-        </p>
-
-        {/* Deliverables */}
-        <div className="flex flex-wrap gap-2">
+        {/* Bottom: deliverables */}
+        <div className="flex flex-wrap gap-2 mt-8">
           {service.deliverables.map((d) => (
             <motion.span
               key={d}
@@ -135,7 +135,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           ))}
         </div>
 
-        {/* Bottom arrow — appears on hover */}
+        {/* Arrow — appears on hover */}
         <motion.div
           animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -6 }}
           transition={{ duration: 0.3 }}
