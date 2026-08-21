@@ -21,7 +21,7 @@ export default function ProcessSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14"
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4">
@@ -81,7 +81,7 @@ export default function ProcessSection() {
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   />
 
-                  <div className="px-8 py-8 flex items-center gap-6">
+                  <div className="px-8 py-7 flex items-center gap-6">
                     {/* Number */}
                     <span
                       className="text-[10px] font-mono tracking-[0.22em] shrink-0 transition-colors duration-300"
@@ -153,7 +153,7 @@ export default function ProcessSection() {
           {/* ── RIGHT: detail panel ── */}
           <div
             className="relative bg-[#050505] flex flex-col overflow-hidden"
-            style={{ minHeight: '460px' }}
+            style={{ minHeight: '360px' }}
           >
             {/* Large background verb — decorative */}
             <div
@@ -191,7 +191,7 @@ export default function ProcessSection() {
             </AnimatePresence>
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col justify-between h-full p-12 flex-1">
+            <div className="relative z-10 flex flex-col justify-between h-full p-10 flex-1">
 
               {/* Step indicator dots */}
               <div className="flex items-center gap-2 mb-10">
@@ -262,13 +262,13 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        {/* ── Bottom flow diagram — decorative horizontal timeline ── */}
+        {/* ── Bottom flow diagram — decorative horizontal timeline — hidden on mobile ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16 flex items-center gap-0 overflow-x-auto"
+          className="mt-16 hidden md:flex items-center gap-0 overflow-x-auto"
           style={{ scrollbarWidth: 'none' }}
         >
           {processSteps.map((s, i) => (

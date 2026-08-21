@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-12"
+          className="mb-14"
         >
           <motion.div variants={fadeUp} className="mb-4">
             <SectionLabel>Testimonials</SectionLabel>
@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-white font-light leading-[1.6] mb-8"
+                  className="text-white font-light leading-[1.6] mb-10"
                   style={{ fontSize: 'clamp(1.2rem, 2.2vw, 1.6rem)' }}
                 >
                   "{current.quote}"
@@ -103,13 +103,15 @@ export default function TestimonialsSection() {
               </AnimatePresence>
             </div>
 
-            {/* Navigation — right column */}
-            <div className="flex flex-col gap-3 lg:pt-2">
+            {/* Navigation — right column: horizontal scroll on mobile, vertical on lg */}
+            <div className="flex flex-row gap-3 overflow-x-auto lg:overflow-x-visible lg:flex-col lg:pt-2 pb-2 lg:pb-0"
+              style={{ scrollbarWidth: 'none' }}
+            >
               {testimonials.map((t, i) => (
                 <button
                   key={t.id}
                   onClick={() => setActive(i)}
-                  className={`text-left px-6 py-5 border transition-all duration-300 cursor-pointer ${
+                  className={`shrink-0 text-left px-6 py-5 border transition-all duration-300 cursor-pointer lg:shrink ${
                     i === active
                       ? 'border-[rgba(139,92,246,0.35)] bg-[rgba(139,92,246,0.07)]'
                       : 'border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,255,255,0.14)]'

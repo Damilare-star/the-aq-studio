@@ -112,7 +112,7 @@ function ProjectCard({ project, priority }: { project: Project; priority?: boole
 
       {/* ── Below-fold info strip (always visible) ── */}
       <div
-        className="flex items-center justify-between px-6 py-5"
+        className="flex items-center justify-between px-4 sm:px-6 py-5"
         style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
       >
         <div className="flex items-center gap-3 min-w-0">
@@ -158,7 +158,7 @@ export default function FeaturedProjectsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12"
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4">
@@ -188,19 +188,20 @@ export default function FeaturedProjectsSection() {
           </motion.p>
         </motion.div>
 
-        {/* ── Filter tabs ── */}
+        {/* ── Filter tabs — horizontally scrollable on mobile ── */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap gap-2 mb-8"
+          className="flex overflow-x-auto gap-2 mb-8 pb-1 sm:flex-wrap"
+          style={{ scrollbarWidth: 'none' }}
         >
           {ALL_CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
-              className="text-[10px] tracking-[0.16em] uppercase font-medium px-5 py-2.5 transition-all duration-250 cursor-pointer"
+              className="shrink-0 text-[10px] tracking-[0.16em] uppercase font-medium px-5 py-2.5 transition-all duration-250 cursor-pointer"
               style={{
                 border: `1px solid ${activeFilter === cat ? 'rgba(139,92,246,0.50)' : 'rgba(255,255,255,0.09)'}`,
                 color: activeFilter === cat ? '#8B5CF6' : 'rgba(255,255,255,0.38)',
@@ -222,7 +223,7 @@ export default function FeaturedProjectsSection() {
         */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {filtered.map((project, i) => (
             <motion.div
@@ -260,7 +261,7 @@ export default function FeaturedProjectsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-10 flex justify-center"
+          className="mt-12 flex justify-center"
         >
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}

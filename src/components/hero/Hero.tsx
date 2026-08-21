@@ -32,17 +32,14 @@ export default function Hero() {
       />
 
       {/* ══════════════════════════════════════════════
-          MAIN CONTENT — fills remaining height between
-          navbar (76px) and ticker (~40px)
+          MAIN CONTENT
       ══════════════════════════════════════════════ */}
       <div
-        className="relative z-10 flex-1 flex items-center w-full mx-auto"
+        className="relative z-10 flex-1 flex items-center w-full mx-auto pt-24 md:pt-28 lg:pt-32 pb-4"
         style={{
           maxWidth: '1440px',
-          paddingLeft:  'clamp(2rem, 6vw, 6rem)',
-          paddingRight: 'clamp(2rem, 6vw, 6rem)',
-          paddingTop:   '80px',   /* clears navbar */
-          paddingBottom: '16px',
+          paddingLeft:  'clamp(1.25rem, 5vw, 6rem)',
+          paddingRight: 'clamp(1.25rem, 5vw, 6rem)',
         }}
       >
         <div
@@ -84,10 +81,10 @@ export default function Hero() {
               Premium AI-powered product advertising for eCommerce, beauty, fashion, food, technology and lifestyle brands.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTAs — stack on mobile, row on sm+ */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-wrap items-center gap-3"
+              className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
             >
               {/* Primary */}
               <motion.button
@@ -174,17 +171,11 @@ export default function Hero() {
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
             className="hidden lg:flex items-center justify-center h-full"
           >
-            {/*
-              Video is constrained by the column height.
-              We use a wrapper that fills available column height
-              and limits the video to that — no overflow.
-            */}
+            {/* Portrait 9/16, height constrained to viewport */}
             <div
               className="relative overflow-hidden rounded-2xl"
               style={{
-                /* Fill column height minus top/bottom padding */
-                height: 'min(68vh, 640px)',
-                width: 'auto',
+                height: 'min(68vh, 600px)',
                 aspectRatio: '9/16',
                 background: '#0a0a0a',
                 border: '1px solid rgba(255,255,255,0.07)',

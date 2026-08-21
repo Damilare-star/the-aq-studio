@@ -121,7 +121,7 @@ export default function Navbar() {
               />
 
               <motion.span
-                className="text-[rgba(255,255,255,0.50)] font-light uppercase select-none"
+                className="hidden min-[400px]:inline text-[rgba(255,255,255,0.50)] font-light uppercase select-none"
                 style={{ fontSize: '11px', letterSpacing: '0.24em' }}
                 initial={{ opacity: 0, x: -8, clipPath: 'inset(0 100% 0 0)' }}
                 animate={{ opacity: 1, x: 0, clipPath: 'inset(0 0% 0 0)' }}

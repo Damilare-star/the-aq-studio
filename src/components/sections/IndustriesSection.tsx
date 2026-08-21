@@ -186,7 +186,7 @@ export default function IndustriesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-10"
+          className="mb-12"
         >
           <motion.div variants={fadeUp} className="mb-4">
             <SectionLabel>Industries</SectionLabel>
@@ -237,7 +237,7 @@ export default function IndustriesSection() {
                 onMouseLeave={() => setHovered(null)}
                 className="relative overflow-hidden text-left cursor-pointer focus:outline-none group"
                 style={{
-                  minHeight: '220px',
+                  minHeight: '160px',
                   background: '#0D0D0D',
                   border: isSelected ? '1px solid rgba(139,92,246,0.40)' : '1px solid rgba(255,255,255,0.07)',
                 }}
@@ -268,7 +268,7 @@ export default function IndustriesSection() {
                 />
 
                 {/* Content */}
-                <div className="relative z-10 p-8 flex flex-col justify-between h-full" style={{ minHeight: '220px' }}>
+                <div className="relative z-10 p-5 sm:p-8 flex flex-col justify-between h-full" style={{ minHeight: '160px' }}>
                   <div>
                     {/* Number */}
                     <span className="text-[rgba(255,255,255,0.18)] text-[9px] font-mono tracking-widest block mb-4">

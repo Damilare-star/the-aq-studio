@@ -69,7 +69,7 @@ export default function ContactSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-12"
+          className="mb-14"
         >
           <motion.div variants={fadeUp} className="mb-4">
             <SectionLabel>Contact</SectionLabel>

@@ -13,7 +13,7 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16"
         >
           {/* Brand */}
           <motion.div variants={fadeUp} className="col-span-1">
@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Navigation */}
           <motion.div variants={fadeUp}>
             <p className="label-tag mb-6">Navigation</p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <a
@@ -53,7 +53,7 @@ export default function Footer() {
           {/* Social */}
           <motion.div variants={fadeUp}>
             <p className="label-tag mb-6">Follow</p>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {SOCIAL_LINKS.map((link) => (
                 <li key={link.label}>
                   <a

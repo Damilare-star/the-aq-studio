@@ -90,7 +90,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       />
 
       {/* Card content */}
-      <div className="relative z-10 p-9 flex flex-col flex-1 justify-between">
+      <div className="relative z-10 p-6 sm:p-8 flex flex-col flex-1 justify-between">
 
         {/* Top: number + icon */}
         <div className="flex items-start justify-between mb-7">
@@ -161,7 +161,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14"
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4">
@@ -210,7 +210,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-10 pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="mt-12 pt-10 border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
           <p className="text-[rgba(255,255,255,0.25)] text-xs tracking-wide max-w-md leading-relaxed">
             All services include creative direction, production, post-production and delivery.

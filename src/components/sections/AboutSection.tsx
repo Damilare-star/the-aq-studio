@@ -26,7 +26,7 @@ export default function AboutSection() {
     <section id="about" className="bg-[#090909] section-padding">
       <div className="container-wide">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-28 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-start">
 
           {/* Left — Why we exist */}
           <motion.div
@@ -81,7 +81,7 @@ export default function AboutSection() {
             {/* Stat row */}
             <motion.div
               variants={fadeUp}
-              className="mt-16 grid grid-cols-3 gap-6 pt-10 border-t border-[rgba(255,255,255,0.06)]"
+              className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-[rgba(255,255,255,0.06)]"
             >
               {[
                 { value: 'CINEMATIC',         label: 'Creative-first production' },
@@ -125,7 +125,7 @@ export default function AboutSection() {
                 <motion.div
                   key={item.title}
                   variants={fadeRight}
-                  className={`py-7 ${i < differentiators.length - 1 ? 'border-b border-[rgba(255,255,255,0.06)]' : ''}`}
+                  className={`py-6 ${i < differentiators.length - 1 ? 'border-b border-[rgba(255,255,255,0.06)]' : ''}`}
                 >
                   <div className="flex items-start gap-4">
                     <span className="text-[rgba(139,92,246,0.55)] text-[10px] font-mono tracking-widest mt-0.5 shrink-0">

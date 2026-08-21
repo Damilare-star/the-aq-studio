@@ -17,7 +17,7 @@ export default function CaseStudySection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-12"
+          className="mb-14"
         >
           <motion.div variants={fadeUp} className="mb-4">
             <SectionLabel>Case Study</SectionLabel>
@@ -37,7 +37,7 @@ export default function CaseStudySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center gap-8 mb-16 pb-10 border-b border-[rgba(255,255,255,0.06)]"
+          className="flex flex-wrap items-center gap-8 mb-14 pb-10 border-b border-[rgba(255,255,255,0.06)]"
         >
           {[
             { label: 'Client', value: study.client },
@@ -51,7 +51,7 @@ export default function CaseStudySection() {
         </motion.div>
 
         {/* Main content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20">
 
           {/* Left */}
           <motion.div
@@ -59,7 +59,7 @@ export default function CaseStudySection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="space-y-12"
+            className="space-y-10"
           >
             {[
               { label: 'Challenge', content: study.challenge },
@@ -79,7 +79,7 @@ export default function CaseStudySection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="space-y-12"
+            className="space-y-10"
           >
             {/* Process */}
             <motion.div variants={fadeRight}>
