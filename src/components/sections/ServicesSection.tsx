@@ -118,7 +118,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         </div>
 
         {/* Bottom: deliverables */}
-        <div className="flex flex-wrap gap-2 mt-10">
+        <div className="flex flex-wrap gap-2 mt-8">
           {service.deliverables.map((d) => (
             <motion.span
               key={d}
@@ -198,7 +198,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* ── Services grid — 4 col desktop, 2 col tablet, 1 col mobile ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}

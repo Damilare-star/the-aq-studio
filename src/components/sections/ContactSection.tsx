@@ -209,7 +209,7 @@ export default function ContactSection() {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {([
                   { name: 'name',  label: 'Your Name',       type: 'text',  placeholder: 'Jane Smith' },
                   { name: 'brand', label: 'Brand / Company', type: 'text',  placeholder: 'Acme Brand Co.' },

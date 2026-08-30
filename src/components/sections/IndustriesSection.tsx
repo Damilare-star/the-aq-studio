@@ -221,7 +221,7 @@ export default function IndustriesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3"
+          className="grid grid-cols-2 md:grid-cols-4 gap-5"
         >
           {INDUSTRIES.map((industry, i) => {
             const isSelected = selected === industry.name

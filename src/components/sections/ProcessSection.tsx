@@ -131,7 +131,7 @@ export default function ProcessSection() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-8 pl-16 md:pl-20 pr-4 md:pr-8">
+                      <div className="pb-8 pl-[calc(48px+1rem)] md:pl-[calc(64px+1rem)] pr-4 md:pr-8">
                         {/* Show description on mobile here */}
                         <p className="md:hidden text-[rgba(255,255,255,0.45)] text-sm leading-[1.85] mb-3">
                           {step.description}

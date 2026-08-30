@@ -37,7 +37,7 @@ export default function CaseStudySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center gap-8 mb-14 pb-10 border-b border-[rgba(255,255,255,0.06)]"
+          className="flex flex-wrap items-center gap-8 mb-10 pb-8 border-b border-[rgba(255,255,255,0.06)]"
         >
           {[
             { label: 'Client', value: study.client },
@@ -83,7 +83,7 @@ export default function CaseStudySection() {
           >
             {/* Process */}
             <motion.div variants={fadeRight}>
-              <p className="label-tag mb-6">Process</p>
+              <p className="label-tag mb-4">Process</p>
               <ol className="space-y-4">
                 {study.process.map((step, i) => (
                   <li key={i} className="flex items-start gap-4">
@@ -98,7 +98,7 @@ export default function CaseStudySection() {
 
             {/* Results */}
             <motion.div variants={fadeRight}>
-              <p className="label-tag mb-6">Results</p>
+              <p className="label-tag mb-4">Results</p>
               <ul className="space-y-3">
                 {study.results.map((result, i) => (
                   <li key={i} className="flex items-start gap-3">

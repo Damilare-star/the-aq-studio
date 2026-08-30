@@ -21,7 +21,7 @@ export default function CtaBanner() {
 
           <motion.h2
             variants={fadeUp}
-            className="text-white font-light leading-tight mb-10"
+            className="text-white font-light leading-tight mb-8"
             style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.5rem)' }}
           >
             Your brand deserves{' '}

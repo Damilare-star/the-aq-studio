@@ -72,7 +72,7 @@ function ProjectCard({ project, priority }: { project: Project; priority?: boole
 
         {/* ── Hover overlay ── */}
         <motion.div
-          className="absolute inset-0 flex flex-col justify-end p-7"
+          className="absolute inset-0 flex flex-col justify-end p-5 sm:p-7"
           animate={{ opacity: hovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
           style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.88) 0%, rgba(5,5,5,0.40) 50%, transparent 100%)' }}
