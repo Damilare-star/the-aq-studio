@@ -20,7 +20,7 @@ interface LoadingScreenProps {
 
 const VIDEO_SRC = '/loading screen aq.mp4'
 const SAFETY_TIMEOUT_MS = 8000   // max wait before forcing completion
-const EXIT_DURATION_S   = 0.8    // fade-out duration
+const EXIT_DURATION_S   = 0.3    // fade-out duration
 
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
