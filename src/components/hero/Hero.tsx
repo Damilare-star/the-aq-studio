@@ -43,8 +43,8 @@ export default function Hero() {
         }}
       >
         <div
-          className="grid grid-cols-1 lg:grid-cols-[45fr_55fr] items-center w-full h-full"
-          style={{ gap: 'clamp(2rem, 4vw, 4.5rem)' }}
+          className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto] lg:grid-cols-[45fr_55fr] items-center w-full h-full"
+          style={{ gap: 'clamp(1rem, 4vw, 4.5rem)' }}
         >
 
           {/* ══════════════ LEFT ══════════════ */}
@@ -55,28 +55,28 @@ export default function Hero() {
             className="flex flex-col justify-center"
           >
             {/* Eyebrow */}
-            <motion.div variants={fadeUp} className="mb-4 md:mb-5">
-              <span className="text-[10px] tracking-[0.30em] uppercase font-medium text-[rgba(255,255,255,0.38)]">
-                Product Ads&nbsp;&nbsp;•&nbsp;&nbsp;AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;Cinematic
+            <motion.div variants={fadeUp} className="mb-3 md:mb-5">
+              <span className="text-[9px] sm:text-[10px] tracking-[0.20em] sm:tracking-[0.30em] uppercase font-medium text-[rgba(255,255,255,0.38)]">
+                Product Ads&nbsp;•&nbsp;AI&nbsp;•&nbsp;Cinematic
               </span>
             </motion.div>
 
             {/* Headline */}
             <motion.h1
               variants={fadeUp}
-              className="font-bold text-white leading-[1.08] tracking-tight mb-4 md:mb-5"
-              style={{ fontSize: 'clamp(2rem, 4.2vw, 4.2rem)', maxWidth: '560px' }}
+              className="font-bold text-white leading-[1.08] tracking-tight mb-3 md:mb-5"
+              style={{ fontSize: 'clamp(1.35rem, 3.8vw, 4.2rem)', maxWidth: '560px' }}
             >
               Cinematic AI Commercials{' '}
               <span className="text-[#8B5CF6]">That Make Products</span>{' '}
               Impossible To Ignore.
             </motion.h1>
 
-            {/* Description */}
+            {/* Description — hidden on small mobile to save space */}
             <motion.p
               variants={fadeUp}
-              className="text-[rgba(255,255,255,0.45)] font-light leading-[1.70] mb-6 md:mb-7"
-              style={{ fontSize: 'clamp(0.85rem, 1vw, 0.95rem)', maxWidth: '460px' }}
+              className="hidden sm:block text-[rgba(255,255,255,0.45)] font-light leading-[1.70] mb-6 md:mb-7"
+              style={{ fontSize: 'clamp(0.75rem, 1vw, 0.95rem)', maxWidth: '460px' }}
             >
               Premium AI-powered product advertising for eCommerce, beauty, fashion, food, technology and lifestyle brands.
             </motion.p>
@@ -84,7 +84,7 @@ export default function Hero() {
             {/* CTAs — stack on mobile, row on sm+ */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+              className="flex flex-col gap-2 sm:gap-3 sm:flex-row sm:flex-wrap sm:items-center"
             >
               {/* Primary */}
               <motion.button
@@ -95,14 +95,14 @@ export default function Hero() {
                 animate="rest"
                 variants={{ rest: { scale: 1 }, hover: { scale: 1.04 } }}
                 transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-                className="group relative inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-2 rounded-full cursor-pointer select-none whitespace-nowrap overflow-hidden"
                 style={{
-                  height: '50px',
-                  paddingLeft: '1.75rem',
-                  paddingRight: '1.75rem',
+                  height: 'clamp(40px, 5vh, 50px)',
+                  paddingLeft: 'clamp(1rem, 2vw, 1.75rem)',
+                  paddingRight: 'clamp(1rem, 2vw, 1.75rem)',
                   background: 'linear-gradient(135deg, #7c3aed 0%, #8B5CF6 50%, #a78bfa 100%)',
                   boxShadow: '0 0 28px rgba(139,92,246,0.30), 0 2px 12px rgba(0,0,0,0.4)',
-                  fontSize: '0.775rem',
+                  fontSize: 'clamp(0.65rem, 1.2vw, 0.775rem)',
                   fontWeight: 600,
                   letterSpacing: '0.06em',
                   color: '#ffffff',
@@ -129,14 +129,14 @@ export default function Hero() {
                 animate="rest"
                 variants={{ rest: { scale: 1 }, hover: { scale: 1.04 } }}
                 transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer select-none whitespace-nowrap"
                 style={{
-                  height: '50px',
-                  paddingLeft: '1.75rem',
-                  paddingRight: '1.75rem',
+                  height: 'clamp(40px, 5vh, 50px)',
+                  paddingLeft: 'clamp(1rem, 2vw, 1.75rem)',
+                  paddingRight: 'clamp(1rem, 2vw, 1.75rem)',
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.16)',
-                  fontSize: '0.775rem',
+                  fontSize: 'clamp(0.65rem, 1.2vw, 0.775rem)',
                   fontWeight: 600,
                   letterSpacing: '0.06em',
                   color: '#ffffff',
@@ -169,13 +169,13 @@ export default function Hero() {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-            className="hidden lg:flex items-center justify-center h-full"
+            className="flex items-center justify-center h-full"
           >
             {/* Portrait 9/16, height constrained to viewport */}
             <div
-              className="relative overflow-hidden rounded-2xl"
+              className="relative overflow-hidden rounded-xl lg:rounded-2xl"
               style={{
-                height: 'min(68vh, 600px)',
+                height: 'min(52vh, 600px)',
                 aspectRatio: '9/16',
                 background: '#0a0a0a',
                 border: '1px solid rgba(255,255,255,0.07)',

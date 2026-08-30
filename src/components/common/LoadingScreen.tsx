@@ -78,7 +78,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain sm:object-cover"
             aria-hidden="true"
           />
 
