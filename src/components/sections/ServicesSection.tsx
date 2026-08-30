@@ -90,7 +90,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       />
 
       {/* Card content */}
-      <div className="relative z-10 p-6 sm:p-8 flex flex-col flex-1 justify-between">
+      <div className="relative z-10 p-8 sm:p-10 flex flex-col flex-1 justify-between">
 
         {/* Top: number + icon */}
         <div className="flex items-start justify-between mb-7">
@@ -107,7 +107,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         {/* Middle: title + description */}
         <div className="flex-1">
           <h3
-            className="text-white font-semibold leading-tight mb-4 transition-colors duration-300"
+            className="text-white font-semibold leading-tight mb-5 transition-colors duration-300"
             style={{ fontSize: 'clamp(1rem, 1.3vw, 1.1rem)' }}
           >
             {service.title}
@@ -118,7 +118,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         </div>
 
         {/* Bottom: deliverables */}
-        <div className="flex flex-wrap gap-2 mt-8">
+        <div className="flex flex-wrap gap-2 mt-10">
           {service.deliverables.map((d) => (
             <motion.span
               key={d}

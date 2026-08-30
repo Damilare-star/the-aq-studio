@@ -146,7 +146,7 @@ export default function ContactSection() {
             </motion.div>
 
             {/* Book a Call CTA */}
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="mt-10">
               <motion.button
                 whileHover="hover"
                 whileTap={{ scale: 0.97 }}
@@ -266,7 +266,7 @@ export default function ContactSection() {
                     animate="rest"
                     variants={{ rest: { scale: 1 }, hover: { scale: 1.02 } }}
                     transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-                    className="mt-2 inline-flex items-center justify-center gap-3 rounded-full cursor-pointer whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="mt-10 inline-flex items-center justify-center gap-3 rounded-full cursor-pointer whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{
                       height: '52px',
                       paddingLeft: '2rem',
