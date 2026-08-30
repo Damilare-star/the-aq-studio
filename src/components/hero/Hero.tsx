@@ -8,141 +8,120 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex flex-col overflow-hidden bg-[#050505]"
-      style={{ height: '100dvh', minHeight: '600px', maxHeight: '1080px' }}
+      className="relative flex flex-col bg-[#050505] overflow-hidden min-h-screen"
     >
-      {/* ── Ambient glow ── */}
+      {/* Ambient glow */}
       <div
-        className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          width: '55vw',
-          height: '70vh',
-          background: 'radial-gradient(ellipse at left center, rgba(139,92,246,0.055) 0%, transparent 65%)',
+          background:
+            'radial-gradient(ellipse 60% 70% at 0% 50%, rgba(139,92,246,0.07) 0%, transparent 70%)',
         }}
       />
 
-      {/* ── Bottom fade into next section ── */}
+      {/* Bottom fade into next section */}
       <div
-        className="absolute bottom-0 left-0 right-0 pointer-events-none"
-        style={{
-          height: '60px',
-          background: 'linear-gradient(to top, #050505, transparent)',
-          zIndex: 2,
-        }}
+        className="absolute bottom-0 left-0 right-0 pointer-events-none z-[2]"
+        style={{ height: '80px', background: 'linear-gradient(to top, #050505, transparent)' }}
       />
 
-      {/* ══════════════════════════════════════════════
-          MAIN CONTENT
-      ══════════════════════════════════════════════ */}
+      {/* ── Main content ── */}
+      {/*
+        pt-[68px] = mobile navbar height
+        md:pt-[76px] = desktop navbar height
+        Then add breathing room on top of that
+      */}
       <div
-        className="relative z-10 flex-1 flex w-full mx-auto pb-4"
-        style={{
-          maxWidth: '1280px',
-          paddingTop: 'calc(68px + 1.25rem)',
-          paddingLeft:  'clamp(1.25rem, 5vw, 4rem)',
-          paddingRight: 'clamp(1.25rem, 5vw, 4rem)',
-        }}
+        className="
+          relative z-10 flex-1 flex flex-col
+          pt-[calc(68px+2rem)] md:pt-[calc(76px+2.5rem)]
+          pb-8
+          px-[--section-px]
+          max-w-[1280px] w-full mx-auto
+        "
       >
-        {/* Both columns share the same height: the video height drives it */}
-        <div
-          className="grid grid-cols-[1fr_auto] lg:grid-cols-[45fr_55fr] w-full"
-          style={{ gap: 'clamp(0.75rem, 3vw, 4.5rem)', alignItems: 'start' }}
-        >
+        {/*
+          Desktop: flex-row — text takes remaining space, video is fixed 260px
+          Mobile:  flex-col — only text visible (video hidden on mobile)
+        */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 flex-1">
 
-          {/* ══════════════ LEFT ══════════════ */}
+          {/* ── LEFT: Text ── */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col justify-between hero-text-col"
+            className="flex flex-col justify-center flex-1"
           >
             {/* Eyebrow */}
-            <motion.div variants={fadeUp} className="mb-3 md:mb-5">
-              <span className="text-[9px] sm:text-[10px] tracking-[0.20em] sm:tracking-[0.30em] uppercase font-medium text-[rgba(255,255,255,0.38)]">
-                Product Ads&nbsp;•&nbsp;AI&nbsp;•&nbsp;Cinematic
-              </span>
-            </motion.div>
+            <motion.p
+              variants={fadeUp}
+              className="text-[10px] tracking-[0.28em] uppercase font-medium text-[rgba(255,255,255,0.38)] mb-5"
+            >
+              Product Ads&nbsp;&nbsp;•&nbsp;&nbsp;AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;Cinematic
+            </motion.p>
 
             {/* Headline */}
             <motion.h1
               variants={fadeUp}
-              className="font-bold text-white leading-[1.08] tracking-tight mb-3 md:mb-5"
-              style={{ fontSize: 'clamp(1.35rem, 3.8vw, 4.2rem)', maxWidth: '560px' }}
+              className="font-bold text-white leading-[1.08] tracking-tight mb-5"
+              style={{ fontSize: 'clamp(2rem, 4.5vw, 4.4rem)' }}
             >
               Cinematic AI Commercials{' '}
               <span className="text-[#8B5CF6]">That Make Products</span>{' '}
               Impossible To Ignore.
             </motion.h1>
 
-            {/* Description — hidden on small mobile to save space */}
+            {/* Description */}
             <motion.p
               variants={fadeUp}
-              className="hidden sm:block text-[rgba(255,255,255,0.45)] font-light leading-[1.70] mb-6 md:mb-7"
-              style={{ fontSize: 'clamp(0.75rem, 1vw, 0.95rem)', maxWidth: '460px' }}
+              className="text-[rgba(255,255,255,0.45)] font-light leading-[1.75] mb-8 max-w-md"
+              style={{ fontSize: 'clamp(0.85rem, 1.1vw, 0.95rem)' }}
             >
-              Premium AI-powered product advertising for eCommerce, beauty, fashion, food, technology and lifestyle brands.
+              Premium AI-powered product advertising for eCommerce, beauty,
+              fashion, food, technology and lifestyle brands.
             </motion.p>
 
-            {/* CTAs — stack on mobile, row on sm+ */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-col gap-2 sm:gap-3 sm:flex-row sm:flex-wrap sm:items-center"
-            >
+            {/* CTAs */}
+            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
+
               {/* Primary */}
-              <motion.button
+              <button
                 onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })}
-                whileHover="hover"
-                whileTap={{ scale: 0.97 }}
-                initial="rest"
-                animate="rest"
-                variants={{ rest: { scale: 1 }, hover: { scale: 1.04 } }}
-                transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-                className="group relative inline-flex items-center justify-center gap-2 rounded-full cursor-pointer select-none whitespace-nowrap overflow-hidden"
+                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap"
                 style={{
-                  height: 'clamp(40px, 5vh, 50px)',
-                  paddingLeft: 'clamp(1rem, 2vw, 1.75rem)',
-                  paddingRight: 'clamp(1rem, 2vw, 1.75rem)',
+                  height: '50px',
+                  paddingLeft: '1.75rem',
+                  paddingRight: '1.75rem',
                   background: 'linear-gradient(135deg, #7c3aed 0%, #8B5CF6 50%, #a78bfa 100%)',
-                  boxShadow: '0 0 28px rgba(139,92,246,0.30), 0 2px 12px rgba(0,0,0,0.4)',
-                  fontSize: 'clamp(0.65rem, 1.2vw, 0.775rem)',
+                  boxShadow: '0 0 28px rgba(139,92,246,0.30)',
+                  fontSize: '0.775rem',
                   fontWeight: 600,
                   letterSpacing: '0.06em',
-                  color: '#ffffff',
+                  color: '#fff',
+                  transition: 'box-shadow 0.3s',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 42px rgba(139,92,246,0.50), 0 4px 20px rgba(0,0,0,0.5)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 28px rgba(139,92,246,0.30), 0 2px 12px rgba(0,0,0,0.4)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 44px rgba(139,92,246,0.55)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 28px rgba(139,92,246,0.30)' }}
               >
-                <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.10) 0%, transparent 60%)' }} />
-                <span className="relative z-10">View Work</span>
-                <motion.span
-                  className="relative z-10 text-base leading-none"
-                  variants={{ rest: { x: 0 }, hover: { x: 4 } }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-                >→</motion.span>
-              </motion.button>
+                View Work →
+              </button>
 
               {/* Secondary */}
-              <motion.button
+              <button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                whileHover="hover"
-                whileTap={{ scale: 0.97 }}
-                initial="rest"
-                animate="rest"
-                variants={{ rest: { scale: 1 }, hover: { scale: 1.04 } }}
-                transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer select-none whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap"
                 style={{
-                  height: 'clamp(40px, 5vh, 50px)',
-                  paddingLeft: 'clamp(1rem, 2vw, 1.75rem)',
-                  paddingRight: 'clamp(1rem, 2vw, 1.75rem)',
+                  height: '50px',
+                  paddingLeft: '1.75rem',
+                  paddingRight: '1.75rem',
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.16)',
-                  fontSize: 'clamp(0.65rem, 1.2vw, 0.775rem)',
+                  fontSize: '0.775rem',
                   fontWeight: 600,
                   letterSpacing: '0.06em',
-                  color: '#ffffff',
-                  transition: 'border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease',
+                  color: '#fff',
+                  transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(139,92,246,0.60)'
@@ -155,33 +134,27 @@ export default function Hero() {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                <span>Book a Call</span>
-                <motion.span
-                  className="text-[#8B5CF6] text-sm leading-none"
-                  variants={{ rest: { x: 0, y: 0 }, hover: { x: 3, y: -3 } }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-                >↗</motion.span>
-              </motion.button>
-            </motion.div>
+                Book a Call <span className="text-[#8B5CF6]">↗</span>
+              </button>
 
+            </motion.div>
           </motion.div>
 
-          {/* ══════════════ RIGHT — Video ══════════════ */}
+          {/* ── RIGHT: Video — desktop only ── */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-            className="flex items-start justify-center"
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            className="hidden lg:flex items-center justify-center shrink-0"
+            style={{ width: '260px' }}
           >
-            {/* Same class as left col so both share identical height via CSS */}
             <div
-              className="relative overflow-hidden rounded-xl lg:rounded-2xl hero-video-wrap"
+              className="relative overflow-hidden rounded-2xl w-full"
               style={{
-                width: 'clamp(90px, 28vw, 220px)',
                 aspectRatio: '9/16',
                 background: '#0a0a0a',
                 border: '1px solid rgba(255,255,255,0.07)',
-                boxShadow: '0 0 70px rgba(139,92,246,0.10), 0 0 0 1px rgba(139,92,246,0.07)',
+                boxShadow: '0 0 60px rgba(139,92,246,0.12), 0 0 0 1px rgba(139,92,246,0.06)',
               }}
             >
               <video
@@ -194,18 +167,16 @@ export default function Hero() {
                 className="absolute inset-0 w-full h-full object-cover"
                 aria-label="AQ Studio showreel"
               />
-
-              {/* Vignette */}
               <div
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse at center, transparent 55%, rgba(5,5,5,0.45) 100%)' }}
+                style={{
+                  background: 'radial-gradient(ellipse at center, transparent 50%, rgba(5,5,5,0.50) 100%)',
+                }}
               />
-
-              {/* Corner label — only shown on desktop */}
-              <div className="hidden lg:flex absolute bottom-4 left-4 right-4 items-end justify-between pointer-events-none">
+              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
                 <div>
                   <p className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.35)] font-medium">Showreel</p>
-                  <p className="text-[10px] tracking-[0.12em] text-[rgba(255,255,255,0.55)] font-light mt-0.5">AQ Studio — 2024</p>
+                  <p className="text-[10px] tracking-[0.12em] text-[rgba(255,255,255,0.50)] mt-0.5">AQ Studio — 2024</p>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <motion.span
@@ -222,7 +193,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Ticker strip ── */}
+      {/* ── Ticker ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
