@@ -44,7 +44,7 @@ export default function Hero() {
       >
         <div
           className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto] lg:grid-cols-[45fr_55fr] items-center w-full h-full"
-          style={{ gap: 'clamp(1rem, 4vw, 4.5rem)' }}
+          style={{ gap: 'clamp(0.75rem, 3vw, 4.5rem)' }}
         >
 
           {/* ══════════════ LEFT ══════════════ */}
@@ -171,11 +171,11 @@ export default function Hero() {
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
             className="flex items-center justify-center h-full"
           >
-            {/* Portrait 9/16, height constrained to viewport */}
+            {/* Portrait 9/16 — small on mobile, taller on desktop */}
             <div
               className="relative overflow-hidden rounded-xl lg:rounded-2xl"
               style={{
-                height: 'min(52vh, 600px)',
+                height: 'min(38vh, 600px)',
                 aspectRatio: '9/16',
                 background: '#0a0a0a',
                 border: '1px solid rgba(255,255,255,0.07)',
