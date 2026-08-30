@@ -35,7 +35,7 @@ export default function Hero() {
           MAIN CONTENT
       ══════════════════════════════════════════════ */}
       <div
-        className="relative z-10 flex-1 flex items-center w-full mx-auto pt-24 md:pt-28 lg:pt-32 pb-4"
+        className="relative z-10 flex-1 flex items-center w-full mx-auto pt-20 md:pt-24 lg:pt-28 pb-4"
         style={{
           maxWidth: '1440px',
           paddingLeft:  'clamp(1.25rem, 5vw, 6rem)',
