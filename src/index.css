@@ -57,3 +57,11 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* ─── Hero video: width-based on mobile, height-based on desktop ─── */
+@media (min-width: 1024px) {
+  .hero-video-wrap {
+    width: auto !important;
+    height: min(68vh, 600px) !important;
+  }
+}

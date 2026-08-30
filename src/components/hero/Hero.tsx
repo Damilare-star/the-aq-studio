@@ -171,11 +171,12 @@ export default function Hero() {
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
             className="flex items-center justify-center h-full"
           >
-            {/* Portrait 9/16 — small on mobile, taller on desktop */}
+            {/* Mobile: fixed narrow width keeps it small beside text.
+                lg+: height-based so it fills the column. */}
             <div
-              className="relative overflow-hidden rounded-xl lg:rounded-2xl"
+              className="relative overflow-hidden rounded-xl lg:rounded-2xl hero-video-wrap"
               style={{
-                height: 'min(38vh, 600px)',
+                width: 'clamp(90px, 28vw, 220px)',
                 aspectRatio: '9/16',
                 background: '#0a0a0a',
                 border: '1px solid rgba(255,255,255,0.07)',
@@ -199,8 +200,8 @@ export default function Hero() {
                 style={{ background: 'radial-gradient(ellipse at center, transparent 55%, rgba(5,5,5,0.45) 100%)' }}
               />
 
-              {/* Corner label */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
+              {/* Corner label — only shown on desktop */}
+              <div className="hidden lg:flex absolute bottom-4 left-4 right-4 items-end justify-between pointer-events-none">
                 <div>
                   <p className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.35)] font-medium">Showreel</p>
                   <p className="text-[10px] tracking-[0.12em] text-[rgba(255,255,255,0.55)] font-light mt-0.5">AQ Studio — 2024</p>
