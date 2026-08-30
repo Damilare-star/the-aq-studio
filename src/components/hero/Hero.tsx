@@ -35,7 +35,7 @@ export default function Hero() {
           MAIN CONTENT
       ══════════════════════════════════════════════ */}
       <div
-        className="relative z-10 flex-1 flex items-start w-full mx-auto pb-4"
+        className="relative z-10 flex-1 flex w-full mx-auto pb-4"
         style={{
           maxWidth: '1280px',
           paddingTop: 'calc(68px + 1.25rem)',
@@ -43,9 +43,10 @@ export default function Hero() {
           paddingRight: 'clamp(1.25rem, 5vw, 4rem)',
         }}
       >
+        {/* Both columns share the same height: the video height drives it */}
         <div
-          className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto] lg:grid-cols-[45fr_55fr] items-stretch w-full"
-          style={{ gap: 'clamp(0.75rem, 3vw, 4.5rem)' }}
+          className="grid grid-cols-[1fr_auto] lg:grid-cols-[45fr_55fr] w-full"
+          style={{ gap: 'clamp(0.75rem, 3vw, 4.5rem)', alignItems: 'start' }}
         >
 
           {/* ══════════════ LEFT ══════════════ */}
@@ -53,7 +54,7 @@ export default function Hero() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-between hero-text-col"
           >
             {/* Eyebrow */}
             <motion.div variants={fadeUp} className="mb-3 md:mb-5">
@@ -170,12 +171,11 @@ export default function Hero() {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-            className="flex items-stretch justify-center"
+            className="flex items-start justify-center"
           >
-            {/* Mobile: width-based so it stays compact beside text.
-                lg+: overridden by .hero-video-wrap to height-based. */}
+            {/* Same class as left col so both share identical height via CSS */}
             <div
-              className="relative overflow-hidden rounded-xl lg:rounded-2xl hero-video-wrap self-stretch"
+              className="relative overflow-hidden rounded-xl lg:rounded-2xl hero-video-wrap"
               style={{
                 width: 'clamp(90px, 28vw, 220px)',
                 aspectRatio: '9/16',

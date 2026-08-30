@@ -58,17 +58,27 @@ img {
   max-width: 100%;
 }
 
-/* ─── Hero video: width-based on mobile, height-based on desktop ─── */
+/* ─── Hero: text and video columns share the same height ─── */
+
+/* Video column: width-based on mobile, height-based on desktop */
 .hero-video-wrap {
-  /* Mobile default: match the height of the text column */
-  width: clamp(90px, 28vw, 220px) !important;
-  aspect-ratio: 9/16;
+  width: clamp(90px, 28vw, 220px);
+  aspect-ratio: 9 / 16;
 }
 
+/* Text column: match the video's computed height on mobile */
+.hero-text-col {
+  height: calc(clamp(90px, 28vw, 220px) * 16 / 9);
+}
+
+/* Desktop overrides */
 @media (min-width: 1024px) {
   .hero-video-wrap {
     width: auto !important;
     height: min(68vh, 600px) !important;
-    aspect-ratio: 9/16;
+    aspect-ratio: 9 / 16;
+  }
+  .hero-text-col {
+    height: min(68vh, 600px) !important;
   }
 }
