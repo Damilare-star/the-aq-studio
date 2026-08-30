@@ -59,9 +59,16 @@ img {
 }
 
 /* ─── Hero video: width-based on mobile, height-based on desktop ─── */
+.hero-video-wrap {
+  /* Mobile default: match the height of the text column */
+  width: clamp(90px, 28vw, 220px) !important;
+  aspect-ratio: 9/16;
+}
+
 @media (min-width: 1024px) {
   .hero-video-wrap {
     width: auto !important;
     height: min(68vh, 600px) !important;
+    aspect-ratio: 9/16;
   }
 }

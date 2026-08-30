@@ -35,15 +35,16 @@ export default function Hero() {
           MAIN CONTENT
       ══════════════════════════════════════════════ */}
       <div
-        className="relative z-10 flex-1 flex items-center w-full mx-auto pt-20 md:pt-24 lg:pt-28 pb-4"
+        className="relative z-10 flex-1 flex items-start w-full mx-auto pb-4"
         style={{
           maxWidth: '1440px',
+          paddingTop: 'calc(68px + 1.25rem)',
           paddingLeft:  'clamp(1.25rem, 5vw, 6rem)',
           paddingRight: 'clamp(1.25rem, 5vw, 6rem)',
         }}
       >
         <div
-          className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto] lg:grid-cols-[45fr_55fr] items-center w-full h-full"
+          className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto] lg:grid-cols-[45fr_55fr] items-stretch w-full"
           style={{ gap: 'clamp(0.75rem, 3vw, 4.5rem)' }}
         >
 
@@ -169,12 +170,12 @@ export default function Hero() {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-            className="flex items-center justify-center h-full"
+            className="flex items-stretch justify-center"
           >
-            {/* Mobile: fixed narrow width keeps it small beside text.
-                lg+: height-based so it fills the column. */}
+            {/* Mobile: width-based so it stays compact beside text.
+                lg+: overridden by .hero-video-wrap to height-based. */}
             <div
-              className="relative overflow-hidden rounded-xl lg:rounded-2xl hero-video-wrap"
+              className="relative overflow-hidden rounded-xl lg:rounded-2xl hero-video-wrap self-stretch"
               style={{
                 width: 'clamp(90px, 28vw, 220px)',
                 aspectRatio: '9/16',
