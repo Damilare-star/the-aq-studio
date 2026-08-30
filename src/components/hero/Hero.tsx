@@ -25,7 +25,7 @@ export default function Hero() {
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{
-          height: '120px',
+          height: '60px',
           background: 'linear-gradient(to top, #050505, transparent)',
           zIndex: 2,
         }}

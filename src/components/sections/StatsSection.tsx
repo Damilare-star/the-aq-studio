@@ -7,7 +7,7 @@ export default function StatsSection() {
   return (
     <section className="bg-[#0D0D0D] section-padding">
       <div className="container-wide">
-        <Divider className="mb-10" />
+        <Divider className="mb-6" />
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -19,7 +19,7 @@ export default function StatsSection() {
             <motion.div
               key={stat.label}
               variants={fadeUp}
-              className="bg-[#0D0D0D] px-8 py-10 text-center"
+              className="bg-[#0D0D0D] px-8 py-6 text-center"
             >
               <p
                 className="text-white font-light leading-none mb-3"
@@ -33,7 +33,7 @@ export default function StatsSection() {
             </motion.div>
           ))}
         </motion.div>
-        <Divider className="mt-10" />
+        <Divider className="mt-6" />
       </div>
     </section>
   )
