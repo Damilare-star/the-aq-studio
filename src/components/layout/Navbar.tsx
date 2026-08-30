@@ -88,9 +88,9 @@ export default function Navbar() {
         <div
           className="relative mx-auto w-full"
           style={{
-            maxWidth: '1440px',
-            paddingLeft: 'clamp(1.25rem, 5vw, 6rem)',
-            paddingRight: 'clamp(1.25rem, 5vw, 6rem)',
+            maxWidth: '1280px',
+            paddingLeft: 'clamp(1.25rem, 5vw, 4rem)',
+            paddingRight: 'clamp(1.25rem, 5vw, 4rem)',
           }}
         >
           <div className="flex items-center justify-between h-[68px] md:h-[76px]">
@@ -205,7 +205,7 @@ export default function Navbar() {
           >
             <div
               className="flex-1 flex flex-col justify-center gap-1 mt-20"
-              style={{ paddingLeft: 'clamp(1.25rem, 5vw, 6rem)', paddingRight: 'clamp(1.25rem, 5vw, 6rem)' }}
+              style={{ paddingLeft: 'clamp(1.25rem, 5vw, 4rem)', paddingRight: 'clamp(1.25rem, 5vw, 4rem)' }}
             >
               {NAV_LINKS.map((link, i) => (
                 <motion.button
@@ -224,7 +224,7 @@ export default function Navbar() {
 
             <div
               className="pb-14 pt-6"
-              style={{ paddingLeft: 'clamp(1.25rem, 5vw, 6rem)', paddingRight: 'clamp(1.25rem, 5vw, 6rem)' }}
+              style={{ paddingLeft: 'clamp(1.25rem, 5vw, 4rem)', paddingRight: 'clamp(1.25rem, 5vw, 4rem)' }}
             >
               <button
                 onClick={() => handleNavClick('#contact')}

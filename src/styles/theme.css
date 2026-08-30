@@ -24,8 +24,8 @@
   --border-strong:  rgba(255, 255, 255, 0.18);
 
   /* Spacing */
-  --section-px:     clamp(1.25rem, 5vw, 6rem);
-  --section-py:     clamp(4rem, 6vw, 7rem);
+  --section-px:     clamp(1.25rem, 5vw, 4rem);
+  --section-py:     clamp(3rem, 5vw, 5rem);
 
   /* Typography */
   --font-sans:      'Inter', system-ui, sans-serif;
@@ -44,7 +44,7 @@
 }
 
 .container-wide {
-  max-width: 1440px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding-left:  var(--section-px);

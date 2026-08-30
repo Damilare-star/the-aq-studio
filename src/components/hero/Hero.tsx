@@ -37,10 +37,10 @@ export default function Hero() {
       <div
         className="relative z-10 flex-1 flex items-start w-full mx-auto pb-4"
         style={{
-          maxWidth: '1440px',
+          maxWidth: '1280px',
           paddingTop: 'calc(68px + 1.25rem)',
-          paddingLeft:  'clamp(1.25rem, 5vw, 6rem)',
-          paddingRight: 'clamp(1.25rem, 5vw, 6rem)',
+          paddingLeft:  'clamp(1.25rem, 5vw, 4rem)',
+          paddingRight: 'clamp(1.25rem, 5vw, 4rem)',
         }}
       >
         <div
