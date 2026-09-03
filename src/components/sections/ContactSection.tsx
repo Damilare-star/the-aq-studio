@@ -44,9 +44,9 @@ export default function ContactSection() {
   }
 
   const fields: Array<{ name: keyof FormData; label: string; type: string; placeholder: string }> = [
-    { name: 'name',  label: 'Your Name',       type: 'text',  placeholder: 'Jane Smith' },
+    { name: 'name',  label: 'Your Name',       type: 'text',  placeholder: 'Your Name' },
     { name: 'brand', label: 'Brand / Company', type: 'text',  placeholder: 'Acme Brand Co.' },
-    { name: 'email', label: 'Email Address',   type: 'email', placeholder: 'jane@brand.com' },
+    { name: 'email', label: 'Email Address',   type: 'email', placeholder: 'Email Address' },
   ]
 
   return (
@@ -72,7 +72,7 @@ export default function ContactSection() {
             viewport={{ once: true, amount: 0.1 }} className="space-y-8 sm:space-y-10"
           >
             <motion.p variants={fadeUp} className="text-[rgba(255,255,255,0.45)] text-sm leading-[1.85] max-w-sm">
-              We take on a limited number of projects each quarter. If your brand is ready to produce work that sets a new standard — we would like to hear from you.
+              We work with a select number of brands at a time, so every project gets the creative attention it deserves.
             </motion.p>
 
             <motion.div variants={fadeUp}>

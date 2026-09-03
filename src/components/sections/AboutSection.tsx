@@ -3,10 +3,22 @@ import { fadeUp, staggerContainer, fadeRight } from '../animations/variants'
 import SectionLabel from '../ui/SectionLabel'
 
 const differentiators = [
-  { title: 'Creative direction first.', description: 'Every project starts with a human creative director who sets the visual territory before AI touches a single frame.' },
-  { title: 'Cinematic — not content.', description: 'We hold our work to the standard of a world-class director of photography. Not a social media post. A film.' },
-  { title: 'Brand precision.', description: 'We understand brand strategy deeply. The visuals are only as powerful as the thinking behind them.' },
-  { title: 'Built for performance.', description: "Beautiful doesn't mean decorative. Every piece of work is built to stop the scroll, hold attention, and move product." },
+  {
+    title: 'Creative direction first.',
+    description: 'Every commercial starts with the idea — not the AI. I define the visual direction, story, product focus, mood, and shot language before generating a single frame.',
+  },
+  {
+    title: 'Cinematic — not generic content.',
+    description: 'I create commercials, not just AI videos. Every frame is designed with cinematic composition, lighting, movement, pacing, and visual storytelling — so the result feels like advertising, not another AI-generated social post.',
+  },
+  {
+    title: 'Product precision.',
+    description: 'Your product stays at the center. From the first frame to the final shot, the creative is built around your product, your brand identity, and what makes the product worth choosing.',
+  },
+  {
+    title: 'Built for performance.',
+    description: 'Beautiful is only the beginning. The goal is to stop the scroll, hold attention, communicate the product, and create desire — while delivering assets ready for social media, e-commerce, and paid advertising.',
+  },
 ]
 
 export default function AboutSection() {
@@ -29,7 +41,7 @@ export default function AboutSection() {
             <motion.div variants={fadeUp} className="space-y-5 text-[rgba(255,255,255,0.48)] text-sm leading-[1.85] max-w-lg">
               <p>Great products deserve more than ordinary advertising.</p>
               <p>Traditional product commercials can require large crews, expensive locations, complex production, and weeks of coordination.</p>
-              <p>AI has changed what is possible — but technology alone does not make a great commercial.</p>
+              <p>AI has changed what's possible — but technology alone doesn't make a great commercial.</p>
               <p>The AQ Studio combines cinematic creative direction with AI-powered production to turn products into visual stories people remember.</p>
               <p>From beauty and skincare to fashion, food, beverages, technology, and lifestyle products, I create cinematic commercials designed to make products impossible to ignore.</p>
               <p>Every frame has a purpose. Every shot serves the product. Every commercial is built to make people stop, look, and remember.</p>
@@ -41,9 +53,9 @@ export default function AboutSection() {
               className="mt-10 grid grid-cols-3 gap-4 pt-8 border-t border-[rgba(255,255,255,0.06)]"
             >
               {[
-                { value: 'CINEMATIC',        label: 'Creative-first production' },
-                { value: 'AI-POWERED',       label: 'Modern visual production' },
-                { value: 'PRODUCT-FOCUSED',  label: 'Built for brands & e-commerce' },
+                { value: 'CINEMATIC',       label: 'Creative-first production' },
+                { value: 'AI-POWERED',      label: 'Modern visual production' },
+                { value: 'PRODUCT-FOCUSED', label: 'Built for brands & e-commerce' },
               ].map((stat) => (
                 <div key={stat.value}>
                   <p className="text-white font-bold text-sm leading-tight mb-1.5 tracking-[0.06em]">{stat.value}</p>
@@ -59,10 +71,26 @@ export default function AboutSection() {
             viewport={{ once: true, amount: 0.1 }}
           >
             <motion.div variants={fadeUp} className="mb-8">
-              <p className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)' }}>
-                What makes the creative direction{' '}
-                <span className="italic font-light text-[rgba(255,255,255,0.55)]" style={{ fontFamily: 'Playfair Display, serif' }}>different.</span>
+              <p className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.28)] mb-4">Why Brands Choose AQ Studio</p>
+              <p
+                className="text-white font-light leading-tight mb-5 italic"
+                style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)', fontFamily: 'Playfair Display, serif' }}
+              >
+                "Cinematic quality without the traditional production overhead."
               </p>
+              <div className="space-y-3 mb-8">
+                {[
+                  'AI-powered production',
+                  'Fast creative turnaround',
+                  'Built for product & brand performance',
+                  'Cinematic visuals without traditional production costs',
+                ].map((point) => (
+                  <div key={point} className="flex items-start gap-3">
+                    <span className="text-[#8B5CF6] mt-0.5 shrink-0 text-xs">✦</span>
+                    <p className="text-[rgba(255,255,255,0.50)] text-sm leading-relaxed">{point}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
             <div className="space-y-0">
               {differentiators.map((item, i) => (
