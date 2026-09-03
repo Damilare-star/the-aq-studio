@@ -76,20 +76,31 @@ export default function Navbar() {
               className="flex items-center shrink-0 z-10 min-h-[44px]"
               aria-label="AQ Studio — Home"
             >
-              <motion.img
-                src="/nagg.jpeg"
-                alt="AQ Studio"
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                style={{
-                  height: '36px',
-                  width: '72px',
-                  objectFit: 'cover',
-                  objectPosition: '5% 35%',
-                }}
-                className="select-none"
-              />
+                className="flex items-center gap-2.5 select-none"
+              >
+                {/* AQ lettermark — matches the serif logo style from nagg.jpeg */}
+                <span
+                  className="text-white font-bold tracking-tight leading-none"
+                  style={{
+                    fontFamily: 'Playfair Display, Georgia, serif',
+                    fontSize: '22px',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  AQ
+                </span>
+                <span className="w-px h-4 bg-[rgba(255,255,255,0.20)]" />
+                <span
+                  className="text-[rgba(255,255,255,0.50)] font-light uppercase tracking-widest hidden sm:inline"
+                  style={{ fontSize: '10px', letterSpacing: '0.22em' }}
+                >
+                  Studio
+                </span>
+              </motion.div>
             </a>
 
             <nav
