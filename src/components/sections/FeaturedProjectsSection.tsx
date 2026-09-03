@@ -158,7 +158,7 @@ export default function FeaturedProjectsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12"
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4">
@@ -261,11 +261,11 @@ export default function FeaturedProjectsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-12 flex justify-center"
+          className="mt-10 flex justify-center"
         >
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-3 text-[11px] tracking-[0.16em] uppercase font-medium text-[rgba(255,255,255,0.40)] border border-[rgba(255,255,255,0.10)] px-8 py-3.5 hover:border-[rgba(139,92,246,0.40)] hover:text-white hover:bg-[rgba(139,92,246,0.05)] transition-all duration-300 cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 text-[11px] tracking-[0.16em] uppercase font-medium text-[rgba(255,255,255,0.40)] border border-[rgba(255,255,255,0.10)] px-8 min-h-[52px] hover:border-[rgba(139,92,246,0.40)] hover:text-white hover:bg-[rgba(139,92,246,0.05)] transition-all duration-300 cursor-pointer"
           >
             Start Your Project
             <span className="text-[#8B5CF6]">→</span>

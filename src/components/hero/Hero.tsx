@@ -3,124 +3,84 @@ import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer } from '../animations/variants'
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef(null)
 
   return (
     <section
       id="hero"
-      className="relative flex flex-col bg-[#050505] overflow-hidden min-h-screen"
+      className="relative flex flex-col bg-[#050505] overflow-hidden min-h-[100svh]"
     >
       {/* Ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 70% at 0% 50%, rgba(139,92,246,0.07) 0%, transparent 70%)',
-        }}
+        style={{ background: 'radial-gradient(ellipse 60% 70% at 0% 50%, rgba(139,92,246,0.07) 0%, transparent 70%)' }}
       />
 
-      {/* Bottom fade into next section */}
+      {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none z-[2]"
         style={{ height: '80px', background: 'linear-gradient(to top, #050505, transparent)' }}
       />
 
-      {/* ── Main content ── */}
-      {/*
-        pt-[68px] = mobile navbar height
-        md:pt-[76px] = desktop navbar height
-        Then add breathing room on top of that
-      */}
-      <div
-        className="
-          relative z-10 flex-1 flex flex-col
-          pt-[calc(68px+2rem)] md:pt-[calc(76px+2.5rem)]
-          pb-8
-          px-[--section-px]
-          max-w-[1280px] w-full mx-auto
-        "
-      >
-        {/*
-          Desktop: flex-row — text takes remaining space, video is fixed 260px
-          Mobile:  flex-col — only text visible (video hidden on mobile)
-        */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 flex-1">
+      {/* Main content */}
+      <div className="relative z-10 flex-1 flex flex-col pt-[calc(64px+2rem)] md:pt-[calc(76px+3rem)] pb-8 container-wide">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-16 flex-1">
 
-          {/* ── LEFT: Text ── */}
+          {/* Text */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col justify-center flex-1"
+            className="flex flex-col justify-center flex-1 py-6 lg:py-0"
           >
-            {/* Eyebrow */}
             <motion.p
               variants={fadeUp}
               className="text-[10px] tracking-[0.28em] uppercase font-medium text-[rgba(255,255,255,0.38)] mb-5"
             >
-              Product Ads&nbsp;&nbsp;•&nbsp;&nbsp;AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;Cinematic
+              {"Product Ads\u00a0\u00a0\u2022\u00a0\u00a0AI-Powered\u00a0\u00a0\u2022\u00a0\u00a0Cinematic"}
             </motion.p>
 
-            {/* Headline */}
             <motion.h1
               variants={fadeUp}
               className="font-bold text-white leading-[1.08] tracking-tight mb-5"
-              style={{ fontSize: 'clamp(2rem, 4.5vw, 4.4rem)' }}
+              style={{ fontSize: 'clamp(2rem, 5vw, 4.4rem)' }}
             >
               Cinematic AI Commercials{' '}
               <span className="text-[#8B5CF6]">That Make Products</span>{' '}
               Impossible To Ignore.
             </motion.h1>
 
-            {/* Description */}
             <motion.p
               variants={fadeUp}
-              className="text-[rgba(255,255,255,0.45)] font-light leading-[1.75] mb-8 max-w-md"
-              style={{ fontSize: 'clamp(0.85rem, 1.1vw, 0.95rem)' }}
+              className="text-[rgba(255,255,255,0.45)] font-light leading-[1.75] mb-8 max-w-md text-sm sm:text-base"
             >
               Premium AI-powered product advertising for eCommerce, beauty,
               fashion, food, technology and lifestyle brands.
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
-
-              {/* Primary */}
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
+              {/* Primary CTA */}
               <button
                 onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap font-semibold text-white text-sm tracking-[0.06em] px-7 min-h-[52px]"
                 style={{
-                  height: '50px',
-                  paddingLeft: '1.75rem',
-                  paddingRight: '1.75rem',
                   background: 'linear-gradient(135deg, #7c3aed 0%, #8B5CF6 50%, #a78bfa 100%)',
                   boxShadow: '0 0 28px rgba(139,92,246,0.30)',
-                  fontSize: '0.775rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.06em',
-                  color: '#fff',
                   transition: 'box-shadow 0.3s',
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 44px rgba(139,92,246,0.55)' }}
                 onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 28px rgba(139,92,246,0.30)' }}
               >
-                View Work →
+                {"View Work \u2192"}
               </button>
 
-              {/* Secondary */}
+              {/* Secondary CTA */}
               <button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap font-semibold text-white text-sm tracking-[0.06em] px-7 min-h-[52px]"
                 style={{
-                  height: '50px',
-                  paddingLeft: '1.75rem',
-                  paddingRight: '1.75rem',
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.16)',
-                  fontSize: '0.775rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.06em',
-                  color: '#fff',
                   transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
                 }}
                 onMouseEnter={(e) => {
@@ -134,19 +94,18 @@ export default function Hero() {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                Book a Call <span className="text-[#8B5CF6]">↗</span>
+                Book a Call <span className="text-[#8B5CF6]">{"↗"}</span>
               </button>
-
             </motion.div>
           </motion.div>
 
-          {/* ── RIGHT: Video — desktop only ── */}
+          {/* Video — desktop only */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="hidden lg:flex items-center justify-center shrink-0"
-            style={{ width: '260px' }}
+            style={{ width: '240px', minWidth: '240px' }}
           >
             <div
               className="relative overflow-hidden rounded-2xl w-full"
@@ -169,9 +128,7 @@ export default function Hero() {
               />
               <div
                 className="absolute inset-0 pointer-events-none"
-                style={{
-                  background: 'radial-gradient(ellipse at center, transparent 50%, rgba(5,5,5,0.50) 100%)',
-                }}
+                style={{ background: 'radial-gradient(ellipse at center, transparent 50%, rgba(5,5,5,0.50) 100%)' }}
               />
               <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
                 <div>
@@ -189,11 +146,10 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
 
-      {/* ── Ticker ── */}
+      {/* Ticker */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -208,13 +164,13 @@ export default function Hero() {
               style={{ gap: '2rem' }}
             >
               AI Commercial Production
-              <span className="text-[#8B5CF6] mx-8">✦</span>
+              <span className="text-[#8B5CF6] mx-8">{"✦"}</span>
               Cinematic Brand Films
-              <span className="text-[#8B5CF6] mx-8">✦</span>
+              <span className="text-[#8B5CF6] mx-8">{"✦"}</span>
               Visual Campaigns
-              <span className="text-[#8B5CF6] mx-8">✦</span>
-              Beauty · Fashion · Food · Tech
-              <span className="text-[#8B5CF6] mx-8">✦</span>
+              <span className="text-[#8B5CF6] mx-8">{"✦"}</span>
+              {"Beauty \u00b7 Fashion \u00b7 Food \u00b7 Tech"}
+              <span className="text-[#8B5CF6] mx-8">{"✦"}</span>
             </span>
           ))}
         </div>

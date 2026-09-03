@@ -1,44 +1,30 @@
 /* ─── AQ Studio Design Tokens ─── */
 :root {
-  /* Backgrounds */
   --bg-base:        #050505;
   --bg-surface:     #090909;
   --bg-elevated:    #0D0D0D;
   --bg-overlay:     rgba(9, 9, 9, 0.85);
-
-  /* Text */
   --text-primary:   #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.55);
   --text-muted:     rgba(255, 255, 255, 0.30);
   --text-dim:       rgba(255, 255, 255, 0.18);
-
-  /* Accent */
   --accent:         #8B5CF6;
   --accent-dim:     rgba(139, 92, 246, 0.15);
   --accent-border:  rgba(139, 92, 246, 0.25);
   --accent-glow:    rgba(139, 92, 246, 0.08);
-
-  /* Borders */
   --border-subtle:  rgba(255, 255, 255, 0.06);
   --border-default: rgba(255, 255, 255, 0.10);
   --border-strong:  rgba(255, 255, 255, 0.18);
-
-  /* Spacing */
-  --section-px:     clamp(1.25rem, 5vw, 4rem);
-  --section-py:     clamp(2rem, 3.5vw, 3.5rem);
-
-  /* Typography */
+  /* Increased mobile minimum for section spacing */
+  --section-px:     clamp(1.1rem, 5vw, 4rem);
+  --section-py:     clamp(2.5rem, 5vw, 5rem);
   --font-sans:      'Inter', system-ui, sans-serif;
   --font-serif:     'Playfair Display', Georgia, serif;
-
-  /* Transitions */
   --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out:    cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-/* ─── Utility classes used across the site ─── */
 .section-padding {
-  /* Horizontal padding lives on container-wide only — do NOT add it here */
   padding-top:    var(--section-py);
   padding-bottom: var(--section-py);
 }
@@ -60,17 +46,18 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
+  max-width: 100%;
 }
 
 .label-tag::before {
   content: '';
   display: inline-block;
-  width: 1.5rem;
+  width: 1.25rem;
+  flex-shrink: 0;
   height: 1px;
   background-color: var(--accent);
 }
 
-/* ─── Glass surface ─── */
 .glass {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
@@ -78,7 +65,6 @@
   border: 1px solid var(--border-subtle);
 }
 
-/* ─── Subtle noise texture overlay ─── */
 .noise::after {
   content: '';
   position: absolute;

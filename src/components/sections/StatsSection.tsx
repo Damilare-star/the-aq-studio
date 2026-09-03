@@ -19,15 +19,15 @@ export default function StatsSection() {
             <motion.div
               key={stat.label}
               variants={fadeUp}
-              className="bg-[#0D0D0D] px-8 py-6 text-center"
+              className="bg-[#0D0D0D] px-3 sm:px-8 py-5 sm:py-6 text-center"
             >
               <p
-                className="text-white font-light leading-none mb-3"
-                style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}
+                className="text-white font-light leading-none mb-2"
+                style={{ fontSize: 'clamp(1.6rem, 5vw, 3.5rem)' }}
               >
                 {stat.value}
               </p>
-              <p className="text-[rgba(255,255,255,0.35)] text-[10px] tracking-[0.2em] uppercase font-medium">
+              <p className="text-[rgba(255,255,255,0.35)] text-[9px] sm:text-[10px] tracking-[0.2em] uppercase font-medium leading-snug">
                 {stat.label}
               </p>
             </motion.div>

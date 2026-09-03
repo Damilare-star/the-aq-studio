@@ -82,7 +82,8 @@ function MiniProjectCard({ project }: { project: Project }) {
       onMouseLeave={() => setHov(false)}
       className="relative overflow-hidden cursor-pointer flex-shrink-0"
       style={{
-        width: '260px',
+        width: '240px',
+        minWidth: '200px',
         border: '1px solid rgba(255,255,255,0.06)',
         background: '#0a0a0a',
       }}
@@ -382,7 +383,7 @@ export default function IndustriesSection() {
                       }}
                       className="flex-shrink-0 flex flex-col items-center justify-center gap-3 cursor-pointer group"
                       style={{
-                        width: '160px',
+                        width: '140px',
                         aspectRatio: '4/3',
                         border: '1px solid rgba(139,92,246,0.20)',
                         background: 'rgba(139,92,246,0.04)',

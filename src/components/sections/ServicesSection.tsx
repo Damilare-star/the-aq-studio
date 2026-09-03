@@ -90,7 +90,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       />
 
       {/* Card content */}
-      <div className="relative z-10 p-8 sm:p-10 flex flex-col flex-1 justify-between">
+      <div className="relative z-10 p-5 sm:p-8 flex flex-col flex-1 justify-between">
 
         {/* Top: number + icon */}
         <div className="flex items-start justify-between mb-7">
@@ -161,7 +161,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14"
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4">
@@ -198,7 +198,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* ── Services grid — 4 col desktop, 2 col tablet, 1 col mobile ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}
@@ -210,7 +210,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-12 pt-10 border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="mt-10 pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
           <p className="text-[rgba(255,255,255,0.25)] text-xs tracking-wide max-w-md leading-relaxed">
             All services include creative direction, production, post-production and delivery.
@@ -218,10 +218,9 @@ export default function ServicesSection() {
           </p>
           <button
             onClick={() => document.querySelector('#process')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-[10px] tracking-[0.18em] uppercase text-[rgba(255,255,255,0.30)] hover:text-[#8B5CF6] transition-colors duration-300 cursor-pointer whitespace-nowrap flex items-center gap-2"
+            className="text-[10px] tracking-[0.18em] uppercase text-[rgba(255,255,255,0.30)] hover:text-[#8B5CF6] transition-colors duration-300 cursor-pointer whitespace-nowrap flex items-center gap-2 min-h-[44px]"
           >
-            See our process
-            <span>→</span>
+            See our process <span>→</span>
           </button>
         </motion.div>
 
