@@ -82,7 +82,13 @@ export default function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="h-8 md:h-9 w-auto object-contain select-none"
+                style={{
+                  height: '36px',
+                  width: '72px',
+                  objectFit: 'cover',
+                  objectPosition: '5% 35%',
+                }}
+                className="select-none"
               />
             </a>
 
