@@ -134,20 +134,24 @@ export default function ProcessSection() {
                   className="group relative outline-none"
                 >
                   <div
-                    className={`relative grid min-h-[140px] items-center border-t border-white/[0.08] py-7 transition-all duration-500 lg:grid-cols-[70px_1fr_280px_70px] lg:gap-8 lg:pl-14 ${isActive ? 'border-white/[0.14]' : ''}`}
+                    className={`relative flex flex-col gap-3 border-t border-white/[0.08] py-6 transition-all duration-500 lg:grid lg:grid-cols-[70px_1fr_160px_70px] lg:items-center lg:gap-8 lg:pl-14 lg:py-7 ${isActive ? 'border-white/[0.14]' : ''}`}
                   >
                     {/* Number circle */}
                     <div
-                      className={`absolute left-0 top-7 flex h-[44px] w-[44px] items-center justify-center rounded-full border text-[10px] font-medium tracking-[0.15em] transition-all duration-500 lg:static ${isActive ? 'border-purple-500/60 bg-purple-500/10 text-purple-300' : 'border-white/[0.10] bg-[#050505] text-zinc-600'}`}
+                      className={`hidden lg:flex h-[44px] w-[44px] items-center justify-center rounded-full border text-[10px] font-medium tracking-[0.15em] transition-all duration-500 ${isActive ? 'border-purple-500/60 bg-purple-500/10 text-purple-300' : 'border-white/[0.10] bg-[#050505] text-zinc-600'}`}
                     >
                       {step.number}
                     </div>
 
                     {/* Title + description + tags */}
-                    <div className="pl-16 lg:pl-0">
-                      <div className="flex items-center gap-4">
+                    <div>
+                      <div className="flex items-center gap-3 mb-2">
+                        {/* Number — mobile only */}
+                        <span className={`lg:hidden text-[10px] font-mono tracking-[0.20em] ${isActive ? 'text-purple-400' : 'text-zinc-600'}`}>
+                          {step.number}
+                        </span>
                         <h3
-                          className={`text-2xl font-medium tracking-[-0.03em] transition-all duration-500 sm:text-3xl ${isActive ? 'translate-x-1 text-white' : 'text-zinc-500'}`}
+                          className={`text-lg font-medium tracking-[-0.02em] transition-all duration-500 sm:text-2xl ${isActive ? 'text-white' : 'text-zinc-400'}`}
                         >
                           {step.title}
                         </h3>
@@ -156,47 +160,33 @@ export default function ProcessSection() {
                         />
                       </div>
 
-                      <p
-                        className={`mt-3 max-w-[600px] text-sm leading-6 text-zinc-600 transition-all duration-500 sm:text-[15px] ${isActive ? 'opacity-100' : 'opacity-55'}`}
-                      >
+                      <p className={`text-sm leading-6 text-zinc-600 transition-all duration-500 sm:text-[15px] ${isActive ? 'opacity-100' : 'opacity-60'}`}>
                         {step.description}
                       </p>
 
-                      <div
-                        className={`mt-4 flex flex-wrap gap-2 transition-all duration-500 ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}`}
-                      >
+                      <div className={`mt-3 flex flex-wrap gap-2 transition-all duration-500 ${isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                         {step.details.map((detail) => (
-                          <span
-                            key={detail}
-                            className="rounded-full border border-white/[0.08] px-2.5 py-1 text-[8px] uppercase tracking-[0.18em] text-zinc-600"
-                          >
+                          <span key={detail} className="rounded-full border border-white/[0.08] px-2.5 py-1 text-[8px] uppercase tracking-[0.18em] text-zinc-600">
                             {detail}
                           </span>
                         ))}
                       </div>
                     </div>
 
-                    {/* Duration */}
-                    <div className="mt-7 flex items-center justify-between lg:mt-0 lg:justify-self-end">
-                      <span
-                        className={`text-[9px] font-medium uppercase tracking-[0.22em] transition-colors duration-300 ${isActive ? 'text-zinc-300' : 'text-zinc-700'}`}
-                      >
+                    {/* Duration — shown on all screens */}
+                    <div className="flex items-center justify-between lg:justify-self-end">
+                      <span className={`text-[9px] font-medium uppercase tracking-[0.22em] transition-colors duration-300 ${isActive ? 'text-zinc-300' : 'text-zinc-700'}`}>
                         {step.duration}
                       </span>
                       <span className="lg:hidden">
-                        <ArrowRight size={16} className="text-zinc-700" />
+                        <ArrowRight size={14} className="text-zinc-700" />
                       </span>
                     </div>
 
-                    {/* Arrow button */}
-                    <div className="hidden items-center justify-end lg:flex">
-                      <div
-                        className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ${isActive ? 'border-purple-500/40 bg-purple-500/10' : 'border-white/[0.08]'}`}
-                      >
-                        <ArrowUpRight
-                          size={16}
-                          className={`transition-all duration-500 ${isActive ? 'text-purple-400' : 'text-zinc-700'}`}
-                        />
+                    {/* Arrow — desktop only */}
+                    <div className="hidden lg:flex items-center justify-end">
+                      <div className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ${isActive ? 'border-purple-500/40 bg-purple-500/10' : 'border-white/[0.08]'}`}>
+                        <ArrowUpRight size={16} className={`transition-all duration-500 ${isActive ? 'text-purple-400' : 'text-zinc-700'}`} />
                       </div>
                     </div>
                   </div>
