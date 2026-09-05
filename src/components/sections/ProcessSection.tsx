@@ -7,46 +7,36 @@ const processSteps = [
     number: '01',
     title: 'Discover',
     duration: '01 DAY',
-    description:
-      'We understand your product, audience, positioning and the creative objective behind the campaign.',
+    description: 'We understand your product, audience, positioning and the creative objective behind the campaign.',
     details: ['Product', 'Audience', 'Positioning', 'Objective'],
-    image: '/images/process/discover.jpg',
   },
   {
     number: '02',
     title: 'Concept',
     duration: '1–2 DAYS',
-    description:
-      'We turn strategy into a visual direction through creative concepts, storyboards and cinematic references.',
+    description: 'We turn strategy into a visual direction through creative concepts, storyboards and cinematic references.',
     details: ['Creative Direction', 'Storyboards', 'Mood', 'Visual Language'],
-    image: '/images/process/concept.jpg',
   },
   {
     number: '03',
     title: 'Produce',
     duration: '3–5 DAYS',
-    description:
-      'We generate, direct and assemble the commercial using AI, motion, editing, sound and cinematic production.',
+    description: 'We generate, direct and assemble the commercial using AI, motion, editing, sound and cinematic production.',
     details: ['AI Generation', 'Direction', 'Motion', 'Sound'],
-    image: '/images/process/produce.jpg',
   },
   {
     number: '04',
     title: 'Refine',
     duration: '1–2 DAYS',
-    description:
-      'Every frame is polished. We refine the edit, colour, pacing, sound and visual details until everything feels right.',
+    description: 'Every frame is polished. We refine the edit, colour, pacing, sound and visual details until everything feels right.',
     details: ['Editing', 'Colour', 'Sound', 'Polish'],
-    image: '/images/process/refine.jpg',
   },
   {
     number: '05',
     title: 'Deliver',
     duration: '01 DAY',
-    description:
-      'Your final commercial is exported, formatted and prepared for the platforms and placements that matter.',
+    description: 'Your final commercial is exported, formatted and prepared for the platforms and placements that matter.',
     details: ['Final Master', 'Social Formats', 'Delivery', 'Launch'],
-    image: '/images/process/deliver.jpg',
   },
 ]
 
@@ -79,7 +69,7 @@ export default function ProcessSection() {
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-[20%] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-purple-600/[0.035] blur-[150px]" />
 
-      <div className="relative z-10 mx-auto max-w-[1280px] px-[--section-px]">
+      <div className="relative z-10 mx-auto px-[--section-px]" style={{ maxWidth: '900px' }}>
 
         {/* ── Header ── */}
         <div className="grid items-end gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
@@ -210,33 +200,6 @@ export default function ProcessSection() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Hover image — desktop only, gracefully hidden if image missing */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      opacity: isActive ? 1 : 0,
-                      scale: isActive ? 1 : 0.96,
-                      x: isActive ? 0 : 15,
-                    }}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="pointer-events-none absolute right-[90px] top-1/2 z-30 hidden w-[250px] -translate-y-1/2 overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0b0b0b] shadow-[0_30px_80px_rgba(0,0,0,0.6)] xl:block"
-                  >
-                    <div className="aspect-[1.35] overflow-hidden bg-[#111]">
-                      <img
-                        src={step.image}
-                        alt={`${step.title} process`}
-                        className="h-full w-full object-cover"
-                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-between px-4 py-3">
-                      <span className="text-[8px] uppercase tracking-[0.22em] text-zinc-600">
-                        {step.number} / {step.title}
-                      </span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-                    </div>
-                  </motion.div>
 
                 </motion.div>
               )
