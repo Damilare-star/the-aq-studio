@@ -51,29 +51,49 @@ img {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ─── Full-page scroll snap ─── */
-html, body {
-  height: 100%;
-  overflow: hidden;
+/* ─── Full-page scroll snap — mobile only (max 1024px) ─── */
+@media (max-width: 1023px) {
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .snap-container {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .snap-container > * > section,
+  .snap-container > section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100dvh;
+  }
+
+  .snap-container > footer {
+    scroll-snap-align: start;
+  }
 }
 
-.snap-container {
-  height: 100dvh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
+/* Desktop — normal scroll */
+@media (min-width: 1024px) {
+  html, body {
+    height: auto;
+    overflow: auto;
+  }
 
-/* Every direct section inside the snap container snaps */
-.snap-container > * > section,
-.snap-container > section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  min-height: 100dvh;
-}
+  .snap-container {
+    height: auto;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
 
-/* Footer doesn't need to be a full screen */
-.snap-container > footer {
-  scroll-snap-align: start;
+  .snap-container > * > section,
+  .snap-container > section {
+    scroll-snap-align: none;
+    min-height: unset;
+  }
 }
