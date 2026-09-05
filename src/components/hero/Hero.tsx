@@ -58,12 +58,15 @@ export default function Hero() {
               fashion, food, technology and lifestyle brands.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
+            <motion.div variants={fadeUp} className="flex flex-row flex-wrap gap-3">
               {/* Primary CTA */}
               <button
                 onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap font-semibold text-white text-sm tracking-[0.06em] px-7 min-h-[52px]"
+                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer select-none whitespace-nowrap font-semibold text-white text-[13px] tracking-[0.05em]"
                 style={{
+                  height: '46px',
+                  paddingLeft: '1.5rem',
+                  paddingRight: '1.5rem',
                   background: 'linear-gradient(135deg, #7c3aed 0%, #8B5CF6 50%, #a78bfa 100%)',
                   boxShadow: '0 0 28px rgba(139,92,246,0.30)',
                   transition: 'box-shadow 0.3s',
@@ -71,14 +74,17 @@ export default function Hero() {
                 onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 44px rgba(139,92,246,0.55)' }}
                 onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 28px rgba(139,92,246,0.30)' }}
               >
-                {"View Work \u2192"}
+                View Work →
               </button>
 
               {/* Secondary CTA */}
               <button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-3 rounded-full cursor-pointer select-none whitespace-nowrap font-semibold text-white text-sm tracking-[0.06em] px-7 min-h-[52px]"
+                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer select-none whitespace-nowrap font-semibold text-white text-[13px] tracking-[0.05em]"
                 style={{
+                  height: '46px',
+                  paddingLeft: '1.5rem',
+                  paddingRight: '1.5rem',
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.16)',
                   transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
@@ -94,7 +100,7 @@ export default function Hero() {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
               >
-                Book a Call <span className="text-[#8B5CF6]">{"↗"}</span>
+                Book a Call <span className="text-[#8B5CF6]">↗</span>
               </button>
             </motion.div>
           </motion.div>

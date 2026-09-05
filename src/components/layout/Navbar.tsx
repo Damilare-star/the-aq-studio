@@ -118,7 +118,7 @@ export default function Navbar() {
                 whileHover="hover" whileTap={{ scale: 0.97 }} initial="rest" animate="rest"
                 variants={{ rest: { scale: 1 }, hover: { scale: 1.03 } }}
                 transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-                className="text-[11px] tracking-[0.14em] uppercase font-medium text-white px-6 py-3 rounded-full border border-[rgba(139,92,246,0.35)] bg-[rgba(139,92,246,0.07)] hover:bg-[rgba(139,92,246,0.20)] hover:border-[rgba(139,92,246,0.65)] transition-colors duration-300 cursor-pointer whitespace-nowrap min-h-[44px] flex items-center"
+                className="text-[10px] tracking-[0.12em] uppercase font-medium text-white px-5 py-2.5 rounded-full border border-[rgba(139,92,246,0.35)] bg-[rgba(139,92,246,0.07)] hover:bg-[rgba(139,92,246,0.20)] hover:border-[rgba(139,92,246,0.65)] transition-colors duration-300 cursor-pointer whitespace-nowrap flex items-center"
                 onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 20px rgba(139,92,246,0.22)' }}
                 onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none' }}
               >
