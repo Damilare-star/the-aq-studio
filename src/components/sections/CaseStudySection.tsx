@@ -132,10 +132,12 @@ export default function CaseStudySection() {
             <motion.div variants={fadeRight}>
               <p className="label-tag mb-4">Final Commercial</p>
               <div
-                className="relative overflow-hidden rounded-lg w-full"
+                className="relative overflow-hidden rounded-lg mx-auto"
                 style={{
                   aspectRatio: '9/16',
-                  maxHeight: '480px',
+                  maxHeight: '320px',
+                  width: '100%',
+                  maxWidth: '180px',
                   background: 'linear-gradient(135deg, #0a0f02 0%, #111a04 50%, #050505 100%)',
                   border: '1px solid rgba(163,230,53,0.15)',
                 }}
