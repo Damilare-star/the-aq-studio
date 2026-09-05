@@ -1,7 +1,6 @@
 import Hero                    from '../components/hero/Hero'
 import ShowreelSection         from '../components/sections/ShowreelSection'
 import ServicesSection         from '../components/sections/ServicesSection'
-import FeaturedProjectsSection from '../components/sections/FeaturedProjectsSection'
 import CaseStudySection        from '../components/sections/CaseStudySection'
 import IndustriesSection       from '../components/sections/IndustriesSection'
 import ProcessSection          from '../components/sections/ProcessSection'
@@ -21,25 +20,22 @@ export default function HomePage() {
       {/* 3. Services */}
       <ServicesSection />
 
-      {/* 4. Featured Projects */}
-      <FeaturedProjectsSection />
-
-      {/* 5. Case Study */}
+      {/* 4. Case Study */}
       <CaseStudySection />
 
-      {/* 6. Industries */}
+      {/* 5. Industries */}
       <IndustriesSection />
 
-      {/* 7. Process */}
+      {/* 6. Process */}
       <ProcessSection />
 
-      {/* 8. About */}
+      {/* 7. About */}
       <AboutSection />
 
-      {/* 9. Testimonials */}
+      {/* 8. Testimonials */}
       <TestimonialsSection />
 
-      {/* 10. Contact */}
+      {/* 9. Contact */}
       <ContactSection />
     </>
   )

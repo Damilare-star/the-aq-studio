@@ -5,7 +5,6 @@ export const SITE_LOCATION = 'Global — Remote First'
 
 export const NAV_LINKS = [
   { label: 'Home',          href: '#hero' },
-  { label: 'Work',          href: '#work' },
   { label: 'Case Studies',  href: '#case-studies' },
   { label: 'Process',       href: '#process' },
   { label: 'About',         href: '#about' },
