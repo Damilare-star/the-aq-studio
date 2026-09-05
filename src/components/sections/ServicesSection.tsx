@@ -90,10 +90,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       />
 
       {/* Card content */}
-      <div className="relative z-10 p-5 sm:p-8 flex flex-col flex-1 justify-between">
+      <div className="relative z-10 p-6 flex flex-col flex-1">
 
         {/* Top: number + icon */}
-        <div className="flex items-start justify-between mb-7">
+        <div className="flex items-start justify-between mb-6">
           <span className="text-[9px] tracking-[0.24em] font-mono text-[rgba(255,255,255,0.20)]">
             {service.number}
           </span>
@@ -107,18 +107,18 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         {/* Middle: title + description */}
         <div className="flex-1">
           <h3
-            className="text-white font-semibold leading-tight mb-5 transition-colors duration-300"
-            style={{ fontSize: 'clamp(1rem, 1.3vw, 1.1rem)' }}
+            className="text-white font-semibold leading-tight mb-3 transition-colors duration-300"
+            style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1rem)' }}
           >
             {service.title}
           </h3>
-          <p className="text-[rgba(255,255,255,0.42)] text-sm leading-[1.85]">
+          <p className="text-[rgba(255,255,255,0.42)] text-xs leading-[1.8]">
             {service.description}
           </p>
         </div>
 
         {/* Bottom: deliverables */}
-        <div className="flex flex-wrap gap-2 mt-8">
+        <div className="flex flex-wrap gap-1.5 mt-6">
           {service.deliverables.map((d) => (
             <motion.span
               key={d}
@@ -127,7 +127,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
                 color: hovered ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.28)',
               }}
               transition={{ duration: 0.3 }}
-              className="text-[9px] tracking-[0.14em] uppercase px-3 py-1.5 border"
+              className="text-[8px] tracking-[0.12em] uppercase px-2.5 py-1 border"
               style={{ borderColor: 'rgba(255,255,255,0.07)' }}
             >
               {d}
@@ -139,7 +139,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         <motion.div
           animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -6 }}
           transition={{ duration: 0.3 }}
-          className="mt-6 flex items-center gap-2"
+          className="mt-4 flex items-center gap-2"
         >
           <span className="h-px flex-1 bg-[rgba(255,255,255,0.08)]" />
           <span className="text-[#8B5CF6] text-sm">→</span>
@@ -197,8 +197,8 @@ export default function ServicesSection() {
           </motion.div>
         </motion.div>
 
-        {/* ── Services grid — 4 col desktop, 2 col tablet, 1 col mobile ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* ── Services grid — 3 col desktop, 2 col tablet, 1 col mobile ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {services.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}
