@@ -214,7 +214,7 @@ export default function ServicesSection() {
         >
           <p className="text-[rgba(255,255,255,0.25)] text-xs tracking-wide max-w-md leading-relaxed">
             All services include creative direction, production, post-production and delivery.
-            Turnaround from brief to final delivery: <span className="text-[rgba(255,255,255,0.45)]">2–4 weeks</span>.
+            Turnaround from brief to final delivery: <span className="text-[rgba(255,255,255,0.45)]">3 days – 1 week</span>.
           </p>
           <button
             onClick={() => document.querySelector('#process')?.scrollIntoView({ behavior: 'smooth' })}
