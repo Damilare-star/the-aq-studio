@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer, fadeLeft, fadeRight } from '../animations/var
 import SectionLabel from '../ui/SectionLabel'
 
 // Drop your final commercial video into /public and update this path
-const CASE_VIDEO_SRC = '/case study video.mp4'
+const CASE_VIDEO_SRC = '/case-study-video.mp4'
 
 export default function CaseStudySection() {
   const study = caseStudies[0]
