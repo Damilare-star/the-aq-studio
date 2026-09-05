@@ -41,6 +41,13 @@ const INDUSTRIES = [
     accent: 'rgba(212,212,180,0.30)',
     projectMatch: (p: Project) => p.industry === 'Luxury',
   },
+  {
+    name: 'Lifestyle',
+    tagline: 'Wellness and culture made aspirational.',
+    gradient: 'from-[#031008] via-[#051a0c] to-[#050505]',
+    accent: 'rgba(52,211,153,0.38)',
+    projectMatch: (p: Project) => p.industry === 'Lifestyle',
+  },
 ] as const
 
 type IndustryName = typeof INDUSTRIES[number]['name']
@@ -207,6 +214,7 @@ export default function IndustriesSection() {
             const isSelected = selected === industry.name
             const isHov = hovered === industry.name
             const projectCount = projects.filter(industry.projectMatch).length
+            const isWide = industry.name === 'Luxury' || industry.name === 'Lifestyle'
 
             return (
               <motion.button
@@ -215,9 +223,9 @@ export default function IndustriesSection() {
                 onClick={() => handleClick(industry.name)}
                 onMouseEnter={() => setHovered(industry.name)}
                 onMouseLeave={() => setHovered(null)}
-                className="relative overflow-hidden text-left cursor-pointer focus:outline-none group"
+                className={`relative overflow-hidden text-left cursor-pointer focus:outline-none group ${isWide ? 'col-span-2 md:col-span-2' : 'col-span-1'}`}
                 style={{
-                  minHeight: '160px',
+                  minHeight: isWide ? '200px' : '160px',
                   background: '#0D0D0D',
                   border: isSelected ? '1px solid rgba(139,92,246,0.40)' : '1px solid rgba(255,255,255,0.07)',
                 }}
