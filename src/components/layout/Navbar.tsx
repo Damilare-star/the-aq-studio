@@ -73,52 +73,50 @@ export default function Navbar() {
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
-              className="flex items-center shrink-0 z-10 min-h-[44px]"
+              className="flex items-center gap-3 shrink-0 z-10 min-h-[44px]"
               aria-label="AQ Studio — Home"
             >
+              {/* Tightly cropped AQ mark from nagg.jpeg */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="select-none"
+                className="relative overflow-hidden shrink-0"
+                style={{
+                  width: '38px',
+                  height: '38px',
+                }}
               >
-                {/* AQ monogram — geometric serif lettermark matching nagg.jpeg */}
-                <svg
-                  width="48"
-                  height="36"
-                  viewBox="0 0 48 36"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
+                <img
+                  src="/nagg.jpeg"
+                  alt="AQ"
+                  style={{
+                    position: 'absolute',
+                    /* The logo mark sits at roughly 7% from left, 20% from top
+                       of the full image. We scale the image up so that region
+                       fills the 38×38 container. */
+                    width: '520px',
+                    height: 'auto',
+                    top: '-38px',
+                    left: '-22px',
+                  }}
+                  draggable={false}
+                />
+              </motion.div>
+
+              {/* Text beside the mark */}
+              <motion.div
+                initial={{ opacity: 0, x: -6 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="flex flex-col leading-none select-none"
+              >
+                <span
+                  className="text-white font-semibold uppercase"
+                  style={{ fontSize: '13px', letterSpacing: '0.18em' }}
                 >
-                  {/* A — geometric serif with crossbar */}
-                  <path
-                    d="M4 28 L12 8 L20 28 M7 22 L17 22"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  {/* Q — circle with tail, overlapping A */}
-                  <circle
-                    cx="30"
-                    cy="20"
-                    r="9"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    fill="none"
-                  />
-                  <line
-                    x1="36"
-                    y1="26"
-                    x2="41"
-                    y2="31"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                  The AQ Studio
+                </span>
               </motion.div>
             </a>
 
