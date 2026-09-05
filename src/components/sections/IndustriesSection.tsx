@@ -41,13 +41,6 @@ const INDUSTRIES = [
     accent: 'rgba(212,212,180,0.30)',
     projectMatch: (p: Project) => p.industry === 'Luxury',
   },
-  {
-    name: 'Consumer Products',
-    tagline: 'The ordinary made covetable.',
-    gradient: 'from-[#040a06] via-[#081408] to-[#050505]',
-    accent: 'rgba(134,239,172,0.32)',
-    projectMatch: (p: Project) => p.industry === 'Consumer Products',
-  },
 ] as const
 
 type IndustryName = typeof INDUSTRIES[number]['name']
