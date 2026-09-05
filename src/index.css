@@ -50,3 +50,30 @@ img {
 .scroll-touch {
   -webkit-overflow-scrolling: touch;
 }
+
+/* ─── Full-page scroll snap ─── */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.snap-container {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Every direct section inside the snap container snaps */
+.snap-container > * > section,
+.snap-container > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100dvh;
+}
+
+/* Footer doesn't need to be a full screen */
+.snap-container > footer {
+  scroll-snap-align: start;
+}

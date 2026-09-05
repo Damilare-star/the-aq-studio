@@ -8,9 +8,13 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="bg-[#050505] text-white">
       <Navbar />
-      <main>{children}</main>
+      <main
+        className="snap-container"
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   )
