@@ -141,12 +141,12 @@ export default function FeaturedProjectsSection() {
   const [activeFilter, setActiveFilter] = useState('All')
 
   const filtered = activeFilter === 'All'
-    ? projects
+    ? projects.slice(0, 6)
     : projects.filter((p) =>
         p.tags.includes(activeFilter) ||
         p.industry === activeFilter ||
         p.category === activeFilter
-      )
+      ).slice(0, 6)
 
   return (
     <section id="work" className="bg-[#050505] section-padding">
