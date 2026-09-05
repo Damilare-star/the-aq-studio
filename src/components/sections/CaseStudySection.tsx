@@ -132,11 +132,8 @@ export default function CaseStudySection() {
             <motion.div variants={fadeRight}>
               <p className="label-tag mb-4">Final Commercial</p>
               <div
-                className="relative overflow-hidden rounded-lg mx-auto"
+                className="relative overflow-hidden rounded-lg"
                 style={{
-                  aspectRatio: '9/16',
-                  width: '100%',
-                  maxWidth: '320px',
                   background: 'linear-gradient(135deg, #0a0f02 0%, #111a04 50%, #050505 100%)',
                   border: '1px solid rgba(163,230,53,0.15)',
                 }}
@@ -148,7 +145,7 @@ export default function CaseStudySection() {
                   loop
                   playsInline
                   muted
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="w-full h-auto block"
                   onError={() => {/* video not added yet */}}
                 />
 
