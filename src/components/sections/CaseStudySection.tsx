@@ -135,9 +135,8 @@ export default function CaseStudySection() {
                 className="relative overflow-hidden rounded-lg mx-auto"
                 style={{
                   aspectRatio: '9/16',
-                  maxHeight: '320px',
                   width: '100%',
-                  maxWidth: '180px',
+                  maxWidth: '320px',
                   background: 'linear-gradient(135deg, #0a0f02 0%, #111a04 50%, #050505 100%)',
                   border: '1px solid rgba(163,230,53,0.15)',
                 }}
