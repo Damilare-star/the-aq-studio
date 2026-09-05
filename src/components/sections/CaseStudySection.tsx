@@ -17,7 +17,7 @@ export default function CaseStudySection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-14"
+          className="mb-10 md:mb-14"
         >
           <motion.div variants={fadeUp} className="mb-4">
             <SectionLabel>Case Study</SectionLabel>
@@ -37,7 +37,7 @@ export default function CaseStudySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center gap-8 mb-10 pb-8 border-b border-[rgba(255,255,255,0.06)]"
+          className="flex flex-wrap items-center gap-6 sm:gap-8 mb-8 sm:mb-10 pb-8 border-b border-[rgba(255,255,255,0.06)]"
         >
           {[
             { label: 'Client', value: study.client },
@@ -50,8 +50,8 @@ export default function CaseStudySection() {
           ))}
         </motion.div>
 
-        {/* Main content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20">
+        {/* Main content — stacked on mobile, 2-col on desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20">
 
           {/* Left */}
           <motion.div
@@ -59,7 +59,7 @@ export default function CaseStudySection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="space-y-10"
+            className="space-y-8 sm:space-y-10"
           >
             {[
               { label: 'Challenge', content: study.challenge },
@@ -79,7 +79,7 @@ export default function CaseStudySection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="space-y-10"
+            className="space-y-8 sm:space-y-10"
           >
             {/* Process */}
             <motion.div variants={fadeRight}>
@@ -87,9 +87,7 @@ export default function CaseStudySection() {
               <ol className="space-y-4">
                 {study.process.map((step, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <span className="text-[rgba(139,92,246,0.60)] text-[10px] font-mono tracking-widest mt-0.5 shrink-0">
-                      0{i + 1}
-                    </span>
+                    <span className="text-[rgba(139,92,246,0.60)] text-[10px] font-mono tracking-widest mt-0.5 shrink-0">0{i + 1}</span>
                     <span className="text-[rgba(255,255,255,0.50)] text-sm leading-relaxed">{step}</span>
                   </li>
                 ))}
@@ -102,7 +100,7 @@ export default function CaseStudySection() {
               <ul className="space-y-3">
                 {study.results.map((result, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-[#8B5CF6] mt-0.5 shrink-0 text-xs">✦</span>
+                    <span className="text-[#8B5CF6] mt-0.5 shrink-0 text-xs">{"✦"}</span>
                     <span className="text-[rgba(255,255,255,0.55)] text-sm leading-relaxed">{result}</span>
                   </li>
                 ))}
@@ -113,7 +111,7 @@ export default function CaseStudySection() {
             <motion.div variants={fadeRight}>
               <p className="label-tag mb-4">Final Commercial</p>
               <div
-                className="relative overflow-hidden flex items-center justify-center"
+                className="relative overflow-hidden flex items-center justify-center w-full"
                 style={{
                   aspectRatio: '16/9',
                   background: 'linear-gradient(135deg, #0a0612 0%, #1a0a2e 50%, #050505 100%)',
@@ -122,26 +120,14 @@ export default function CaseStudySection() {
               >
                 <div className="text-center">
                   <div className="w-12 h-12 rounded-full border border-[rgba(139,92,246,0.30)] bg-[rgba(139,92,246,0.08)] flex items-center justify-center mx-auto mb-3">
-                    <span
-                      className="ml-1"
-                      style={{
-                        width: 0, height: 0,
-                        borderTop: '7px solid transparent',
-                        borderBottom: '7px solid transparent',
-                        borderLeft: '12px solid rgba(139,92,246,0.70)',
-                        display: 'block',
-                      }}
-                    />
+                    <span className="ml-1" style={{ width: 0, height: 0, borderTop: '7px solid transparent', borderBottom: '7px solid transparent', borderLeft: '12px solid rgba(139,92,246,0.70)', display: 'block' }} />
                   </div>
-                  <p className="text-[9px] tracking-[0.22em] uppercase text-[rgba(139,92,246,0.45)]">
-                    Final film — add video file
-                  </p>
+                  <p className="text-[9px] tracking-[0.22em] uppercase text-[rgba(139,92,246,0.45)]">Final film — add video file</p>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         </div>
-
       </div>
     </section>
   )

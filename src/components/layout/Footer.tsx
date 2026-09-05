@@ -4,7 +4,6 @@ import { fadeUp, staggerContainer } from '../animations/variants'
 
 export default function Footer() {
   const year = new Date().getFullYear()
-
   return (
     <footer className="bg-[#050505] border-t border-[rgba(255,255,255,0.06)]">
       <div className="container-wide section-padding">
@@ -13,10 +12,10 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-16"
         >
           {/* Brand */}
-          <motion.div variants={fadeUp} className="col-span-1">
+          <motion.div variants={fadeUp} className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <span className="text-white font-semibold tracking-[0.22em] text-sm uppercase">AQ</span>
               <span className="w-px h-4 bg-[rgba(255,255,255,0.18)]" />
@@ -26,8 +25,8 @@ export default function Footer() {
               A high-end AI advertising and creative production studio for modern brands.
             </p>
             <a
-              href={`mailto:${SITE_EMAIL}`}
-              className="inline-block mt-6 text-[rgba(255,255,255,0.55)] text-sm hover:text-[#8B5CF6] transition-colors duration-300"
+              href={"mailto:" + SITE_EMAIL}
+              className="inline-block mt-6 text-[rgba(255,255,255,0.55)] text-sm hover:text-[#8B5CF6] transition-colors duration-300 py-1"
             >
               {SITE_EMAIL}
             </a>
@@ -36,12 +35,12 @@ export default function Footer() {
           {/* Navigation */}
           <motion.div variants={fadeUp}>
             <p className="label-tag mb-6">Navigation</p>
-            <ul className="space-y-4">
+            <ul className="space-y-1">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300"
+                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 py-2 block"
                   >
                     {link.label}
                   </a>
@@ -53,17 +52,19 @@ export default function Footer() {
           {/* Social */}
           <motion.div variants={fadeUp}>
             <p className="label-tag mb-6">Follow</p>
-            <ul className="space-y-4">
+            <ul className="space-y-1">
               {SOCIAL_LINKS.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 flex items-center gap-2 group py-2"
                   >
                     {link.label}
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#8B5CF6]">↗</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#8B5CF6]">
+                      {"↗"}
+                    </span>
                   </a>
                 </li>
               ))}
@@ -72,9 +73,9 @@ export default function Footer() {
         </motion.div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-[rgba(255,255,255,0.22)] text-xs tracking-wide">
-            © {year} {SITE_NAME}. All rights reserved.
+            {"© "}{year}{" "}{SITE_NAME}{". All rights reserved."}
           </p>
           <p className="text-[rgba(255,255,255,0.18)] text-xs tracking-wide">
             Crafted with precision.

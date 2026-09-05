@@ -24,22 +24,10 @@ body {
   color: #ffffff;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: #050505;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
-  border-radius: 2px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #8B5CF6;
-}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #8B5CF6; }
 
 /* ─── Ticker animation ─── */
 .ticker-track {
@@ -58,3 +46,7 @@ img {
   max-width: 100%;
 }
 
+/* ─── iOS momentum scroll for horizontal strips ─── */
+.scroll-touch {
+  -webkit-overflow-scrolling: touch;
+}
