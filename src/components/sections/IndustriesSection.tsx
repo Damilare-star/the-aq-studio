@@ -35,25 +35,11 @@ const INDUSTRIES = [
     projectMatch: (p: Project) => p.industry === 'Technology',
   },
   {
-    name: 'Lifestyle',
-    tagline: 'Wellness and culture made aspirational.',
-    gradient: 'from-[#031008] via-[#051a0c] to-[#050505]',
-    accent: 'rgba(52,211,153,0.38)',
-    projectMatch: (p: Project) => p.industry === 'Lifestyle',
-  },
-  {
     name: 'Luxury',
     tagline: 'Restraint is the loudest statement.',
     gradient: 'from-[#0a0a06] via-[#141410] to-[#050505]',
     accent: 'rgba(212,212,180,0.30)',
     projectMatch: (p: Project) => p.industry === 'Luxury',
-  },
-  {
-    name: 'Skincare',
-    tagline: 'Science and beauty, frame by frame.',
-    gradient: 'from-[#06050e] via-[#0d0a1c] to-[#050505]',
-    accent: 'rgba(139,92,246,0.45)',
-    projectMatch: (p: Project) => p.industry === 'Skincare',
   },
   {
     name: 'Consumer Products',
