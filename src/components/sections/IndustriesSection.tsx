@@ -223,7 +223,7 @@ export default function IndustriesSection() {
                 onClick={() => handleClick(industry.name)}
                 onMouseEnter={() => setHovered(industry.name)}
                 onMouseLeave={() => setHovered(null)}
-                className={`relative overflow-hidden text-left cursor-pointer focus:outline-none group ${isWide ? 'col-span-2 md:col-span-2' : 'col-span-1'}`}
+                className={`relative overflow-hidden text-left cursor-pointer focus:outline-none group ${isWide ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
                 style={{
                   minHeight: isWide ? '200px' : '160px',
                   background: '#0D0D0D',
