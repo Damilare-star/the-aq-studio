@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { caseStudies } from '../../data/projects'
 import { fadeUp, staggerContainer, fadeLeft, fadeRight } from '../animations/variants'
@@ -11,6 +11,23 @@ export default function CaseStudySection() {
   const study = caseStudies[0]
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
+
+  // Pause when scrolled out of view
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting && !video.paused) {
+          video.pause()
+          setPlaying(false)
+        }
+      },
+      { threshold: 0.2 }
+    )
+    observer.observe(video)
+    return () => observer.disconnect()
+  }, [])
 
   if (!study) return null
 
