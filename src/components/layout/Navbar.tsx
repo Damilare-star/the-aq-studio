@@ -80,26 +80,45 @@ export default function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="flex items-center gap-2.5 select-none"
+                className="select-none"
               >
-                {/* AQ lettermark — matches the serif logo style from nagg.jpeg */}
-                <span
-                  className="text-white font-bold tracking-tight leading-none"
-                  style={{
-                    fontFamily: 'Playfair Display, Georgia, serif',
-                    fontSize: '22px',
-                    letterSpacing: '-0.01em',
-                  }}
+                {/* AQ monogram — geometric serif lettermark matching nagg.jpeg */}
+                <svg
+                  width="48"
+                  height="36"
+                  viewBox="0 0 48 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
-                  AQ
-                </span>
-                <span className="w-px h-4 bg-[rgba(255,255,255,0.20)]" />
-                <span
-                  className="text-[rgba(255,255,255,0.50)] font-light uppercase tracking-widest hidden sm:inline"
-                  style={{ fontSize: '10px', letterSpacing: '0.22em' }}
-                >
-                  Studio
-                </span>
+                  {/* A — geometric serif with crossbar */}
+                  <path
+                    d="M4 28 L12 8 L20 28 M7 22 L17 22"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                  {/* Q — circle with tail, overlapping A */}
+                  <circle
+                    cx="30"
+                    cy="20"
+                    r="9"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    fill="none"
+                  />
+                  <line
+                    x1="36"
+                    y1="26"
+                    x2="41"
+                    y2="31"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </motion.div>
             </a>
 
