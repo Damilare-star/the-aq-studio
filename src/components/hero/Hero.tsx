@@ -64,7 +64,7 @@ export default function Hero() {
             {/* Description */}
             <motion.p
               variants={fadeUp}
-              className="text-[rgba(255,255,255,0.42)] leading-[1.75] mb-8"
+              className="text-[rgba(255,255,255,0.42)] leading-[1.75] mb-5"
               style={{ fontSize: 'clamp(0.82rem, 1vw, 0.95rem)', maxWidth: '420px' }}
             >
               Premium AI-powered advertising for beauty, fashion, food,
