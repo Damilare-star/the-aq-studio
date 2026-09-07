@@ -233,7 +233,7 @@ export default function IndustriesSection() {
         </motion.div>
 
         {/* Grid */}
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {INDUSTRIES.map((industry, i) => {
             const isSelected = selected === industry.name
             const isHov = hovered === industry.name
@@ -248,9 +248,9 @@ export default function IndustriesSection() {
                 onClick={() => handleClick(industry.name)}
                 onMouseEnter={() => setHovered(industry.name)}
                 onMouseLeave={() => setHovered(null)}
-                className={`relative overflow-hidden text-left cursor-pointer focus:outline-none group ${isWide ? 'col-span-2 md:col-span-2' : 'col-span-1'}`}
+                className="relative overflow-hidden text-left cursor-pointer focus:outline-none group col-span-1"
                 style={{
-                  minHeight: isWide ? '200px' : '160px',
+                  minHeight: '180px',
                   background: '#0D0D0D',
                   border: isSelected ? '1px solid rgba(139,92,246,0.40)' : '1px solid rgba(255,255,255,0.07)',
                 }}
