@@ -109,51 +109,64 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT: Video — desktop only */}
+          {/* RIGHT: Video — desktop only, iPhone frame */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="hidden lg:block shrink-0"
-            style={{ width: '240px' }}
           >
-            <div
-              className="relative overflow-hidden"
-              style={{
-                aspectRatio: '9/16',
-                width: '240px',
-                borderRadius: '20px',
-                background: '#0a0a0a',
-                border: '1px solid rgba(255,255,255,0.08)',
-                boxShadow: '0 0 60px rgba(139,92,246,0.14), 0 32px 60px rgba(0,0,0,0.6)',
-              }}
-            >
-              <video
-                ref={videoRef}
-                src="/hero-reel.mp4"
-                autoPlay muted loop playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-                aria-label="AQ Studio showreel"
-              />
-              {/* Vignette */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse at center, transparent 45%, rgba(5,5,5,0.55) 100%)' }}
-              />
-              {/* Bottom label */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
-                <div>
-                  <p className="text-[9px] tracking-[0.20em] uppercase text-[rgba(255,255,255,0.35)] font-medium">Showreel</p>
-                  <p className="text-[10px] text-[rgba(255,255,255,0.45)] mt-0.5">AQ Studio — 2024</p>
+            {/* Phone shell */}
+            <div style={{ position: 'relative', width: '230px', borderRadius: '44px', background: 'linear-gradient(160deg, #2c2c2e 0%, #1c1c1e 60%, #141414 100%)', padding: '10px', boxShadow: '0 0 0 1px rgba(255,255,255,0.10), inset 0 0 0 1px rgba(255,255,255,0.04), 0 40px 80px rgba(0,0,0,0.7), 0 0 60px rgba(139,92,246,0.10)' }}>
+              {/* Side buttons */}
+              <div style={{ position: 'absolute', left: '-3.5px', top: '88px',  width: '3.5px', height: '32px', background: '#3a3a3c', borderRadius: '2px 0 0 2px' }} />
+              <div style={{ position: 'absolute', left: '-3.5px', top: '132px', width: '3.5px', height: '56px', background: '#3a3a3c', borderRadius: '2px 0 0 2px' }} />
+              <div style={{ position: 'absolute', left: '-3.5px', top: '200px', width: '3.5px', height: '56px', background: '#3a3a3c', borderRadius: '2px 0 0 2px' }} />
+              <div style={{ position: 'absolute', right: '-3.5px', top: '140px', width: '3.5px', height: '72px', background: '#3a3a3c', borderRadius: '0 2px 2px 0' }} />
+
+              {/* Screen */}
+              <div style={{ borderRadius: '36px', overflow: 'hidden', aspectRatio: '9/19.5', background: '#000', position: 'relative' }}>
+                <video ref={videoRef} src="/hero-reel.mp4" autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" aria-label="AQ Studio showreel" />
+                <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.40) 100%)' }} />
+
+                {/* Dynamic Island */}
+                <div style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', width: '95px', height: '30px', background: '#000', borderRadius: '20px', zIndex: 10 }} />
+
+                {/* Status bar */}
+                <div className="absolute top-0 left-0 right-0 flex justify-between items-center px-5 pt-3 pointer-events-none" style={{ zIndex: 5 }}>
+                  <span className="text-white text-[11px] font-semibold" style={{ letterSpacing: '-0.03em' }}>9:41</span>
+                  <div className="flex items-center gap-1.5 opacity-90">
+                    <svg width="16" height="11" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="7" width="2.5" height="4" rx="0.4"/>
+                      <rect x="4" y="5" width="2.5" height="6" rx="0.4"/>
+                      <rect x="8" y="2.5" width="2.5" height="8.5" rx="0.4"/>
+                      <rect x="12" y="0" width="2.5" height="11" rx="0.4" opacity="0.3"/>
+                    </svg>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
+                      <div style={{ width: '22px', height: '11px', border: '1.2px solid rgba(255,255,255,0.75)', borderRadius: '3px', padding: '1.5px' }}>
+                        <div style={{ width: '80%', height: '100%', background: 'white', borderRadius: '1.5px' }} />
+                      </div>
+                      <div style={{ width: '2px', height: '5px', background: 'rgba(255,255,255,0.75)', borderRadius: '0 1px 1px 0' }} />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <motion.span
-                    animate={{ opacity: [1, 0.2, 1] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="block w-1.5 h-1.5 rounded-full bg-[#8B5CF6]"
-                  />
-                  <span className="text-[9px] tracking-[0.16em] uppercase text-[rgba(255,255,255,0.28)]">Live</span>
+
+                {/* Bottom label */}
+                <div className="absolute bottom-0 left-0 right-0 px-4 pb-7 pt-8 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75), transparent)', zIndex: 5 }}>
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <p className="text-[8px] tracking-[0.20em] uppercase text-[rgba(255,255,255,0.40)] font-medium">Showreel</p>
+                      <p className="text-[9px] text-[rgba(255,255,255,0.50)] mt-0.5">AQ Studio — 2024</p>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <motion.span animate={{ opacity: [1, 0.2, 1] }} transition={{ repeat: Infinity, duration: 2 }} className="block w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
+                      <span className="text-[8px] tracking-[0.14em] uppercase text-[rgba(255,255,255,0.35)]">Live</span>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Home indicator */}
+                <div style={{ position: 'absolute', bottom: '8px', left: '50%', transform: 'translateX(-50%)', width: '100px', height: '4px', background: 'rgba(255,255,255,0.45)', borderRadius: '2px', zIndex: 10 }} />
               </div>
             </div>
           </motion.div>
