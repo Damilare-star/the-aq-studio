@@ -38,7 +38,7 @@ export default function Hero() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col max-w-[600px]"
+            className="flex flex-col max-w-[600px] pl-4 lg:pl-8"
           >
             {/* Eyebrow */}
             <motion.p
