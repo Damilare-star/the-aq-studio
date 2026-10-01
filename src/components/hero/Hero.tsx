@@ -31,14 +31,14 @@ export default function Hero() {
           paddingBottom: '2rem',
         }}
       >
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-10 lg:gap-16">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-10 lg:gap-24">
 
           {/* LEFT: Text */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col max-w-[600px] pl-4 lg:pl-8"
+            className="flex flex-col max-w-[600px] pl-4 lg:pl-8 lg:pr-8"
           >
             {/* Eyebrow */}
             <motion.p

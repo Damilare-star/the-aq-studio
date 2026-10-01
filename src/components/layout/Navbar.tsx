@@ -73,51 +73,23 @@ export default function Navbar() {
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
-              className="flex items-center gap-3 shrink-0 z-10 min-h-[44px]"
+              className="flex items-center shrink-0 z-10 min-h-[44px]"
               aria-label="AQ Studio — Home"
             >
-              {/* Tightly cropped AQ mark from nagg.jpeg */}
-              <motion.div
+              <motion.img
+                src="/th.jpeg"
+                alt="The AQ Studio"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                className="relative overflow-hidden shrink-0"
+                draggable={false}
                 style={{
-                  width: '38px',
-                  height: '38px',
+                  height: '40px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  filter: 'invert(1)',
                 }}
-              >
-                <img
-                  src="/nagg.jpeg"
-                  alt="AQ"
-                  style={{
-                    position: 'absolute',
-                    /* The logo mark sits at roughly 7% from left, 20% from top
-                       of the full image. We scale the image up so that region
-                       fills the 38×38 container. */
-                    width: '520px',
-                    height: 'auto',
-                    top: '-38px',
-                    left: '-22px',
-                  }}
-                  draggable={false}
-                />
-              </motion.div>
-
-              {/* Text beside the mark */}
-              <motion.div
-                initial={{ opacity: 0, x: -6 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="flex flex-col leading-none select-none"
-              >
-                <span
-                  className="text-white font-semibold uppercase"
-                  style={{ fontSize: '13px', letterSpacing: '0.18em' }}
-                >
-                  The AQ Studio
-                </span>
-              </motion.div>
+              />
             </a>
 
             <nav
