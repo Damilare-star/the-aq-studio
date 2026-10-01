@@ -31,30 +31,29 @@ export default function Hero() {
           paddingBottom: '2rem',
         }}
       >
-        <div className="flex flex-row items-center justify-between w-full gap-6 md:gap-10 lg:gap-24">
+        <div className="flex flex-row items-center justify-between w-full gap-4 md:gap-10 lg:gap-24">
 
           {/* LEFT: Text */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col max-w-[600px] pl-2 pr-2 md:pl-4 lg:pl-8 lg:pr-8"
+            className="flex flex-col flex-1 min-w-0 pl-2 pr-1 md:pl-4 lg:pl-8 lg:pr-8"
           >
             {/* Eyebrow */}
             <motion.p
               variants={fadeUp}
-              className="text-[10px] tracking-[0.28em] uppercase font-medium mb-5 text-[rgba(255,255,255,0.38)]"
+              className="text-[8px] md:text-[10px] tracking-[0.24em] uppercase font-medium mb-3 md:mb-5 text-[rgba(255,255,255,0.38)]"
             >
               AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;
               <span className="text-[#8B5CF6]">Cinematic</span>
-              &nbsp;&nbsp;•&nbsp;&nbsp;Impactful
             </motion.p>
 
             {/* Headline — responsive, no forced line breaks */}
             <motion.h1
               variants={fadeUp}
-              className="font-bold text-white leading-[1.08] tracking-tight mb-5"
-              style={{ fontSize: 'clamp(1.2rem, 4.5vw, 4.5rem)' }}
+              className="font-bold text-white leading-[1.1] tracking-tight mb-4 md:mb-5"
+              style={{ fontSize: 'clamp(1.4rem, 5.5vw, 4.5rem)' }}
             >
               Cinematic AI Commercials{' '}
               <span className="text-[#8B5CF6]">That Make Products</span>{' '}
@@ -64,39 +63,41 @@ export default function Hero() {
             {/* Description */}
             <motion.p
               variants={fadeUp}
-              className="text-[rgba(255,255,255,0.42)] leading-[1.75] mb-5"
-              style={{ fontSize: 'clamp(0.82rem, 1vw, 0.95rem)', maxWidth: '420px' }}
+              className="text-[rgba(255,255,255,0.42)] leading-[1.6] md:leading-[1.75] mb-5 md:mb-6"
+              style={{ fontSize: 'clamp(0.75rem, 2vw, 0.95rem)', maxWidth: '420px' }}
             >
               Premium AI-powered advertising for beauty, fashion, food,
               technology and lifestyle brands.
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-2.5 md:gap-3">
               <button
                 onClick={() => document.querySelector('#case-studies')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer font-semibold text-white text-sm whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer font-semibold text-white whitespace-nowrap"
                 style={{
-                  height: '48px',
-                  paddingLeft: '1.6rem',
-                  paddingRight: '1.6rem',
+                  height: '44px',
+                  paddingLeft: '1.4rem',
+                  paddingRight: '1.4rem',
+                  fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
                   background: 'linear-gradient(135deg, #7c3aed, #8B5CF6, #a78bfa)',
-                  boxShadow: '0 0 28px rgba(139,92,246,0.35)',
+                  boxShadow: '0 0 24px rgba(139,92,246,0.35)',
                   transition: 'box-shadow 0.3s, transform 0.2s',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 48px rgba(139,92,246,0.60)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 28px rgba(139,92,246,0.35)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 40px rgba(139,92,246,0.60)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 24px rgba(139,92,246,0.35)'; e.currentTarget.style.transform = 'translateY(0)' }}
               >
                 View Work →
               </button>
 
               <button
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer font-semibold text-white text-sm whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer font-semibold text-white whitespace-nowrap"
                 style={{
-                  height: '48px',
-                  paddingLeft: '1.6rem',
-                  paddingRight: '1.6rem',
+                  height: '44px',
+                  paddingLeft: '1.4rem',
+                  paddingRight: '1.4rem',
+                  fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
                   background: 'rgba(255,255,255,0.05)',
                   border: '1px solid rgba(255,255,255,0.14)',
                   transition: 'border-color 0.3s, background 0.3s, transform 0.2s',
@@ -109,7 +110,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT: Video — desktop only, iPhone frame */}
+          {/* RIGHT: Video — iPhone frame, responsive scaling */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
@@ -117,17 +118,16 @@ export default function Hero() {
             className="block shrink-0"
           >
             {/* Phone shell */}
-            <div style={{
+            <div 
+              className="scale-[0.45] md:scale-[0.65] lg:scale-[0.85] origin-center"
+              style={{
               position: 'relative',
               width: '260px',
               borderRadius: '50px',
               background: 'linear-gradient(160deg, #3a3a3c 0%, #2c2c2e 40%, #1c1c1e 100%)',
               padding: '12px',
               boxShadow: '0 0 0 1.5px rgba(255,255,255,0.12), 0 0 0 2.5px rgba(0,0,0,0.8), 0 40px 80px rgba(0,0,0,0.8), 0 0 80px rgba(139,92,246,0.10)',
-              transform: 'scale(0.5)',
-              transformOrigin: 'center center',
             }}
-              className="md:scale-75 lg:scale-85"
             >
 
               {/* Left buttons — Action button (top, short) + Volume (bottom, longer) */}
