@@ -53,9 +53,13 @@ img {
 
 /* ─── Full-page scroll snap — mobile only (max 1024px) ─── */
 @media (max-width: 1023px) {
-  html, body {
+  html {
     height: 100%;
     overflow: hidden;
+  }
+
+  body {
+    height: 100%;
   }
 
   .snap-container {

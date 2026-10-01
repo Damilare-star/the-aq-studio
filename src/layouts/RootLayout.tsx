@@ -14,8 +14,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className="snap-container"
       >
         {children}
+        <Footer />
       </main>
-      <Footer />
     </div>
   )
 }
