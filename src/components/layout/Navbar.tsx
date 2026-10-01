@@ -68,7 +68,7 @@ export default function Navbar() {
           }
         />
         <div className="relative container-wide">
-          <div className="flex items-center justify-between h-[100px] md:h-[120px]">
+          <div className="flex items-center justify-between h-[140px] md:h-[180px]">
 
             <a
               href="#"
@@ -84,7 +84,7 @@ export default function Navbar() {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 draggable={false}
                 style={{
-                  height: '120px',
+                  height: '180px',
                   width: 'auto',
                   objectFit: 'contain',
                   filter: 'invert(1) brightness(1.2)',
