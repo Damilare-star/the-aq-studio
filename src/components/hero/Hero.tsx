@@ -126,10 +126,9 @@ export default function Hero() {
               boxShadow: '0 0 0 1.5px rgba(255,255,255,0.12), 0 0 0 2.5px rgba(0,0,0,0.8), 0 40px 80px rgba(0,0,0,0.8), 0 0 80px rgba(139,92,246,0.10)',
             }}>
 
-              {/* Left buttons — mute + volume */}
-              <div style={{ position: 'absolute', left: '-4px', top: '80px',  width: '4px', height: '30px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
-              <div style={{ position: 'absolute', left: '-4px', top: '124px', width: '4px', height: '60px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
-              <div style={{ position: 'absolute', left: '-4px', top: '196px', width: '4px', height: '60px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
+              {/* Left buttons — Action button (top, short) + Volume (bottom, longer) */}
+              <div style={{ position: 'absolute', left: '-4px', top: '88px',  width: '4px', height: '32px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
+              <div style={{ position: 'absolute', left: '-4px', top: '136px', width: '4px', height: '72px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
               {/* Right power button */}
               <div style={{ position: 'absolute', right: '-4px', top: '148px', width: '4px', height: '80px', background: '#2c2c2e', borderRadius: '0 2px 2px 0', boxShadow: '1px 0 0 rgba(255,255,255,0.08)' }} />
 
@@ -164,7 +163,7 @@ export default function Hero() {
                   zIndex: 20,
                 }} />
 
-                {/* Status bar — time left, icons right, avoiding dynamic island center */}
+                {/* Status bar — time left, icons right, BELOW dynamic island */}
                 <div style={{
                   position: 'absolute',
                   top: 0,
@@ -175,7 +174,7 @@ export default function Hero() {
                   alignItems: 'center',
                   paddingLeft: '20px',
                   paddingRight: '18px',
-                  paddingTop: '16px',
+                  paddingTop: '52px',
                   zIndex: 25,
                   pointerEvents: 'none',
                 }}>
