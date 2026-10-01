@@ -77,7 +77,7 @@ export default function Navbar() {
               aria-label="AQ Studio — Home"
             >
               <motion.img
-                src="/th.jpeg"
+                src="/nagg.jpeg"
                 alt="The AQ Studio"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
