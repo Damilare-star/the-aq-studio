@@ -31,14 +31,14 @@ export default function Hero() {
           paddingBottom: '2rem',
         }}
       >
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full gap-10 lg:gap-24">
+        <div className="flex flex-row items-center justify-between w-full gap-6 md:gap-10 lg:gap-24">
 
           {/* LEFT: Text */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col max-w-[600px] pl-4 lg:pl-8 lg:pr-8"
+            className="flex flex-col max-w-[600px] pl-2 pr-2 md:pl-4 lg:pl-8 lg:pr-8"
           >
             {/* Eyebrow */}
             <motion.p
@@ -54,7 +54,7 @@ export default function Hero() {
             <motion.h1
               variants={fadeUp}
               className="font-bold text-white leading-[1.08] tracking-tight mb-5"
-              style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)' }}
+              style={{ fontSize: 'clamp(1.2rem, 4.5vw, 4.5rem)' }}
             >
               Cinematic AI Commercials{' '}
               <span className="text-[#8B5CF6]">That Make Products</span>{' '}
@@ -114,7 +114,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="hidden lg:block shrink-0"
+            className="block shrink-0"
           >
             {/* Phone shell */}
             <div style={{
@@ -124,9 +124,11 @@ export default function Hero() {
               background: 'linear-gradient(160deg, #3a3a3c 0%, #2c2c2e 40%, #1c1c1e 100%)',
               padding: '12px',
               boxShadow: '0 0 0 1.5px rgba(255,255,255,0.12), 0 0 0 2.5px rgba(0,0,0,0.8), 0 40px 80px rgba(0,0,0,0.8), 0 0 80px rgba(139,92,246,0.10)',
-              transform: 'scale(0.85)',
+              transform: 'scale(0.5)',
               transformOrigin: 'center center',
-            }}>
+            }}
+              className="md:scale-75 lg:scale-85"
+            >
 
               {/* Left buttons — Action button (top, short) + Volume (bottom, longer) */}
               <div style={{ position: 'absolute', left: '-4px', top: '88px',  width: '4px', height: '32px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
