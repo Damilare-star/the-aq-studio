@@ -88,6 +88,7 @@ export default function Navbar() {
                   width: 'auto',
                   objectFit: 'contain',
                   filter: 'invert(1) brightness(1.2)',
+                  mixBlendMode: 'screen',
                 }}
               />
             </a>
