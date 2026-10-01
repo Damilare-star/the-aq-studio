@@ -124,6 +124,8 @@ export default function Hero() {
               background: 'linear-gradient(160deg, #3a3a3c 0%, #2c2c2e 40%, #1c1c1e 100%)',
               padding: '12px',
               boxShadow: '0 0 0 1.5px rgba(255,255,255,0.12), 0 0 0 2.5px rgba(0,0,0,0.8), 0 40px 80px rgba(0,0,0,0.8), 0 0 80px rgba(139,92,246,0.10)',
+              transform: 'scale(0.85)',
+              transformOrigin: 'center center',
             }}>
 
               {/* Left buttons — Action button (top, short) + Volume (bottom, longer) */}
@@ -172,8 +174,8 @@ export default function Hero() {
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  paddingLeft: '20px',
-                  paddingRight: '20px',
+                  paddingLeft: '18px',
+                  paddingRight: '22px',
                   paddingTop: '16px',
                   zIndex: 25,
                   pointerEvents: 'none',
