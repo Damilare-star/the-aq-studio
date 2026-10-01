@@ -84,7 +84,7 @@ export default function Navbar() {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 draggable={false}
                 style={{
-                  height: '40px',
+                  height: '56px',
                   width: 'auto',
                   objectFit: 'contain',
                   filter: 'invert(1)',
