@@ -79,7 +79,7 @@ export default function ContactSection() {
               <p className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.28)] mb-3">Email</p>
               <a
                 href={"mailto:" + SITE_EMAIL}
-                className="group inline-flex items-center gap-2 text-white text-sm hover:text-[#8B5CF6] active:text-[#8B5CF6] transition-colors duration-300 py-2"
+                className="group inline-flex items-center gap-2 text-white text-sm hover:text-[#8B5CF6] active:text-[#8B5CF6] transition-colors duration-300 py-3 min-h-[44px]"
               >
                 {SITE_EMAIL}
                 <span className="text-[#8B5CF6] opacity-0 group-hover:opacity-100 transition-opacity duration-300">{"↗"}</span>

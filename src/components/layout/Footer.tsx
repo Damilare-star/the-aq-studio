@@ -26,7 +26,7 @@ export default function Footer() {
             </p>
             <a
               href={"mailto:" + SITE_EMAIL}
-              className="inline-block mt-6 text-[rgba(255,255,255,0.55)] text-sm hover:text-[#8B5CF6] transition-colors duration-300 py-1"
+              className="inline-block mt-6 text-[rgba(255,255,255,0.55)] text-sm hover:text-[#8B5CF6] transition-colors duration-300 py-3 min-h-[44px] flex items-center"
             >
               {SITE_EMAIL}
             </a>
@@ -40,7 +40,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 py-2 block"
+                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 py-3 block min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </a>
@@ -59,7 +59,7 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 flex items-center gap-2 group py-2"
+                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 flex items-center gap-2 group py-3 min-h-[44px]"
                   >
                     {link.label}
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#8B5CF6]">

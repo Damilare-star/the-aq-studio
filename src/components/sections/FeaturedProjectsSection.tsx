@@ -201,7 +201,7 @@ export default function FeaturedProjectsSection() {
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
-              className="shrink-0 text-[10px] tracking-[0.16em] uppercase font-medium px-5 py-2.5 transition-all duration-250 cursor-pointer"
+              className="shrink-0 text-[10px] tracking-[0.16em] uppercase font-medium px-5 py-3 transition-all duration-250 cursor-pointer min-h-[44px] flex items-center justify-center"
               style={{
                 border: `1px solid ${activeFilter === cat ? 'rgba(139,92,246,0.50)' : 'rgba(255,255,255,0.09)'}`,
                 color: activeFilter === cat ? '#8B5CF6' : 'rgba(255,255,255,0.38)',
