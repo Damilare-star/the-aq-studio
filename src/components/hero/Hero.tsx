@@ -119,7 +119,7 @@ export default function Hero() {
             {/* Phone shell */}
             <div style={{
               position: 'relative',
-              width: '240px',
+              width: '260px',
               borderRadius: '50px',
               background: 'linear-gradient(160deg, #3a3a3c 0%, #2c2c2e 40%, #1c1c1e 100%)',
               padding: '12px',
@@ -163,7 +163,7 @@ export default function Hero() {
                   zIndex: 20,
                 }} />
 
-                {/* Status bar — time left, icons right, BELOW dynamic island */}
+                {/* Status bar — time left, icons right, same level as Dynamic Island */}
                 <div style={{
                   position: 'absolute',
                   top: 0,
@@ -173,8 +173,8 @@ export default function Hero() {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   paddingLeft: '20px',
-                  paddingRight: '18px',
-                  paddingTop: '52px',
+                  paddingRight: '20px',
+                  paddingTop: '16px',
                   zIndex: 25,
                   pointerEvents: 'none',
                 }}>
