@@ -15,9 +15,9 @@
   --border-subtle:  rgba(255, 255, 255, 0.06);
   --border-default: rgba(255, 255, 255, 0.10);
   --border-strong:  rgba(255, 255, 255, 0.18);
-  /* Increased mobile minimum for section spacing */
-  --section-px:     clamp(1.1rem, 5vw, 4rem);
-  --section-py:     clamp(2.5rem, 5vw, 5rem);
+  /* Mobile-optimized section spacing for comfortable breathing room */
+  --section-px:     clamp(1.25rem, 5vw, 4rem);
+  --section-py:     clamp(3rem, 6vw, 5rem);
   --font-sans:      'Inter', system-ui, sans-serif;
   --font-serif:     'Playfair Display', Georgia, serif;
   --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);

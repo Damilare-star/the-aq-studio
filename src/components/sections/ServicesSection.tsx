@@ -90,7 +90,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       />
 
       {/* Card content */}
-      <div className="relative z-10 p-6 flex flex-col flex-1">
+      <div className="relative z-10 p-5 sm:p-6 flex flex-col flex-1">
 
         {/* Top: number + icon */}
         <div className="flex items-start justify-between mb-6">
@@ -198,7 +198,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* ── Services grid — 3 col desktop, 2 col tablet, 1 col mobile ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           {services.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}
