@@ -68,7 +68,7 @@ export default function Navbar() {
           }
         />
         <div className="relative container-wide">
-          <div className="flex items-center justify-between h-[140px] md:h-[180px]">
+          <div className="flex items-center justify-between h-[64px] md:h-[76px]">
 
             <a
               href="#"
@@ -76,21 +76,15 @@ export default function Navbar() {
               className="flex items-center shrink-0 z-10 min-h-[44px]"
               aria-label="AQ Studio — Home"
             >
-              <motion.img
-                src="/nagg.jpeg"
-                alt="The AQ Studio"
+              <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
-                draggable={false}
-                style={{
-                  height: '180px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  filter: 'invert(1) brightness(1.2)',
-                  mixBlendMode: 'screen',
-                }}
-              />
+                className="text-white font-bold uppercase tracking-wider"
+                style={{ fontSize: '24px' }}
+              >
+                THE AQ STUDIO
+              </motion.span>
             </a>
 
             <nav
