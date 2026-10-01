@@ -143,7 +143,7 @@ export default function ContactSection() {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-6">
                 {fields.map((field) => (
                   <motion.div key={field.name} variants={fadeRight}>
                     <label htmlFor={field.name} className="block text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.28)] mb-2.5 font-medium">
@@ -157,7 +157,8 @@ export default function ContactSection() {
                       value={formData[field.name]}
                       onChange={handleChange}
                       placeholder={field.placeholder}
-                      className="w-full bg-transparent border-b border-[rgba(255,255,255,0.10)] py-4 text-white text-sm placeholder-[rgba(255,255,255,0.18)] focus:outline-none focus:border-[#8B5CF6] transition-colors duration-300"
+                      className="w-full bg-transparent border-b border-[rgba(255,255,255,0.10)] py-4 text-white placeholder-[rgba(255,255,255,0.18)] focus:outline-none focus:border-[#8B5CF6] transition-colors duration-300 min-h-[52px]"
+                      style={{ fontSize: '16px' }}
                     />
                   </motion.div>
                 ))}
@@ -165,10 +166,12 @@ export default function ContactSection() {
                 <motion.div variants={fadeRight}>
                   <label htmlFor="brief" className="block text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.28)] mb-2.5 font-medium">Project Brief</label>
                   <textarea
-                    id="brief" name="brief" rows={4}
+                    id="brief" name="brief"
+                    rows={6}
                     value={formData.brief} onChange={handleChange}
                     placeholder="Tell us about your brand, project, timeline and goals..."
-                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.10)] py-4 text-white text-sm placeholder-[rgba(255,255,255,0.18)] focus:outline-none focus:border-[#8B5CF6] transition-colors duration-300 resize-none"
+                    className="w-full bg-transparent border-b border-[rgba(255,255,255,0.10)] py-4 text-white placeholder-[rgba(255,255,255,0.18)] focus:outline-none focus:border-[#8B5CF6] transition-colors duration-300 resize-none min-h-[120px]"
+                    style={{ fontSize: '16px' }}
                   />
                 </motion.div>
 
@@ -179,8 +182,8 @@ export default function ContactSection() {
                     whileHover="hover" whileTap={{ scale: 0.97 }} initial="rest" animate="rest"
                     variants={{ rest: { scale: 1 }, hover: { scale: 1.02 } }}
                     transition={{ type: 'spring', stiffness: 380, damping: 20 }}
-                    className="mt-6 inline-flex items-center justify-center gap-3 rounded-full cursor-pointer whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed font-semibold text-white text-sm tracking-[0.06em] w-full sm:w-auto"
-                    style={{ height: '52px', paddingLeft: '2rem', paddingRight: '2rem', background: 'linear-gradient(135deg, #7c3aed 0%, #8B5CF6 50%, #a78bfa 100%)', boxShadow: '0 0 20px rgba(139,92,246,0.20)' }}
+                    className="mt-8 inline-flex items-center justify-center gap-3 rounded-full cursor-pointer whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed font-semibold text-white tracking-[0.06em] w-full"
+                    style={{ height: '56px', paddingLeft: '2rem', paddingRight: '2rem', fontSize: '15px', background: 'linear-gradient(135deg, #7c3aed 0%, #8B5CF6 50%, #a78bfa 100%)', boxShadow: '0 0 20px rgba(139,92,246,0.20)' }}
                     onMouseEnter={(e) => { if (!submitting) e.currentTarget.style.boxShadow = '0 0 36px rgba(139,92,246,0.40)' }}
                     onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 20px rgba(139,92,246,0.20)' }}
                   >

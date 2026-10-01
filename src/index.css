@@ -46,6 +46,21 @@ img {
   max-width: 100%;
 }
 
+/* ─── GPU acceleration for animated elements ─── */
+[data-animated],
+.motion-element {
+  will-change: opacity, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Remove will-change after animation completes to free resources */
+@media (prefers-reduced-motion: no-preference) {
+  [data-animated].animated-complete {
+    will-change: auto;
+  }
+}
+
 /* ─── iOS momentum scroll for horizontal strips ─── */
 .scroll-touch {
   -webkit-overflow-scrolling: touch;

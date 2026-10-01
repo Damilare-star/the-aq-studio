@@ -27,7 +27,7 @@ export default function Hero() {
       <div
         className="relative z-10 flex-1 flex items-center container-wide"
         style={{
-          paddingTop: 'calc(var(--navbar-h, 68px) + 1.075rem)',
+          paddingTop: 'calc(var(--navbar-h, 68px) + 5px)',
           paddingBottom: '2rem',
         }}
       >
@@ -49,15 +49,13 @@ export default function Hero() {
               <span className="text-[#8B5CF6]">Cinematic</span>
             </motion.p>
 
-            {/* Headline — responsive, no forced line breaks */}
+            {/* Headline — compact for mobile, uses space efficiently */}
             <motion.h1
               variants={fadeUp}
               className="font-bold text-white leading-[1.1] tracking-tight mb-4 md:mb-5"
               style={{ fontSize: 'clamp(1.4rem, 5.5vw, 4.5rem)' }}
             >
-              Cinematic AI Commercials{' '}
-              <span className="text-[#8B5CF6]">That Make Products</span>{' '}
-              Impossible To Ignore.
+              Cinematic AI Commercials <span className="text-[#8B5CF6]">That Make Products Impossible To Ignore.</span>
             </motion.h1>
 
             {/* Description */}
