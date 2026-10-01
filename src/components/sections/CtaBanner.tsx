@@ -22,7 +22,7 @@ export default function CtaBanner() {
           <motion.h2
             variants={fadeUp}
             className="text-white font-light leading-tight mb-8"
-            style={{ fontSize: 'clamp(2rem, 5.5vw, 4.5rem)' }}
+            style={{ fontSize: 'clamp(1.75rem, 5.5vw, 4.5rem)' }}
           >
             Your brand deserves{' '}
             <span className="italic" style={{ fontFamily: 'Playfair Display, serif' }}>cinema.</span>

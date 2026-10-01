@@ -81,7 +81,7 @@ export default function ProcessSection() {
                 Process
               </span>
             </div>
-            <h2 className="max-w-[800px] text-[clamp(2rem,5vw,5rem)] font-medium leading-[0.92] tracking-[-0.055em]">
+            <h2 className="max-w-[800px] text-[clamp(1.75rem,5vw,5rem)] font-medium leading-[0.98] tracking-[-0.055em]">
               From brief to
               <br />
               <span className="font-serif font-normal italic tracking-[-0.04em] text-zinc-500">

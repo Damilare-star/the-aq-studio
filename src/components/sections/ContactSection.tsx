@@ -57,7 +57,7 @@ export default function ContactSection() {
           viewport={{ once: true, amount: 0.1 }} className="mb-10 md:mb-14"
         >
           <motion.div variants={fadeUp} className="mb-4"><SectionLabel>Contact</SectionLabel></motion.div>
-          <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+          <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}>
             {"Let\u2019s make something"}
             <br />
             <span className="italic font-light text-[rgba(255,255,255,0.55)]" style={{ fontFamily: 'Playfair Display, serif' }}>remarkable.</span>

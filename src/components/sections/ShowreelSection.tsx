@@ -24,7 +24,7 @@ export default function ShowreelSection() {
         >
           <div>
             <motion.div variants={fadeUp} className="mb-4"><SectionLabel>Featured Showreel</SectionLabel></motion.div>
-            <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+            <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}>
               One reel.
               <br />
               <span className="italic font-light text-[rgba(255,255,255,0.60)]" style={{ fontFamily: 'Playfair Display, serif' }}>Every capability.</span>

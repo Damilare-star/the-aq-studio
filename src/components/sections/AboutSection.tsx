@@ -33,7 +33,7 @@ export default function AboutSection() {
             viewport={{ once: true, amount: 0.1 }}
           >
             <motion.div variants={fadeUp} className="mb-4"><SectionLabel>About AQ Studio</SectionLabel></motion.div>
-            <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight mb-8" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+            <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight mb-8" style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}>
               Why AQ Studio
               <br />
               <span className="italic font-light text-[rgba(255,255,255,0.55)]" style={{ fontFamily: 'Playfair Display, serif' }}>exists.</span>

@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true, amount: 0.1 }} className="mb-12 md:mb-14"
         >
           <motion.div variants={fadeUp} className="mb-4"><SectionLabel>Testimonials</SectionLabel></motion.div>
-          <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+          <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}>
             What clients
             <br />
             <span className="italic font-light text-[rgba(255,255,255,0.55)]" style={{ fontFamily: 'Playfair Display, serif' }}>say.</span>
@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
                   initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   className="text-white font-light leading-[1.6] mb-8 sm:mb-10"
-                  style={{ fontSize: 'clamp(1rem, 2.2vw, 1.6rem)' }}
+                  style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.6rem)' }}
                 >
                   {'"'}{current.quote}{'"'}
                 </motion.blockquote>

@@ -167,7 +167,7 @@ export default function FeaturedProjectsSection() {
             <motion.h2
               variants={fadeUp}
               className="text-white font-bold leading-[1.06] tracking-tight"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}
             >
               AI video ads that make
               <br />

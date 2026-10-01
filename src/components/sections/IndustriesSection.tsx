@@ -245,7 +245,7 @@ export default function IndustriesSection() {
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="mb-12">
           <motion.div variants={fadeUp} className="mb-4"><SectionLabel>Industries</SectionLabel></motion.div>
           <motion.div variants={fadeUp} className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <h2 className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+            <h2 className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}>
               Every category.
               <br />
               <span className="italic font-light text-[rgba(255,255,255,0.55)]" style={{ fontFamily: 'Playfair Display, serif' }}>One standard.</span>

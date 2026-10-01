@@ -108,7 +108,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         <div className="flex-1">
           <h3
             className="text-white font-semibold leading-tight mb-3 transition-colors duration-300"
-            style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1rem)' }}
+            style={{ fontSize: 'clamp(1rem, 1.3vw, 1.1rem)' }}
           >
             {service.title}
           </h3>
@@ -170,7 +170,7 @@ export default function ServicesSection() {
             <motion.h2
               variants={fadeUp}
               className="text-white font-bold leading-[1.06] tracking-tight"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}
             >
               Every service built
               <br />
