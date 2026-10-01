@@ -27,7 +27,7 @@ export default function Hero() {
       <div
         className="relative z-10 flex-1 flex items-center container-wide"
         style={{
-          paddingTop: 'calc(var(--navbar-h, 68px) + 1.2rem)',
+          paddingTop: 'calc(var(--navbar-h, 68px) + 1.075rem)',
           paddingBottom: '2rem',
         }}
       >
