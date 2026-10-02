@@ -358,7 +358,8 @@ export default function IndustriesSection() {
                     <motion.p
                       animate={{ opacity: isSelected || isHov ? 1 : 0, y: isSelected || isHov ? 0 : 6 }}
                       transition={{ duration: 0.35 }}
-                      className="text-[rgba(255,255,255,0.42)] text-[11px] leading-relaxed"
+                      className="text-[rgba(255,255,255,0.42)] text-[11px] leading-relaxed md:opacity-0 md:translate-y-[6px]"
+                      style={{ opacity: 1, transform: 'translateY(0)' }}
                     >
                       {industry.tagline}
                     </motion.p>
