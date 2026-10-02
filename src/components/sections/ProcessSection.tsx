@@ -69,7 +69,7 @@ export default function ProcessSection() {
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-[20%] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-purple-600/[0.035] blur-[150px]" />
 
-      <div className="relative z-10 mx-auto px-6 sm:px-8 lg:px-10" style={{ maxWidth: '860px' }}>
+      <div className="relative z-10 mx-auto" style={{ width: '90%' }}>
 
         {/* ── Header ── */}
         <div className="grid items-end gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
@@ -96,27 +96,19 @@ export default function ProcessSection() {
             variants={reveal}
             className="max-w-[470px] lg:ml-auto"
           >
-            <p className="text-sm leading-7 text-zinc-500 sm:text-base sm:leading-8">
+            <p className="text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
               A focused five-phase production process designed to move from creative
               direction to a finished commercial with clarity, speed and cinematic quality.
             </p>
             <div className="mt-7 flex items-center gap-3">
               <span className="h-px w-10 bg-zinc-800" />
-              <span className="text-[9px] uppercase tracking-[0.25em] text-zinc-600">5 PHASES</span>
+              <span className="text-[9px] uppercase tracking-[0.25em] text-zinc-400">5 PHASES</span>
             </div>
           </motion.div>
         </div>
 
         {/* ── Process rows ── */}
         <div className="relative mt-20 lg:mt-28">
-
-          {/* Desktop vertical timeline line */}
-          <div className="pointer-events-none absolute bottom-0 left-[21px] top-0 hidden w-px bg-white/[0.08] lg:block">
-            <motion.div
-              style={{ height: lineHeight }}
-              className="absolute left-0 top-0 w-px bg-purple-500 shadow-[0_0_12px_rgba(139,92,246,0.7)]"
-            />
-          </div>
 
           <div className="space-y-0">
             {processSteps.map((step, index) => {
@@ -134,20 +126,13 @@ export default function ProcessSection() {
                   className="group relative outline-none"
                 >
                   <div
-                    className={`relative grid min-h-[140px] items-center border-t border-white/[0.08] py-7 transition-all duration-500 lg:grid-cols-[70px_1fr_280px_70px] lg:gap-8 lg:pl-14 ${isActive ? 'border-white/[0.14]' : ''}`}
+                    className={`relative grid min-h-[140px] items-center border-t border-white/[0.08] py-7 transition-all duration-500 lg:grid-cols-[1fr_280px_70px] lg:gap-8 ${isActive ? 'border-white/[0.14]' : ''}`}
                   >
-                    {/* Number circle */}
-                    <div
-                      className={`absolute left-0 top-7 flex h-[44px] w-[44px] items-center justify-center rounded-full border text-[10px] font-medium tracking-[0.15em] transition-all duration-500 lg:static ${isActive ? 'border-purple-500/60 bg-purple-500/10 text-purple-300' : 'border-white/[0.10] bg-[#050505] text-zinc-600'}`}
-                    >
-                      {step.number}
-                    </div>
-
                     {/* Title + description + tags */}
-                    <div className="pl-16 lg:pl-0">
+                    <div>
                       <div className="flex items-center gap-4">
                         <h3
-                          className={`text-lg font-medium tracking-[-0.03em] transition-all duration-500 sm:text-xl ${isActive ? 'translate-x-1 text-white' : 'text-zinc-500'}`}
+                          className={`text-lg font-medium tracking-[-0.03em] transition-all duration-500 sm:text-xl ${isActive ? 'translate-x-1 text-white' : 'text-white opacity-90'}`}
                         >
                           {step.title}
                         </h3>
@@ -157,7 +142,7 @@ export default function ProcessSection() {
                       </div>
 
                       <p
-                        className={`mt-3 max-w-[600px] text-sm leading-6 text-zinc-600 transition-all duration-500 sm:text-[15px] ${isActive ? 'opacity-100' : 'opacity-55'}`}
+                        className={`mt-3 max-w-[600px] text-sm leading-6 transition-all duration-500 sm:text-[15px] ${isActive ? 'text-white opacity-75' : 'text-zinc-400 opacity-70'}`}
                       >
                         {step.description}
                       </p>
@@ -168,7 +153,7 @@ export default function ProcessSection() {
                         {step.details.map((detail) => (
                           <span
                             key={detail}
-                            className="rounded-full border border-white/[0.08] px-2.5 py-1 text-[8px] uppercase tracking-[0.18em] text-zinc-600"
+                            className="rounded-full border border-white/[0.08] px-2.5 py-1 text-[8px] uppercase tracking-[0.18em] text-zinc-400"
                           >
                             {detail}
                           </span>
@@ -179,12 +164,12 @@ export default function ProcessSection() {
                     {/* Duration */}
                     <div className="mt-7 flex items-center justify-between lg:mt-0 lg:justify-self-end">
                       <span
-                        className={`text-[9px] font-medium uppercase tracking-[0.22em] transition-colors duration-300 ${isActive ? 'text-zinc-300' : 'text-zinc-700'}`}
+                        className={`text-[9px] font-medium uppercase tracking-[0.22em] transition-colors duration-300 ${isActive ? 'text-white' : 'text-zinc-400'}`}
                       >
                         {step.duration}
                       </span>
                       <span className="lg:hidden">
-                        <ArrowRight size={16} className="text-zinc-700" />
+                        <ArrowRight size={16} className="text-zinc-400" />
                       </span>
                     </div>
 
@@ -226,7 +211,7 @@ export default function ProcessSection() {
               3–10 business days
             </span>
           </div>
-          <p className="text-[10px] leading-5 text-zinc-700 sm:text-right">
+          <p className="text-[10px] leading-5 text-zinc-400 sm:text-right">
             Larger campaigns and multi-asset
             <br className="hidden sm:block" />
             productions are scoped separately.

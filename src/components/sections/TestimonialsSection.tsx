@@ -74,10 +74,9 @@ export default function TestimonialsSection() {
               </AnimatePresence>
             </div>
 
-            {/* Selector — horizontal on mobile, vertical on lg */}
+            {/* Selector — grid layout: 2 columns */}
             <div
-              className="flex flex-row gap-2 overflow-x-auto lg:overflow-x-visible lg:flex-col lg:pt-2 pb-2 lg:pb-0"
-              style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+              className="grid grid-cols-2 lg:grid-cols-1 gap-2 lg:pt-2"
               role="list"
               aria-label="Testimonial navigation"
             >
@@ -86,7 +85,7 @@ export default function TestimonialsSection() {
                   key={t.id}
                   onClick={() => setActive(i)}
                   role="listitem"
-                  className={"shrink-0 text-left px-4 py-3 sm:px-5 sm:py-4 border transition-all duration-300 cursor-pointer min-h-[56px] min-w-[120px] lg:min-w-0 lg:shrink " +
+                  className={"text-left px-4 py-3 sm:px-5 sm:py-4 border transition-all duration-300 cursor-pointer min-h-[56px] " +
                     (i === active
                       ? 'border-[rgba(139,92,246,0.35)] bg-[rgba(139,92,246,0.07)]'
                       : 'border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,255,255,0.14)]')

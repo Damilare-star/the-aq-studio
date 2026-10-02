@@ -20,11 +20,11 @@ export default function HomePage() {
       {/* 3. Services */}
       <ServicesSection />
 
-      {/* 4. Case Study */}
-      <CaseStudySection />
-
-      {/* 5. Industries */}
+      {/* 4. Industries */}
       <IndustriesSection />
+
+      {/* 5. Case Study */}
+      <CaseStudySection />
 
       {/* 6. Process */}
       <ProcessSection />

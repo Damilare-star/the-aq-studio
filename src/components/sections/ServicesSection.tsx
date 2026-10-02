@@ -61,14 +61,14 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       {/* Background gradient — unique per service, reveals on hover */}
       <motion.div
         className={`absolute inset-0 bg-linear-to-br ${service.gradient}`}
-        animate={{ opacity: hovered ? 1 : 0 }}
+        animate={{ opacity: hovered ? 0.8 : 0 }}
         transition={{ duration: 0.45 }}
       />
 
       {/* Accent radial glow */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        animate={{ opacity: hovered ? 1 : 0 }}
+        animate={{ opacity: hovered ? 0.8 : 0 }}
         transition={{ duration: 0.45 }}
         style={{
           background: `radial-gradient(ellipse at 20% 20%, ${service.accentColor} 0%, transparent 60%)`,
@@ -84,16 +84,16 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       {/* Top accent line — slides in on hover */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-[1.5px]"
-        style={{ background: `linear-gradient(to right, transparent, ${service.accentColor.replace(/[\d.]+\)$/, '0.8)')}, transparent)` }}
+        style={{ background: `linear-gradient(to right, transparent, ${service.accentColor.replace(/[\d.]+\)$/, '1)')}, transparent)` }}
         animate={{ scaleX: hovered ? 1 : 0, opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       />
 
       {/* Card content */}
-      <div className="relative z-10 p-5 sm:p-6 flex flex-col flex-1">
+      <div className="relative z-10 p-8 sm:p-10 flex flex-col flex-1 items-center text-center">
 
         {/* Top: number + icon */}
-        <div className="flex items-start justify-between mb-6">
+        <div className="flex items-center justify-center gap-4 mb-6 w-full">
           <span className="text-[9px] tracking-[0.24em] font-mono text-[rgba(255,255,255,0.20)]">
             {service.number}
           </span>
@@ -118,7 +118,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         </div>
 
         {/* Bottom: deliverables */}
-        <div className="flex flex-wrap gap-1.5 mt-6">
+        <div className="flex flex-wrap gap-1.5 mt-6 justify-center">
           {service.deliverables.map((d) => (
             <motion.span
               key={d}
@@ -139,10 +139,11 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         <motion.div
           animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -6 }}
           transition={{ duration: 0.3 }}
-          className="mt-4 flex items-center gap-2"
+          className="mt-4 flex items-center justify-center gap-2 w-full"
         >
-          <span className="h-px flex-1 bg-[rgba(255,255,255,0.08)]" />
+          <span className="h-px w-12 bg-[rgba(255,255,255,0.08)]" />
           <span className="text-[#8B5CF6] text-sm">→</span>
+          <span className="h-px w-12 bg-[rgba(255,255,255,0.08)]" />
         </motion.div>
       </div>
     </motion.article>
@@ -198,7 +199,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* ── Services grid — 3 col desktop, 2 col tablet, 1 col mobile ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
           {services.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}

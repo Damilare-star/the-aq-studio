@@ -11,243 +11,148 @@ export default function Hero() {
       className="relative flex flex-col bg-[#050505] overflow-hidden"
       style={{ minHeight: '100svh' }}
     >
-      {/* Ambient glow */}
+      {/* Full-screen background video */}
+      <video
+        ref={videoRef}
+        src="/hero-reel.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full"
+        style={{ 
+          zIndex: 1,
+          objectFit: 'cover',
+          objectPosition: 'center 30%',
+        }}
+        aria-label="AQ Studio showreel"
+      />
+
+      {/* Dark overlay for text readability */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 60% at 0% 50%, rgba(139,92,246,0.07) 0%, transparent 65%)' }}
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)',
+          zIndex: 2,
+        }}
       />
 
       {/* Bottom fade */}
       <div
-        className="absolute bottom-0 left-0 right-0 pointer-events-none z-[2]"
-        style={{ height: '100px', background: 'linear-gradient(to top, #050505, transparent)' }}
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{ 
+          height: '150px', 
+          background: 'linear-gradient(to top, #050505, transparent)',
+          zIndex: 2,
+        }}
       />
 
-      {/* ── Content ── */}
+      {/* ── Centered Content ── */}
       <div
-        className="relative z-10 flex-1 flex items-center container-wide"
+        className="relative z-10 flex-1 flex items-center justify-center container-wide"
         style={{
-          paddingTop: 'calc(var(--navbar-h, 68px) + 5px)',
-          paddingBottom: '2rem',
+          paddingTop: '4rem',
+          paddingBottom: '4rem',
         }}
       >
-        <div className="flex flex-row items-center justify-between w-full gap-4 md:gap-10 lg:gap-24">
-
-          {/* LEFT: Text */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col flex-1 min-w-0 pl-2 pr-1 md:pl-4 lg:pl-8 lg:pr-8"
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center text-center max-w-4xl px-4"
+        >
+          {/* Eyebrow */}
+          <motion.p
+            variants={fadeUp}
+            className="text-[6px] sm:text-[7px] md:text-[8px] lg:text-[9px] tracking-[0.20em] uppercase font-medium mb-4 sm:mb-5 md:mb-6 text-[rgba(255,255,255,0.70)] whitespace-nowrap"
           >
-            {/* Eyebrow */}
-            <motion.p
-              variants={fadeUp}
-              className="text-[8px] md:text-[10px] tracking-[0.24em] uppercase font-medium mb-3 md:mb-5 text-[rgba(255,255,255,0.38)]"
-            >
-              AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;
-              <span className="text-[#8B5CF6]">Cinematic</span>
-            </motion.p>
+            AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;<span className="text-[#8B5CF6]">Cinematic</span>
+          </motion.p>
 
-            {/* Headline — compact for mobile, uses space efficiently */}
-            <motion.h1
-              variants={fadeUp}
-              className="font-bold text-white leading-[1.1] tracking-tight mb-4 md:mb-5"
-              style={{ fontSize: 'clamp(1.4rem, 5.5vw, 4.5rem)' }}
-            >
-              Cinematic AI Commercials <span className="text-[#8B5CF6]">That Make Products Impossible To Ignore.</span>
-            </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              variants={fadeUp}
-              className="text-[rgba(255,255,255,0.42)] leading-[1.6] md:leading-[1.75] mb-5 md:mb-6"
-              style={{ fontSize: 'clamp(0.75rem, 2vw, 0.95rem)', maxWidth: '420px' }}
-            >
-              Premium AI-powered advertising for beauty, fashion, food,
-              technology and lifestyle brands.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-2.5 md:gap-3">
-              <button
-                onClick={() => document.querySelector('#case-studies')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer font-semibold text-white whitespace-nowrap"
-                style={{
-                  height: '44px',
-                  paddingLeft: '1.4rem',
-                  paddingRight: '1.4rem',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
-                  background: 'linear-gradient(135deg, #7c3aed, #8B5CF6, #a78bfa)',
-                  boxShadow: '0 0 24px rgba(139,92,246,0.35)',
-                  transition: 'box-shadow 0.3s, transform 0.2s',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 40px rgba(139,92,246,0.60)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 24px rgba(139,92,246,0.35)'; e.currentTarget.style.transform = 'translateY(0)' }}
-              >
-                View Work →
-              </button>
-
-              <button
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-2 rounded-full cursor-pointer font-semibold text-white whitespace-nowrap"
-                style={{
-                  height: '44px',
-                  paddingLeft: '1.4rem',
-                  paddingRight: '1.4rem',
-                  fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.14)',
-                  transition: 'border-color 0.3s, background 0.3s, transform 0.2s',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(139,92,246,0.55)'; e.currentTarget.style.background = 'rgba(139,92,246,0.08)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
-              >
-                Book a Call ↗
-              </button>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT: Video — iPhone frame, responsive scaling */}
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="block shrink-0"
+          {/* Headline — centered, large, smartwatch optimized */}
+          <motion.h1
+            variants={fadeUp}
+            className="font-bold text-white leading-[1.15] tracking-tight mb-5 sm:mb-6 md:mb-8"
+            style={{ fontSize: 'clamp(1.2rem, 6vw, 4rem)' }}
           >
-            {/* Phone shell */}
-            <div 
-              className="scale-[0.45] md:scale-[0.65] lg:scale-[0.85] origin-center"
+            Cinematic AI Commercials
+            <br />
+            <span className="text-[#8B5CF6]">
+              That Make Products
+              <br />
+              Impossible To Ignore.
+            </span>
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            variants={fadeUp}
+            className="text-[rgba(255,255,255,0.80)] leading-[1.6] mb-8 sm:mb-12 md:mb-14 max-w-2xl px-2"
+            style={{ fontSize: 'clamp(0.75rem, 2vw, 1.1rem)' }}
+          >
+            Premium AI-powered advertising for beauty, fashion, food, technology and lifestyle brands.
+          </motion.p>
+
+          {/* CTAs — stacked on mobile, side-by-side on desktop */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col lg:flex-row gap-3 lg:gap-4 items-stretch lg:items-center justify-center w-full lg:w-auto mt-4"
+          >
+            <button
+              onClick={() => document.querySelector('#case-studies')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center justify-center gap-2 cursor-pointer font-semibold text-white whitespace-nowrap w-full lg:w-auto"
               style={{
-              position: 'relative',
-              width: '260px',
-              borderRadius: '50px',
-              background: 'linear-gradient(160deg, #3a3a3c 0%, #2c2c2e 40%, #1c1c1e 100%)',
-              padding: '12px',
-              boxShadow: '0 0 0 1.5px rgba(255,255,255,0.12), 0 0 0 2.5px rgba(0,0,0,0.8), 0 40px 80px rgba(0,0,0,0.8), 0 0 80px rgba(139,92,246,0.10)',
-            }}
+                height: '52px',
+                paddingLeft: '2rem',
+                paddingRight: '2rem',
+                fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+                background: 'linear-gradient(135deg, #7c3aed, #8B5CF6, #a78bfa)',
+                boxShadow: '0 0 30px rgba(139,92,246,0.5)',
+                transition: 'box-shadow 0.3s, transform 0.2s',
+                borderRadius: '0',
+                marginTop: '8px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 0 50px rgba(139,92,246,0.7)'
+                e.currentTarget.style.transform = 'translateY(-2px)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '0 0 30px rgba(139,92,246,0.5)'
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
             >
+              View Work →
+            </button>
 
-              {/* Left buttons — Action button (top, short) + Volume (bottom, longer) */}
-              <div style={{ position: 'absolute', left: '-4px', top: '88px',  width: '4px', height: '32px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
-              <div style={{ position: 'absolute', left: '-4px', top: '136px', width: '4px', height: '72px', background: '#2c2c2e', borderRadius: '2px 0 0 2px', boxShadow: '-1px 0 0 rgba(255,255,255,0.08)' }} />
-              {/* Right power button */}
-              <div style={{ position: 'absolute', right: '-4px', top: '148px', width: '4px', height: '80px', background: '#2c2c2e', borderRadius: '0 2px 2px 0', boxShadow: '1px 0 0 rgba(255,255,255,0.08)' }} />
-
-              {/* Screen — matches phone border radius */}
-              <div style={{
-                borderRadius: '38px',
-                overflow: 'hidden',
-                aspectRatio: '9/19.5',
-                background: '#000',
-                position: 'relative',
-              }}>
-
-                {/* Video fills full screen */}
-                <video
-                  ref={videoRef}
-                  src="/hero-reel.mp4"
-                  autoPlay muted loop playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                  aria-label="AQ Studio showreel"
-                />
-
-                {/* Dynamic Island — sits on top of video */}
-                <div style={{
-                  position: 'absolute',
-                  top: '12px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '100px',
-                  height: '32px',
-                  background: '#000',
-                  borderRadius: '20px',
-                  zIndex: 20,
-                }} />
-
-                {/* Status bar — time left, icons right, same level as Dynamic Island */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  paddingLeft: '18px',
-                  paddingRight: '22px',
-                  paddingTop: '16px',
-                  zIndex: 25,
-                  pointerEvents: 'none',
-                }}>
-                  {/* Time */}
-                  <span style={{ color: 'white', fontSize: '13px', fontWeight: '700', letterSpacing: '-0.03em', lineHeight: 1 }}>
-                    9:41
-                  </span>
-                  {/* Battery + signal */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    {/* Signal bars */}
-                    <svg width="16" height="11" viewBox="0 0 16 11" fill="white">
-                      <rect x="0"   y="7"   width="2.5" height="4"   rx="0.4"/>
-                      <rect x="4.5" y="4.5" width="2.5" height="6.5" rx="0.4"/>
-                      <rect x="9"   y="2"   width="2.5" height="9"   rx="0.4"/>
-                      <rect x="13.5" y="0"  width="2.5" height="11"  rx="0.4" opacity="0.35"/>
-                    </svg>
-                    {/* Battery */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1px' }}>
-                      <div style={{ width: '22px', height: '11px', border: '1.5px solid white', borderRadius: '3px', padding: '2px', boxSizing: 'border-box' }}>
-                        <div style={{ width: '75%', height: '100%', background: 'white', borderRadius: '1px' }} />
-                      </div>
-                      <div style={{ width: '2px', height: '5px', background: 'white', borderRadius: '0 1px 1px 0', opacity: 0.7 }} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom gradient + label */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: '40px 16px 28px',
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.80) 0%, transparent 100%)',
-                  zIndex: 20,
-                  pointerEvents: 'none',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
-                    <div>
-                      <p style={{ fontSize: '8px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', fontWeight: 500 }}>Showreel</p>
-                      <p style={{ fontSize: '9px', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>AQ Studio — 2024</p>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <motion.span
-                        animate={{ opacity: [1, 0.2, 1] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
-                        style={{ display: 'block', width: '6px', height: '6px', borderRadius: '50%', background: '#8B5CF6' }}
-                      />
-                      <span style={{ fontSize: '8px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>Live</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Home indicator */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '8px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '100px',
-                  height: '4px',
-                  background: 'rgba(255,255,255,0.50)',
-                  borderRadius: '2px',
-                  zIndex: 25,
-                }} />
-
-              </div>
-            </div>
+            <button
+              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center justify-center gap-2 cursor-pointer font-semibold text-white whitespace-nowrap w-full lg:w-auto"
+              style={{
+                height: '52px',
+                paddingLeft: '2rem',
+                paddingRight: '2rem',
+                fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+                background: 'rgba(255,255,255,0.08)',
+                border: '1.5px solid rgba(255,255,255,0.25)',
+                backdropFilter: 'blur(10px)',
+                transition: 'border-color 0.3s, background 0.3s, transform 0.2s',
+                borderRadius: '0',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(139,92,246,0.70)'
+                e.currentTarget.style.background = 'rgba(139,92,246,0.15)'
+                e.currentTarget.style.transform = 'translateY(-2px)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.08)'
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
+            >
+              Book a Call ↗
+            </button>
           </motion.div>
-
-        </div>
+        </motion.div>
       </div>
 
       {/* Ticker */}
@@ -255,13 +160,13 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.8 }}
-        className="relative z-10 border-t border-[rgba(255,255,255,0.05)] overflow-hidden shrink-0"
+        className="relative z-10 border-t border-[rgba(255,255,255,0.15)] overflow-hidden shrink-0 bg-black/40 backdrop-blur-sm"
       >
         <div className="flex items-center py-3 ticker-track">
           {[...Array(8)].map((_, i) => (
             <span
               key={i}
-              className="text-[rgba(255,255,255,0.32)] text-[9px] tracking-[0.26em] uppercase whitespace-nowrap flex items-center font-medium"
+              className="text-[rgba(255,255,255,0.50)] text-[9px] tracking-[0.26em] uppercase whitespace-nowrap flex items-center font-medium"
               style={{ gap: '2rem' }}
             >
               AI Commercial Production

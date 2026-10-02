@@ -5,9 +5,9 @@
   --bg-elevated:    #0D0D0D;
   --bg-overlay:     rgba(9, 9, 9, 0.85);
   --text-primary:   #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.55);
-  --text-muted:     rgba(255, 255, 255, 0.30);
-  --text-dim:       rgba(255, 255, 255, 0.18);
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted:     rgba(255, 255, 255, 0.55);
+  --text-dim:       rgba(255, 255, 255, 0.35);
   --accent:         #8B5CF6;
   --accent-dim:     rgba(139, 92, 246, 0.15);
   --accent-border:  rgba(139, 92, 246, 0.25);

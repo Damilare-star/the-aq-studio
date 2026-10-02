@@ -31,6 +31,7 @@ const INDUSTRIES = [
     accent: 'rgba(163,230,53,0.40)',
     thumbnail: '/oat.jpeg',
     videos: [
+      '/case-study-video.mp4',
       '/food and beverage 1.mp4',
       '/food and beverage 2.mp4',
       '/food and beverage 3.mp4',
@@ -81,7 +82,21 @@ function VideoModal({ videos, onClose }: { videos: string[]; onClose: () => void
   }, [])
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    const handler = (e: KeyboardEvent) => { 
+      if (e.key === 'Escape') onClose()
+      // Spacebar to play/pause
+      if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault()
+        const video = videoRef.current
+        if (video) {
+          if (video.paused) {
+            video.play()
+          } else {
+            video.pause()
+          }
+        }
+      }
+    }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [onClose])
@@ -137,21 +152,23 @@ function VideoModal({ videos, onClose }: { videos: string[]; onClose: () => void
 
           {/* Video selector tabs — only shown when multiple */}
           {videos.length > 1 && (
-            <div className="flex gap-2 mt-4">
+            <div className="flex gap-2" style={{ marginTop: '32px', marginBottom: '24px' }}>
               {videos.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   className="cursor-pointer transition-all duration-200"
                   style={{
-                    padding: '6px 16px',
+                    padding: '8px 18px',
                     fontSize: '10px',
                     letterSpacing: '0.18em',
                     textTransform: 'uppercase',
-                    color: i === activeIndex ? '#fff' : 'rgba(255,255,255,0.35)',
-                    border: `1px solid ${i === activeIndex ? 'rgba(163,230,53,0.50)' : 'rgba(255,255,255,0.10)'}`,
-                    background: i === activeIndex ? 'rgba(163,230,53,0.10)' : 'transparent',
-                    borderRadius: '4px',
+                    fontWeight: 600,
+                    color: i === activeIndex ? '#fff' : 'rgba(255,255,255,0.60)',
+                    border: `1.5px solid ${i === activeIndex ? 'rgba(163,230,53,0.70)' : 'rgba(255,255,255,0.25)'}`,
+                    background: i === activeIndex ? 'rgba(163,230,53,0.20)' : 'rgba(0,0,0,0.60)',
+                    borderRadius: '6px',
+                    backdropFilter: 'blur(8px)',
                   }}
                 >
                   Film {i + 1}
@@ -162,9 +179,9 @@ function VideoModal({ videos, onClose }: { videos: string[]; onClose: () => void
 
           {/* Label */}
           <div className="flex items-center gap-3 mt-3">
-            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.30)]">AQ Studio</span>
-            <span className="w-1 h-1 rounded-full bg-[rgba(163,230,53,0.60)]" />
-            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.30)]">Food & Beverage</span>
+            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">AQ Studio</span>
+            <span className="w-1 h-1 rounded-full bg-[rgba(163,230,53,0.70)]" />
+            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">Food & Beverage</span>
           </div>
         </motion.div>
       </motion.div>
@@ -332,11 +349,9 @@ export default function IndustriesSection() {
                 )}
 
                 {/* Content */}
-                <div className="relative z-10 p-5 sm:p-8 flex flex-col justify-between h-full" style={{ minHeight: '160px' }}>
+                <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-between items-center text-center h-full" style={{ minHeight: '160px' }}>
                   <div>
-                    <span className="text-[rgba(255,255,255,0.18)] text-[9px] font-mono tracking-widest block mb-4">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+                    <div className="mb-4 h-[13px]" />
                     <h3 className="text-white font-semibold leading-tight mb-2 transition-colors duration-300" style={{ fontSize: 'clamp(1rem, 1.4vw, 1.2rem)' }}>
                       {industry.name}
                     </h3>
@@ -349,8 +364,8 @@ export default function IndustriesSection() {
                     </motion.p>
                   </div>
 
-                  <div className="mt-5 flex items-center justify-between">
-                    <span className="text-[9px] tracking-[0.18em] uppercase text-[rgba(255,255,255,0.28)]">
+                  <div className="mt-5 flex items-center justify-center gap-3 w-full">
+                    <span className="text-[9px] tracking-[0.18em] uppercase text-[rgba(255,255,255,0.28)]" style={{ marginBottom: '2px' }}>
                       {hasVideo ? 'Watch film' : projectCount > 0 ? `${projectCount} project${projectCount !== 1 ? 's' : ''}` : 'Coming soon'}
                     </span>
                     <motion.span

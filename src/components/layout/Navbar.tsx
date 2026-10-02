@@ -64,7 +64,7 @@ export default function Navbar() {
           className="absolute inset-0 transition-all duration-500"
           style={scrolled
             ? { background: '#000000', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.06)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }
-            : { background: '#000000', backdropFilter: 'none', WebkitBackdropFilter: 'none', borderBottom: '1px solid rgba(255,255,255,0.06)', boxShadow: 'none' }
+            : { background: 'transparent', backdropFilter: 'none', WebkitBackdropFilter: 'none', borderBottom: '1px solid transparent', boxShadow: 'none' }
           }
         />
         <div className="relative container-wide">
@@ -81,7 +81,7 @@ export default function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
                 className="text-white font-bold uppercase tracking-wider"
-                style={{ fontSize: '24px' }}
+                style={{ fontSize: '18px' }}
               >
                 THE AQ STUDIO
               </motion.span>
@@ -96,25 +96,7 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="hidden lg:flex items-center shrink-0 z-10">
-              <motion.button
-                onClick={() => handleNavClick('#contact')}
-                whileHover="hover" whileTap={{ scale: 0.97 }} initial="rest" animate="rest"
-                variants={{ rest: { scale: 1 }, hover: { scale: 1.03 } }}
-                transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-                className="text-[10px] tracking-[0.12em] uppercase font-medium text-white px-5 py-2.5 rounded-full border border-[rgba(139,92,246,0.35)] bg-[rgba(139,92,246,0.07)] hover:bg-[rgba(139,92,246,0.20)] hover:border-[rgba(139,92,246,0.65)] transition-colors duration-300 cursor-pointer whitespace-nowrap flex items-center"
-                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 0 20px rgba(139,92,246,0.22)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none' }}
-              >
-                {"Let\u2019s Work Together\u00a0\u2192"}
-              </motion.button>
-            </div>
-
             <div className="lg:hidden flex items-center gap-2 z-10">
-              <button
-                onClick={() => handleNavClick('#contact')}
-                className="hidden md:flex items-center text-[10px] tracking-[0.14em] uppercase font-medium text-white px-4 py-2 rounded-full border border-[rgba(139,92,246,0.35)] bg-[rgba(139,92,246,0.07)] hover:bg-[rgba(139,92,246,0.20)] active:bg-[rgba(139,92,246,0.25)] transition-colors duration-300 cursor-pointer whitespace-nowrap min-h-[44px]"
-              >Work Together</button>
 
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -155,18 +137,6 @@ export default function Navbar() {
                 >{link.label}</motion.button>
               ))}
             </div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ delay: 0.2, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="container-wide pb-12 pt-4"
-            >
-              <button
-                onClick={() => handleNavClick('#contact')}
-                className="w-full text-center text-[11px] tracking-[0.18em] uppercase font-medium text-white rounded-full border border-[rgba(139,92,246,0.40)] bg-[rgba(139,92,246,0.08)] py-4 hover:bg-[rgba(139,92,246,0.20)] active:bg-[rgba(139,92,246,0.30)] transition-all duration-300 cursor-pointer min-h-[52px] flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.15)]"
-              >{"Let\u2019s Work Together \u2192"}</button>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -19,6 +19,23 @@ body {
   overflow-x: hidden;
 }
 
+/* ─── Smartwatch / Very Small Screens (up to 320px) ─── */
+@media (max-width: 320px) {
+  html {
+    font-size: 12px; /* Reduce base font size */
+  }
+  
+  .container-wide {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .section-padding {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
 ::selection {
   background-color: rgba(139, 92, 246, 0.3);
   color: #ffffff;
@@ -64,55 +81,4 @@ img {
 /* ─── iOS momentum scroll for horizontal strips ─── */
 .scroll-touch {
   -webkit-overflow-scrolling: touch;
-}
-
-/* ─── Full-page scroll snap — mobile only (max 1024px) ─── */
-@media (max-width: 1023px) {
-  html {
-    height: 100%;
-    overflow: hidden;
-  }
-
-  body {
-    height: 100%;
-  }
-
-  .snap-container {
-    height: 100dvh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .snap-container > * > section,
-  .snap-container > section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100dvh;
-  }
-
-  .snap-container > footer {
-    scroll-snap-align: start;
-  }
-}
-
-/* Desktop — normal scroll */
-@media (min-width: 1024px) {
-  html, body {
-    height: auto;
-    overflow: auto;
-  }
-
-  .snap-container {
-    height: auto;
-    overflow-y: visible;
-    scroll-snap-type: none;
-  }
-
-  .snap-container > * > section,
-  .snap-container > section {
-    scroll-snap-align: none;
-    min-height: unset;
-  }
 }
