@@ -308,7 +308,7 @@ export default function IndustriesSection() {
                       style={{ opacity: isHov ? 0.55 : 0.35, transition: 'opacity 0.45s ease' }}
                     />
                     {/* Dark overlay so text stays readable */}
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.85) 30%, rgba(5,5,5,0.30) 100%)' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.60) 30%, rgba(5,5,5,0.15) 100%)' }} />
                   </>
                 )}
 
