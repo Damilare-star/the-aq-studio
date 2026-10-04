@@ -12,10 +12,10 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-16"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16"
         >
           {/* Brand */}
-          <motion.div variants={fadeUp} className="sm:col-span-2 md:col-span-1">
+          <motion.div variants={fadeUp}>
             <div className="flex items-center gap-2 mb-6">
               <span className="text-white font-semibold tracking-[0.22em] text-sm uppercase">AQ</span>
               <span className="w-px h-4 bg-[rgba(255,255,255,0.18)]" />
@@ -43,28 +43,6 @@ export default function Footer() {
                     className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 py-3 block min-h-[44px] flex items-center"
                   >
                     {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Social */}
-          <motion.div variants={fadeUp}>
-            <p className="label-tag mb-6">Follow</p>
-            <ul className="space-y-1">
-              {SOCIAL_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[rgba(255,255,255,0.40)] text-sm hover:text-white transition-colors duration-300 flex items-center gap-2 group py-3 min-h-[44px]"
-                  >
-                    {link.label}
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#8B5CF6]">
-                      {"↗"}
-                    </span>
                   </a>
                 </li>
               ))}
