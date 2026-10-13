@@ -173,7 +173,7 @@ function VideoModal({
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full flex flex-col items-center py-8 px-4"
-          style={{ maxWidth: '800px' }}
+          style={{ maxWidth: '800px', marginTop: '60px' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close */}
