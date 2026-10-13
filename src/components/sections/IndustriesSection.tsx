@@ -429,7 +429,7 @@ export default function IndustriesSection() {
                 onMouseLeave={() => setHovered(null)}
                 className="relative overflow-hidden text-left cursor-pointer focus:outline-none group col-span-1"
                 style={{
-                  minHeight: '220px',
+                  minHeight: 'clamp(240px, 35vw, 280px)',
                   background: '#0D0D0D',
                   border: isSelected ? '1px solid rgba(139,92,246,0.40)' : '1px solid rgba(255,255,255,0.07)',
                 }}
@@ -443,7 +443,7 @@ export default function IndustriesSection() {
                       src={industry.thumbnail}
                       alt={industry.name}
                       className="absolute inset-0 w-full h-full object-cover"
-                      style={{ opacity: isHov ? 0.55 : 0.35, transition: 'opacity 0.45s ease', objectPosition: 'center' }}
+                      style={{ opacity: isHov ? 0.55 : 0.35, transition: 'opacity 0.45s ease', objectPosition: 'center top' }}
                     />
                     {/* Dark overlay so text stays readable */}
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.60) 30%, rgba(5,5,5,0.15) 100%)' }} />
