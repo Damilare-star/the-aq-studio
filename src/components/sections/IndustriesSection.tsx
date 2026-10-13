@@ -4,6 +4,12 @@ import { projects, type Project } from '../../data/projects'
 import { fadeUp, staggerContainer } from '../animations/variants'
 import SectionLabel from '../ui/SectionLabel'
 
+// ─── Video type with individual descriptions ──────────────────────────────────
+type VideoWithDescription = {
+  path: string
+  description: string
+}
+
 // ─── Industry definitions ─────────────────────────────────────────────────────
 const INDUSTRIES = [
   {
@@ -11,9 +17,13 @@ const INDUSTRIES = [
     tagline: 'Aspiration rendered in light.',
     gradient: 'from-[#1a0a1e] via-[#0f0614] to-[#050505]',
     accent: 'rgba(244,114,182,0.45)',
-    thumbnail: null as string | null,
-    videos: ['/beauty-1.mp4'],
-    description: 'Cinematic AI commercials showcasing beauty products with stunning visuals and aspirational storytelling.',
+    thumbnail: '/beauty%20tumbnail.jpeg',
+    videos: [
+      {
+        path: '/beauty%201.mp4',
+        description: 'A beauty commercial for TRP Face Serum, built around the connection between everyday rituals, natural ingredients, and radiant skin. Warm cinematic lighting, rich botanical details, and intimate lifestyle moments give the product a natural place within the story, while carefully composed product shots keep the serum at the centre of attention. The creative direction brings together lifestyle storytelling and premium product presentation to create a beauty campaign that feels warm, aspirational, and commercially appealing.',
+      }
+    ],
     projectMatch: (p: Project) => p.industry === 'Beauty',
   },
   {
@@ -21,9 +31,8 @@ const INDUSTRIES = [
     tagline: 'Editorial quality. Commercial speed.',
     gradient: 'from-[#0e0412] via-[#180a1e] to-[#050505]',
     accent: 'rgba(167,139,250,0.45)',
-    thumbnail: null as string | null,
-    videos: ['/fashion-1.mp4'],
-    description: 'High-end fashion commercials combining editorial aesthetics with commercial impact.',
+    thumbnail: null as string | null, // Add your thumbnail path here
+    videos: [] as VideoWithDescription[], // Add your video paths here
     projectMatch: (p: Project) => p.industry === 'Fashion',
   },
   {
@@ -33,12 +42,23 @@ const INDUSTRIES = [
     accent: 'rgba(163,230,53,0.40)',
     thumbnail: '/oat.jpeg',
     videos: [
-      '/case-study-video.mp4',
-      '/food and beverage 1.mp4',
-      '/food and beverage 2.mp4',
-      '/food and beverage 3.mp4',
+      {
+        path: '/case-study-video.mp4',
+        description: 'BLOOM & OATS — Talking Head Commercial Series. Brand: Fictional organic oat milk brand, DTC-focused. Challenge: In a crowded plant-based milk category, most brands either hide behind lifestyle imagery or lean too hard on environmental messaging. Bloom & Oats needed a voice — literally and figuratively — that felt genuine, conversational, and human. Solution: A talking-head format built around an authentic Nigerian woman host who speaks directly to camera with the warmth and specificity of a friend sharing a discovery, not a corporate spokesperson reading a brief. The format strips away production noise — no dramatic B-roll, no manipulative music cues — just presence, clarity, and the product itself. The Approach: Shot in intimate warm lighting (soft home/kitchen setting), single locked camera, minimal cuts, maximum eye contact, script written as natural speech, not ad-copy, product featured casually but consistently in frame. Tone: conversational educator, not salesperson.',
+      },
+      {
+        path: '/food%20and%20beverage%201.mp4',
+        description: '', // Add description for video 2
+      },
+      {
+        path: '/food%20and%20beverage%202.mp4',
+        description: '', // Add description for video 3
+      },
+      {
+        path: '/food%20and%20beverage%203.mp4',
+        description: '', // Add description for video 4
+      },
     ],
-    description: 'Mouth-watering food and beverage commercials designed to trigger appetite and drive desire.',
     projectMatch: (p: Project) => p.industry === 'Food',
   },
   {
@@ -46,9 +66,8 @@ const INDUSTRIES = [
     tagline: 'Brand worlds that feel inevitable.',
     gradient: 'from-[#02080f] via-[#050d1a] to-[#050505]',
     accent: 'rgba(56,189,248,0.40)',
-    thumbnail: null as string | null,
-    videos: ['/technology-1.mp4'],
-    description: 'Cutting-edge tech commercials that make innovation feel inevitable and desirable.',
+    thumbnail: null as string | null, // Add your thumbnail path here
+    videos: [] as VideoWithDescription[], // Add your video paths here
     projectMatch: (p: Project) => p.industry === 'Technology',
   },
   {
@@ -56,9 +75,8 @@ const INDUSTRIES = [
     tagline: 'Restraint is the loudest statement.',
     gradient: 'from-[#0a0a06] via-[#141410] to-[#050505]',
     accent: 'rgba(212,212,180,0.30)',
-    thumbnail: null as string | null,
-    videos: ['/luxury-1.mp4'],
-    description: 'Refined luxury brand commercials where restraint creates the most powerful statement.',
+    thumbnail: null as string | null, // Add your thumbnail path here
+    videos: [] as VideoWithDescription[], // Add your video paths here
     projectMatch: (p: Project) => p.industry === 'Luxury',
   },
   {
@@ -66,9 +84,8 @@ const INDUSTRIES = [
     tagline: 'Wellness and culture made aspirational.',
     gradient: 'from-[#031008] via-[#051a0c] to-[#050505]',
     accent: 'rgba(52,211,153,0.38)',
-    thumbnail: null as string | null,
-    videos: ['/lifestyle-1.mp4'],
-    description: 'Aspirational lifestyle commercials capturing wellness, culture, and modern living.',
+    thumbnail: null as string | null, // Add your thumbnail path here
+    videos: [] as VideoWithDescription[], // Add your video paths here
     projectMatch: (p: Project) => p.industry === 'Lifestyle',
   },
 ] as const
@@ -81,12 +98,10 @@ const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http:
 function VideoModal({ 
   videos, 
   industryName, 
-  description, 
   onClose 
 }: { 
-  videos: string[]
+  videos: VideoWithDescription[]
   industryName: string
-  description: string
   onClose: () => void 
 }) {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -125,6 +140,8 @@ function VideoModal({
     }
   }, [activeIndex])
 
+  const currentVideo = videos[activeIndex]
+
   return (
     <AnimatePresence>
       <motion.div
@@ -157,7 +174,7 @@ function VideoModal({
           <div className="relative w-full overflow-hidden rounded-2xl mb-6" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 80px rgba(139,92,246,0.12), 0 40px 80px rgba(0,0,0,0.8)' }}>
             <video
               ref={videoRef}
-              src={videos[activeIndex]}
+              src={currentVideo.path}
               controls
               playsInline
               autoPlay
@@ -169,7 +186,7 @@ function VideoModal({
           {/* Video info section */}
           <div className="w-full mb-6">
             <h3 className="text-white text-lg font-semibold mb-2">{industryName} — Film {activeIndex + 1}</h3>
-            <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed">{description}</p>
+            <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed whitespace-pre-line">{currentVideo.description}</p>
           </div>
 
           {/* Video selector tabs */}
@@ -280,7 +297,7 @@ function MiniProjectCard({ project }: { project: Project }) {
 export default function IndustriesSection() {
   const [selected, setSelected] = useState<IndustryName | null>(null)
   const [hovered, setHovered] = useState<IndustryName | null>(null)
-  const [modalData, setModalData] = useState<{ videos: string[]; name: string; description: string } | null>(null)
+  const [modalData, setModalData] = useState<{ videos: VideoWithDescription[]; name: string } | null>(null)
   const drawerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -298,8 +315,7 @@ export default function IndustriesSection() {
     if (industry?.videos.length) {
       setModalData({ 
         videos: [...industry.videos], 
-        name: industry.name, 
-        description: industry.description 
+        name: industry.name
       })
       return
     }
@@ -511,7 +527,6 @@ export default function IndustriesSection() {
         <VideoModal 
           videos={modalData.videos} 
           industryName={modalData.name}
-          description={modalData.description}
           onClose={() => setModalData(null)} 
         />
       )}
