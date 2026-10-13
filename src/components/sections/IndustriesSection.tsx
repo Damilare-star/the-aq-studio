@@ -90,7 +90,12 @@ const INDUSTRIES = [
     gradient: 'from-[#031008] via-[#051a0c] to-[#050505]',
     accent: 'rgba(52,211,153,0.38)',
     thumbnail: '/lifestyle%20tumbnaill.png',
-    videos: [] as VideoWithDescription[],
+    videos: [
+      {
+        path: '/lifestyle%201.mp4',
+        description: 'Project Title: MISTEE | AI UGC Product Ad with Cinematic B-roll. This AI-powered product advertisement showcases MISTEE through a soft, cinematic visual experience, combining pastel aesthetics, atmospheric lighting, and detailed product presentation to create a polished commercial concept that captures attention and communicates the product\'s appeal. The creative direction focuses on making an everyday product feel desirable through intentional visual storytelling, premium product imagery, and a calming atmosphere that aligns with the brand\'s identity. Creative Approach: The advertisement uses a clean, lifestyle-inspired aesthetic to highlight the product\'s design and features. Soft lavender and pink tones establish a distinctive visual identity, while subtle lighting effects and atmospheric mist enhance the product\'s presentation. Every visual element is designed to complement the product rather than distract from it, creating a cohesive advertising experience that feels modern, elegant, and commercially relevant.',
+      }
+    ],
     projectMatch: (p: Project) => p.industry === 'Lifestyle',
   },
 ] as const
