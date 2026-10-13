@@ -230,9 +230,6 @@ function VideoModal({
             {/* Video info */}
             {currentVideo.description && (
               <div className="w-full mt-5 mb-6">
-                {videos.length > 1 && (
-                  <h3 className="text-white text-lg font-semibold mb-2">{industryName} — Film {activeIndex + 1}</h3>
-                )}
                 <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed">
                   {truncatedDescription}
                   {shouldTruncate && (
@@ -244,36 +241,6 @@ function VideoModal({
                     </button>
                   )}
                 </p>
-              </div>
-            )}
-
-            {/* Video selector tabs */}
-            {videos.length > 1 && (
-              <div className="w-full mb-6">
-                <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-3 font-semibold">All Films ({videos.length})</h4>
-                <div className="flex gap-2 flex-wrap" style={{ marginTop: '16px', marginBottom: '16px' }}>
-                  {videos.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveIndex(i)}
-                      className="cursor-pointer transition-all duration-200"
-                      style={{
-                        padding: '8px 18px',
-                        fontSize: '10px',
-                        letterSpacing: '0.18em',
-                        textTransform: 'uppercase',
-                        fontWeight: 600,
-                        color: i === activeIndex ? '#fff' : 'rgba(255,255,255,0.60)',
-                        border: `1.5px solid ${i === activeIndex ? 'rgba(139,92,246,0.70)' : 'rgba(255,255,255,0.25)'}`,
-                        background: i === activeIndex ? 'rgba(139,92,246,0.20)' : 'rgba(0,0,0,0.60)',
-                        borderRadius: '6px',
-                        backdropFilter: 'blur(8px)',
-                      }}
-                    >
-                      Film {i + 1}
-                    </button>
-                  ))}
-                </div>
               </div>
             )}
 

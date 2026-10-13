@@ -69,13 +69,13 @@ export default function ProcessSection() {
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-[20%] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-purple-600/[0.035] blur-[150px]" />
 
-      <div className="relative z-10 mx-auto px-5 sm:px-8 md:px-10 lg:px-12" style={{ width: '100%', maxWidth: '1100px' }}>
+      <div className="relative z-10 mx-auto w-full" style={{ maxWidth: '1200px', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
 
         {/* ── Header ── */}
-        <div className="grid items-end gap-8 lg:gap-16 text-center lg:text-left">
+        <div className="flex flex-col items-center text-center gap-8 mb-20 lg:mb-28">
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={reveal} className="mx-auto lg:mx-0">
-            <div className="mb-6 flex items-center gap-3 justify-center lg:justify-start">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={reveal} className="w-full max-w-3xl">
+            <div className="mb-6 flex items-center gap-3 justify-center">
               <span className="h-px w-8 bg-purple-500" />
               <span className="text-[10px] font-medium uppercase tracking-[0.32em] text-purple-400">
                 Process
@@ -94,13 +94,13 @@ export default function ProcessSection() {
             initial="hidden" whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
             variants={reveal}
-            className="mx-auto lg:ml-auto lg:mr-0 max-w-[470px]"
+            className="w-full max-w-xl"
           >
             <p className="text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
               A focused five-phase production process designed to move from creative
               direction to a finished commercial with clarity, speed and cinematic quality.
             </p>
-            <div className="mt-7 flex items-center gap-3 justify-center lg:justify-start">
+            <div className="mt-7 flex items-center gap-3 justify-center">
               <span className="h-px w-10 bg-zinc-800" />
               <span className="text-[9px] uppercase tracking-[0.25em] text-zinc-400">5 PHASES</span>
             </div>
@@ -108,7 +108,7 @@ export default function ProcessSection() {
         </div>
 
         {/* ── Process rows ── */}
-        <div className="relative mt-20 lg:mt-28">
+        <div className="relative w-full" style={{ maxWidth: '900px', margin: '0 auto' }}>
 
           <div className="space-y-0">
             {processSteps.map((step, index) => {
@@ -126,10 +126,11 @@ export default function ProcessSection() {
                   className="group relative outline-none"
                 >
                   <div
-                    className={`relative grid min-h-[140px] items-start gap-4 border-t border-white/[0.08] py-7 transition-all duration-500 lg:grid-cols-[1fr_240px_70px] lg:items-center lg:gap-8 ${isActive ? 'border-white/[0.14]' : ''}`}
+                    className={`relative flex flex-col lg:grid lg:grid-cols-[1fr_200px_60px] items-start lg:items-center gap-4 lg:gap-6 border-t border-white/[0.08] py-8 transition-all duration-500 ${isActive ? 'border-white/[0.14]' : ''}`}
+                    style={{ minHeight: '140px' }}
                   >
                     {/* Title + description + tags */}
-                    <div className="pr-4">
+                    <div className="w-full">
                       <div className="flex items-center gap-4">
                         <h3
                           className={`text-lg font-medium tracking-[-0.03em] transition-all duration-500 sm:text-xl ${isActive ? 'translate-x-1 text-white' : 'text-white opacity-90'}`}
@@ -142,7 +143,7 @@ export default function ProcessSection() {
                       </div>
 
                       <p
-                        className={`mt-3 max-w-[600px] text-sm leading-6 transition-all duration-500 sm:text-[15px] ${isActive ? 'text-white opacity-75' : 'text-zinc-400 opacity-70'}`}
+                        className={`mt-3 max-w-[580px] text-sm leading-6 transition-all duration-500 sm:text-[15px] ${isActive ? 'text-white opacity-75' : 'text-zinc-400 opacity-70'}`}
                       >
                         {step.description}
                       </p>
@@ -162,7 +163,7 @@ export default function ProcessSection() {
                     </div>
 
                     {/* Duration */}
-                    <div className="mt-7 flex items-center justify-between lg:mt-0 lg:justify-self-end">
+                    <div className="flex items-center justify-between lg:justify-end w-full lg:w-auto">
                       <span
                         className={`text-[9px] font-medium uppercase tracking-[0.22em] transition-colors duration-300 ${isActive ? 'text-white' : 'text-zinc-400'}`}
                       >
@@ -174,7 +175,7 @@ export default function ProcessSection() {
                     </div>
 
                     {/* Arrow button */}
-                    <div className="hidden items-center justify-end lg:flex">
+                    <div className="hidden lg:flex items-center justify-center">
                       <div
                         className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-500 ${isActive ? 'border-purple-500/40 bg-purple-500/10' : 'border-white/[0.08]'}`}
                       >
