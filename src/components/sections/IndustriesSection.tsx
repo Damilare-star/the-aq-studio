@@ -230,9 +230,9 @@ function VideoModal({
 
             {/* Video info */}
             {currentVideo.description && (
-              <div className="w-full mt-6 mb-8">
+              <div className="w-full mt-10 mb-8">
                 <div 
-                  className="rounded-lg p-6 sm:p-7"
+                  className="rounded-lg p-6 sm:p-7 text-center"
                   style={{ 
                     background: 'rgba(255,255,255,0.03)',
                     border: '1px solid rgba(255,255,255,0.08)',
