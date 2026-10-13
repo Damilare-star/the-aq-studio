@@ -66,7 +66,7 @@ export default function Hero() {
             variants={fadeUp}
             className="text-[6px] sm:text-[7px] md:text-[8px] lg:text-[9px] tracking-[0.20em] uppercase font-medium mb-4 sm:mb-5 md:mb-6 text-[rgba(255,255,255,0.70)] whitespace-nowrap"
           >
-            AI-Powered&nbsp;&nbsp;•&nbsp;&nbsp;<span className="text-[#8B5CF6]">Cinematic</span>
+            PRODUCTS, REIMAGINED.
           </motion.p>
 
           {/* Headline — centered, large, smartwatch optimized */}
@@ -75,12 +75,10 @@ export default function Hero() {
             className="font-bold text-white leading-[1.15] tracking-tight mb-5 sm:mb-6 md:mb-8"
             style={{ fontSize: 'clamp(1.2rem, 6vw, 4rem)' }}
           >
-            Cinematic AI Commercials
+            Make Them Stop
             <br />
             <span className="text-[#8B5CF6]">
-              That Make Products
-              <br />
-              Impossible To Ignore.
+              Make Them Want it
             </span>
           </motion.h1>
 

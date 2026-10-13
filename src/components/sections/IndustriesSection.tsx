@@ -442,7 +442,7 @@ export default function IndustriesSection() {
                     <img
                       src={industry.thumbnail}
                       alt={industry.name}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-contain"
                       style={{ opacity: isHov ? 0.55 : 0.35, transition: 'opacity 0.45s ease' }}
                     />
                     {/* Dark overlay so text stays readable */}
