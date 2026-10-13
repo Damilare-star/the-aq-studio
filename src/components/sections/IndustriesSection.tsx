@@ -52,15 +52,15 @@ const INDUSTRIES = [
         description: 'BLOOM & OATS — Talking Head Commercial Series. Brand: Fictional organic oat milk brand, DTC-focused. Challenge: In a crowded plant-based milk category, most brands either hide behind lifestyle imagery or lean too hard on environmental messaging. Bloom & Oats needed a voice — literally and figuratively — that felt genuine, conversational, and human. Solution: A talking-head format built around an authentic Nigerian woman host who speaks directly to camera with the warmth and specificity of a friend sharing a discovery, not a corporate spokesperson reading a brief. The format strips away production noise — no dramatic B-roll, no manipulative music cues — just presence, clarity, and the product itself. The Approach: Shot in intimate warm lighting (soft home/kitchen setting), single locked camera, minimal cuts, maximum eye contact, script written as natural speech, not ad-copy, product featured casually but consistently in frame. Tone: conversational educator, not salesperson.',
       },
       {
-        path: '/food%20and%20beverage%201.mp4',
+        path: '/food and beverage 1.mp4',
         description: '', // Add description for video 2
       },
       {
-        path: '/food%20and%20beverage%202.mp4',
+        path: '/food and beverage 2.mp4',
         description: '', // Add description for video 3
       },
       {
-        path: '/food%20and%20beverage%203.mp4',
+        path: '/food and beverage 3.mp4',
         description: '', // Add description for video 4
       },
     ],
@@ -251,22 +251,34 @@ function VideoModal({
           <div className="w-full">
             <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-4 font-semibold">Related Videos</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {/* Placeholder for future related videos */}
-              <div 
-                className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.02)] flex items-center justify-center"
-              >
-                <p className="text-[rgba(255,255,255,0.30)] text-xs">Coming Soon</p>
-              </div>
-              <div 
-                className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.02)] flex items-center justify-center"
-              >
-                <p className="text-[rgba(255,255,255,0.30)] text-xs">Coming Soon</p>
-              </div>
-              <div 
-                className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.02)] flex items-center justify-center"
-              >
-                <p className="text-[rgba(255,255,255,0.30)] text-xs">Coming Soon</p>
-              </div>
+              {/* Show other videos from this industry, fill rest with Coming Soon */}
+              {[0, 1, 2].map((slot) => {
+                const relatedIndex = videos
+                  .map((_, i) => i)
+                  .filter(i => i !== activeIndex)[slot]
+                const relatedVideo = relatedIndex !== undefined ? videos[relatedIndex] : null
+                return relatedVideo ? (
+                  <button
+                    key={slot}
+                    onClick={() => setActiveIndex(relatedIndex!)}
+                    className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.03)] flex items-center justify-center cursor-pointer hover:border-[rgba(139,92,246,0.40)] transition-colors duration-200 group"
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-8 h-8 rounded-full border border-[rgba(255,255,255,0.20)] flex items-center justify-center group-hover:border-[rgba(139,92,246,0.60)] transition-colors">
+                        <span style={{ width: 0, height: 0, borderTop: '5px solid transparent', borderBottom: '5px solid transparent', borderLeft: '9px solid rgba(255,255,255,0.60)', marginLeft: '2px', display: 'block' }} />
+                      </div>
+                      <p className="text-[rgba(255,255,255,0.45)] text-[10px] tracking-[0.14em] uppercase">Film {relatedIndex! + 1}</p>
+                    </div>
+                  </button>
+                ) : (
+                  <div
+                    key={slot}
+                    className="aspect-video rounded-lg border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)] flex items-center justify-center"
+                  >
+                    <p className="text-[rgba(255,255,255,0.20)] text-xs">Coming Soon</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
@@ -375,7 +387,6 @@ export default function IndustriesSection() {
             const isSelected = selected === industry.name
             const isHov = hovered === industry.name
             const projectCount = projects.filter(industry.projectMatch).length
-            const isWide = industry.name === 'Luxury' || industry.name === 'Lifestyle'
             const hasVideo = industry.videos.length > 0
 
             return (
@@ -452,10 +463,12 @@ export default function IndustriesSection() {
                       {industry.name}
                     </h3>
                     <motion.p
-                      animate={{ opacity: isSelected || isHov ? 1 : 0, y: isSelected || isHov ? 0 : 6 }}
+                      animate={{ 
+                        opacity: isSelected || isHov ? 1 : 0, 
+                        y: isSelected || isHov ? 0 : 6 
+                      }}
                       transition={{ duration: 0.35 }}
-                      className="text-[rgba(255,255,255,0.42)] text-[11px] leading-relaxed md:opacity-0 md:translate-y-[6px]"
-                      style={{ opacity: 1, transform: 'translateY(0)' }}
+                      className="text-[rgba(255,255,255,0.42)] text-[11px] leading-relaxed"
                     >
                       {industry.tagline}
                     </motion.p>
