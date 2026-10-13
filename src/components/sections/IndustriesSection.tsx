@@ -12,7 +12,8 @@ const INDUSTRIES = [
     gradient: 'from-[#1a0a1e] via-[#0f0614] to-[#050505]',
     accent: 'rgba(244,114,182,0.45)',
     thumbnail: null as string | null,
-    videos: [] as string[],
+    videos: ['/beauty-1.mp4'],
+    description: 'Cinematic AI commercials showcasing beauty products with stunning visuals and aspirational storytelling.',
     projectMatch: (p: Project) => p.industry === 'Beauty',
   },
   {
@@ -21,7 +22,8 @@ const INDUSTRIES = [
     gradient: 'from-[#0e0412] via-[#180a1e] to-[#050505]',
     accent: 'rgba(167,139,250,0.45)',
     thumbnail: null as string | null,
-    videos: [] as string[],
+    videos: ['/fashion-1.mp4'],
+    description: 'High-end fashion commercials combining editorial aesthetics with commercial impact.',
     projectMatch: (p: Project) => p.industry === 'Fashion',
   },
   {
@@ -36,6 +38,7 @@ const INDUSTRIES = [
       '/food and beverage 2.mp4',
       '/food and beverage 3.mp4',
     ],
+    description: 'Mouth-watering food and beverage commercials designed to trigger appetite and drive desire.',
     projectMatch: (p: Project) => p.industry === 'Food',
   },
   {
@@ -44,7 +47,8 @@ const INDUSTRIES = [
     gradient: 'from-[#02080f] via-[#050d1a] to-[#050505]',
     accent: 'rgba(56,189,248,0.40)',
     thumbnail: null as string | null,
-    videos: [] as string[],
+    videos: ['/technology-1.mp4'],
+    description: 'Cutting-edge tech commercials that make innovation feel inevitable and desirable.',
     projectMatch: (p: Project) => p.industry === 'Technology',
   },
   {
@@ -53,7 +57,8 @@ const INDUSTRIES = [
     gradient: 'from-[#0a0a06] via-[#141410] to-[#050505]',
     accent: 'rgba(212,212,180,0.30)',
     thumbnail: null as string | null,
-    videos: [] as string[],
+    videos: ['/luxury-1.mp4'],
+    description: 'Refined luxury brand commercials where restraint creates the most powerful statement.',
     projectMatch: (p: Project) => p.industry === 'Luxury',
   },
   {
@@ -62,7 +67,8 @@ const INDUSTRIES = [
     gradient: 'from-[#031008] via-[#051a0c] to-[#050505]',
     accent: 'rgba(52,211,153,0.38)',
     thumbnail: null as string | null,
-    videos: [] as string[],
+    videos: ['/lifestyle-1.mp4'],
+    description: 'Aspirational lifestyle commercials capturing wellness, culture, and modern living.',
     projectMatch: (p: Project) => p.industry === 'Lifestyle',
   },
 ] as const
@@ -72,7 +78,17 @@ type IndustryName = typeof INDUSTRIES[number]['name']
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`
 
 // ─── YouTube-style video modal ────────────────────────────────────────────────
-function VideoModal({ videos, onClose }: { videos: string[]; onClose: () => void }) {
+function VideoModal({ 
+  videos, 
+  industryName, 
+  description, 
+  onClose 
+}: { 
+  videos: string[]
+  industryName: string
+  description: string
+  onClose: () => void 
+}) {
   const [activeIndex, setActiveIndex] = useState(0)
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -116,8 +132,8 @@ function VideoModal({ videos, onClose }: { videos: string[]; onClose: () => void
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-[200] flex items-center justify-center"
-        style={{ background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(12px)' }}
+        className="fixed inset-0 z-[200] overflow-y-auto"
+        style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(12px)' }}
         onClick={onClose}
       >
         <motion.div
@@ -125,20 +141,20 @@ function VideoModal({ videos, onClose }: { videos: string[]; onClose: () => void
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full flex flex-col items-center"
-          style={{ maxWidth: '440px', padding: '0 1rem' }}
+          className="relative w-full flex flex-col items-center py-8 px-4"
+          style={{ maxWidth: '1200px', margin: '0 auto' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close */}
           <button
             onClick={onClose}
-            className="absolute -top-10 right-4 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase"
+            className="absolute top-4 right-4 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase z-10"
           >
             Close ✕
           </button>
 
-          {/* Active video */}
-          <div className="relative w-full overflow-hidden rounded-2xl" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 80px rgba(163,230,53,0.12), 0 40px 80px rgba(0,0,0,0.8)' }}>
+          {/* Main video */}
+          <div className="relative w-full overflow-hidden rounded-2xl mb-6" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 80px rgba(139,92,246,0.12), 0 40px 80px rgba(0,0,0,0.8)' }}>
             <video
               ref={videoRef}
               src={videos[activeIndex]}
@@ -150,38 +166,70 @@ function VideoModal({ videos, onClose }: { videos: string[]; onClose: () => void
             />
           </div>
 
-          {/* Video selector tabs — only shown when multiple */}
+          {/* Video info section */}
+          <div className="w-full mb-6">
+            <h3 className="text-white text-lg font-semibold mb-2">{industryName} — Film {activeIndex + 1}</h3>
+            <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed">{description}</p>
+          </div>
+
+          {/* Video selector tabs */}
           {videos.length > 1 && (
-            <div className="flex gap-2" style={{ marginTop: '32px', marginBottom: '24px' }}>
-              {videos.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  className="cursor-pointer transition-all duration-200"
-                  style={{
-                    padding: '8px 18px',
-                    fontSize: '10px',
-                    letterSpacing: '0.18em',
-                    textTransform: 'uppercase',
-                    fontWeight: 600,
-                    color: i === activeIndex ? '#fff' : 'rgba(255,255,255,0.60)',
-                    border: `1.5px solid ${i === activeIndex ? 'rgba(163,230,53,0.70)' : 'rgba(255,255,255,0.25)'}`,
-                    background: i === activeIndex ? 'rgba(163,230,53,0.20)' : 'rgba(0,0,0,0.60)',
-                    borderRadius: '6px',
-                    backdropFilter: 'blur(8px)',
-                  }}
-                >
-                  Film {i + 1}
-                </button>
-              ))}
+            <div className="w-full mb-6">
+              <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-3 font-semibold">All Films ({videos.length})</h4>
+              <div className="flex gap-2 flex-wrap" style={{ marginTop: '16px', marginBottom: '16px' }}>
+                {videos.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIndex(i)}
+                    className="cursor-pointer transition-all duration-200"
+                    style={{
+                      padding: '8px 18px',
+                      fontSize: '10px',
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      fontWeight: 600,
+                      color: i === activeIndex ? '#fff' : 'rgba(255,255,255,0.60)',
+                      border: `1.5px solid ${i === activeIndex ? 'rgba(139,92,246,0.70)' : 'rgba(255,255,255,0.25)'}`,
+                      background: i === activeIndex ? 'rgba(139,92,246,0.20)' : 'rgba(0,0,0,0.60)',
+                      borderRadius: '6px',
+                      backdropFilter: 'blur(8px)',
+                    }}
+                  >
+                    Film {i + 1}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
 
+          {/* Related videos placeholder */}
+          <div className="w-full">
+            <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-4 font-semibold">Related Videos</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Placeholder for future related videos */}
+              <div 
+                className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.02)] flex items-center justify-center"
+              >
+                <p className="text-[rgba(255,255,255,0.30)] text-xs">Coming Soon</p>
+              </div>
+              <div 
+                className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.02)] flex items-center justify-center"
+              >
+                <p className="text-[rgba(255,255,255,0.30)] text-xs">Coming Soon</p>
+              </div>
+              <div 
+                className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.02)] flex items-center justify-center"
+              >
+                <p className="text-[rgba(255,255,255,0.30)] text-xs">Coming Soon</p>
+              </div>
+            </div>
+          </div>
+
           {/* Label */}
-          <div className="flex items-center gap-3 mt-3">
+          <div className="flex items-center gap-3 mt-6">
             <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">AQ Studio</span>
-            <span className="w-1 h-1 rounded-full bg-[rgba(163,230,53,0.70)]" />
-            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">Food & Beverage</span>
+            <span className="w-1 h-1 rounded-full bg-[rgba(139,92,246,0.70)]" />
+            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">{industryName}</span>
           </div>
         </motion.div>
       </motion.div>
@@ -232,7 +280,7 @@ function MiniProjectCard({ project }: { project: Project }) {
 export default function IndustriesSection() {
   const [selected, setSelected] = useState<IndustryName | null>(null)
   const [hovered, setHovered] = useState<IndustryName | null>(null)
-  const [modalVideos, setModalVideos] = useState<string[]>([])
+  const [modalData, setModalData] = useState<{ videos: string[]; name: string; description: string } | null>(null)
   const drawerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -248,7 +296,11 @@ export default function IndustriesSection() {
     const industry = INDUSTRIES.find((i) => i.name === name)
     // If this industry has a video — open the modal instead of drawer
     if (industry?.videos.length) {
-      setModalVideos([...industry.videos])
+      setModalData({ 
+        videos: [...industry.videos], 
+        name: industry.name, 
+        description: industry.description 
+      })
       return
     }
     setSelected((prev) => (prev === name ? null : name))
@@ -455,7 +507,14 @@ export default function IndustriesSection() {
       </div>
 
       {/* YouTube-style video modal */}
-      {modalVideos.length > 0 && <VideoModal videos={modalVideos} onClose={() => setModalVideos([])} />}
+      {modalData && (
+        <VideoModal 
+          videos={modalData.videos} 
+          industryName={modalData.name}
+          description={modalData.description}
+          onClose={() => setModalData(null)} 
+        />
+      )}
 
     </section>
   )
