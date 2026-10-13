@@ -71,8 +71,13 @@ const INDUSTRIES = [
     tagline: 'Brand worlds that feel inevitable.',
     gradient: 'from-[#02080f] via-[#050d1a] to-[#050505]',
     accent: 'rgba(56,189,248,0.40)',
-    thumbnail: null as string | null, // Add your thumbnail path here
-    videos: [] as VideoWithDescription[], // Add your video paths here
+    thumbnail: '/technology%20tumbnail.png',
+    videos: [
+      {
+        path: '/technology%201.mp4',
+        description: 'Project Type: Cinematic Product Commercial. Category: Consumer Electronics & Technology. A dark, futuristic product showcase that transforms abstract motion into a striking reveal of the Oraimo OpenSnap N2 earbuds. Combining fluid visual effects, dramatic lighting, and precision-focused product shots, the commercial presents the earbuds as a premium listening experience. The creative direction is designed to capture attention, build curiosity, highlight product features, and make the product more desirable to potential buyers. By combining cinematic storytelling with compelling product visuals, it demonstrates how AI-powered video advertising can help technology brands stand out, communicate product value, and create stronger reasons for customers to consider a purchase.',
+      }
+    ],
     projectMatch: (p: Project) => p.industry === 'Technology',
   },
   {
