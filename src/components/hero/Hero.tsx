@@ -14,7 +14,7 @@ export default function Hero() {
       {/* Full-screen background video */}
       <video
         ref={videoRef}
-        src="/hero-reel.mp4"
+        src="/hero video.mp4"
         autoPlay
         muted
         loop

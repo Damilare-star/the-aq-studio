@@ -198,18 +198,19 @@ function VideoModal({
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="relative flex flex-col w-full h-full"
-          style={{ maxWidth: '560px' }}
+          style={{ maxWidth: '560px', paddingTop: '10px' }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close */}
+          {/* Close button in the 10px top space */}
           <button
             onClick={onClose}
-            className="flex items-center gap-2 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer text-[11px] tracking-[0.18em] uppercase self-end pt-6 pb-3 px-4"
+            className="absolute top-0 right-4 flex items-center gap-2 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer text-[10px] tracking-[0.18em] uppercase"
+            style={{ height: '10px', lineHeight: '10px', paddingTop: '0px' }}
           >
             Close ✕
           </button>
 
-          {/* Main video — fixed, never resizes */}
+          {/* Main video — 10px from top */}
           <div className="px-4 shrink-0">
             <div className="relative w-full overflow-hidden rounded-2xl" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 60px rgba(139,92,246,0.10), 0 24px 60px rgba(0,0,0,0.8)' }}>
               <video
@@ -245,7 +246,7 @@ function VideoModal({
             )}
 
             {/* Related videos */}
-            <div className="w-full">
+            <div className="w-full" style={{ marginTop: '7px', marginBottom: '7px' }}>
               <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-4 font-semibold">Related Videos</h4>
               <div className="grid grid-cols-3 gap-3">
                 {[0, 1, 2].map((slot) => {
@@ -409,7 +410,7 @@ export default function IndustriesSection() {
                     <img
                       src={industry.thumbnail}
                       alt={industry.name}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-contain md:object-cover"
                       style={{ opacity: isHov ? 0.55 : 0.35, transition: 'opacity 0.45s ease', objectPosition: 'center top' }}
                     />
                     {/* Dark overlay so text stays readable */}
