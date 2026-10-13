@@ -23,16 +23,13 @@ export default function ShowreelSection() {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12"
         >
           <div>
-            <motion.div variants={fadeUp} className="mb-4"><SectionLabel>Featured Showreel</SectionLabel></motion.div>
+            <motion.div variants={fadeUp} className="mb-4"><SectionLabel>Featured Work</SectionLabel></motion.div>
             <motion.h2 variants={fadeUp} className="text-white font-bold leading-tight" style={{ fontSize: 'clamp(1.75rem, 4vw, 3.5rem)' }}>
-              One reel.
+              Cinematic visuals.
               <br />
-              <span className="italic font-light text-[rgba(255,255,255,0.60)]" style={{ fontFamily: 'Playfair Display, serif' }}>Every capability.</span>
+              <span className="italic font-light text-[rgba(255,255,255,0.60)]" style={{ fontFamily: 'Playfair Display, serif' }}>Advertising built to capture attention.</span>
             </motion.h2>
           </div>
-          <motion.p variants={fadeUp} className="text-[rgba(255,255,255,0.40)] text-sm leading-relaxed md:max-w-xs">
-            A 45-second showcase of cinematic AI product commercials built for brands across beauty, fashion, food, technology, and lifestyle.
-          </motion.p>
         </motion.div>
 
         <motion.div
