@@ -46,7 +46,7 @@ export default function ShowreelSection() {
         >
           <video
             ref={videoRef}
-            src="/under%20hero.mp4"
+            src="/case-study-video.mp4"
             loop playsInline muted
             className="absolute inset-0 w-full h-full object-cover"
           />
