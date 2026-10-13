@@ -163,7 +163,7 @@ function VideoModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-[200] overflow-y-auto flex justify-center"
+        className="fixed inset-0 z-[200] flex justify-center"
         style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(12px)' }}
         onClick={onClose}
       >
@@ -172,121 +172,127 @@ function VideoModal({
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex flex-col items-center w-full px-4"
-          style={{ maxWidth: '560px', marginTop: '40px', marginBottom: '40px' }}
+          className="relative flex flex-col w-full h-full"
+          style={{ maxWidth: '560px' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close */}
           <button
             onClick={onClose}
-            className="self-end mb-3 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase"
+            className="flex items-center gap-2 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer text-[11px] tracking-[0.18em] uppercase self-end pt-6 pb-3 px-4"
           >
             Close ✕
           </button>
 
-          {/* Main video */}
-          <div className="relative w-full overflow-hidden rounded-2xl mb-5" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 60px rgba(139,92,246,0.10), 0 24px 60px rgba(0,0,0,0.8)' }}>
-            <video
-              ref={videoRef}
-              src={currentVideo.path}
-              controls
-              playsInline
-              autoPlay
-              className="w-full h-auto block bg-black"
-              style={{ maxHeight: '55vh' }}
-            />
+          {/* Main video — fixed, never resizes */}
+          <div className="px-4 shrink-0">
+            <div className="relative w-full overflow-hidden rounded-2xl" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 60px rgba(139,92,246,0.10), 0 24px 60px rgba(0,0,0,0.8)' }}>
+              <video
+                ref={videoRef}
+                src={currentVideo.path}
+                controls
+                playsInline
+                autoPlay
+                className="w-full h-auto block bg-black"
+                style={{ maxHeight: '55vh' }}
+              />
+            </div>
           </div>
 
-          {/* Video info section - only show title if multiple videos */}
-          {currentVideo.description && (
-            <div className="w-full mb-6">
-              {videos.length > 1 && (
-                <h3 className="text-white text-lg font-semibold mb-2">{industryName} — Film {activeIndex + 1}</h3>
-              )}
-              <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed">
-                {truncatedDescription}
-                {shouldTruncate && (
-                  <button
-                    onClick={() => setShowFullDescription(!showFullDescription)}
-                    className="ml-2 text-[rgba(139,92,246,0.80)] hover:text-[#8B5CF6] transition-colors cursor-pointer"
-                  >
-                    {showFullDescription ? 'See less' : 'See more'}
-                  </button>
-                )}
-              </p>
-            </div>
-          )}
+          {/* Scrollable content below video */}
+          <div className="flex-1 overflow-y-auto px-4 pb-10" style={{ scrollbarWidth: 'none' }}>
 
-          {/* Video selector tabs */}
-          {videos.length > 1 && (
-            <div className="w-full mb-6">
-              <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-3 font-semibold">All Films ({videos.length})</h4>
-              <div className="flex gap-2 flex-wrap" style={{ marginTop: '16px', marginBottom: '16px' }}>
-                {videos.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveIndex(i)}
-                    className="cursor-pointer transition-all duration-200"
-                    style={{
-                      padding: '8px 18px',
-                      fontSize: '10px',
-                      letterSpacing: '0.18em',
-                      textTransform: 'uppercase',
-                      fontWeight: 600,
-                      color: i === activeIndex ? '#fff' : 'rgba(255,255,255,0.60)',
-                      border: `1.5px solid ${i === activeIndex ? 'rgba(139,92,246,0.70)' : 'rgba(255,255,255,0.25)'}`,
-                      background: i === activeIndex ? 'rgba(139,92,246,0.20)' : 'rgba(0,0,0,0.60)',
-                      borderRadius: '6px',
-                      backdropFilter: 'blur(8px)',
-                    }}
-                  >
-                    Film {i + 1}
-                  </button>
-                ))}
+            {/* Video info */}
+            {currentVideo.description && (
+              <div className="w-full mt-5 mb-6">
+                {videos.length > 1 && (
+                  <h3 className="text-white text-lg font-semibold mb-2">{industryName} — Film {activeIndex + 1}</h3>
+                )}
+                <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed">
+                  {truncatedDescription}
+                  {shouldTruncate && (
+                    <button
+                      onClick={() => setShowFullDescription(!showFullDescription)}
+                      className="ml-2 text-[rgba(139,92,246,0.80)] hover:text-[#8B5CF6] transition-colors cursor-pointer"
+                    >
+                      {showFullDescription ? 'See less' : 'See more'}
+                    </button>
+                  )}
+                </p>
+              </div>
+            )}
+
+            {/* Video selector tabs */}
+            {videos.length > 1 && (
+              <div className="w-full mb-6">
+                <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-3 font-semibold">All Films ({videos.length})</h4>
+                <div className="flex gap-2 flex-wrap" style={{ marginTop: '16px', marginBottom: '16px' }}>
+                  {videos.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveIndex(i)}
+                      className="cursor-pointer transition-all duration-200"
+                      style={{
+                        padding: '8px 18px',
+                        fontSize: '10px',
+                        letterSpacing: '0.18em',
+                        textTransform: 'uppercase',
+                        fontWeight: 600,
+                        color: i === activeIndex ? '#fff' : 'rgba(255,255,255,0.60)',
+                        border: `1.5px solid ${i === activeIndex ? 'rgba(139,92,246,0.70)' : 'rgba(255,255,255,0.25)'}`,
+                        background: i === activeIndex ? 'rgba(139,92,246,0.20)' : 'rgba(0,0,0,0.60)',
+                        borderRadius: '6px',
+                        backdropFilter: 'blur(8px)',
+                      }}
+                    >
+                      Film {i + 1}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Related videos */}
+            <div className="w-full">
+              <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-4 font-semibold">Related Videos</h4>
+              <div className="grid grid-cols-3 gap-3">
+                {[0, 1, 2].map((slot) => {
+                  const relatedIndex = videos
+                    .map((_, i) => i)
+                    .filter(i => i !== activeIndex)[slot]
+                  const relatedVideo = relatedIndex !== undefined ? videos[relatedIndex] : null
+                  return relatedVideo ? (
+                    <button
+                      key={slot}
+                      onClick={() => setActiveIndex(relatedIndex!)}
+                      className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.03)] flex items-center justify-center cursor-pointer hover:border-[rgba(139,92,246,0.40)] transition-colors duration-200 group"
+                    >
+                      <div className="flex flex-col items-center gap-2">
+                        <div className="w-8 h-8 rounded-full border border-[rgba(255,255,255,0.20)] flex items-center justify-center group-hover:border-[rgba(139,92,246,0.60)] transition-colors">
+                          <span style={{ width: 0, height: 0, borderTop: '5px solid transparent', borderBottom: '5px solid transparent', borderLeft: '9px solid rgba(255,255,255,0.60)', marginLeft: '2px', display: 'block' }} />
+                        </div>
+                        <p className="text-[rgba(255,255,255,0.45)] text-[10px] tracking-[0.14em] uppercase">Film {relatedIndex! + 1}</p>
+                      </div>
+                    </button>
+                  ) : (
+                    <div
+                      key={slot}
+                      className="aspect-video rounded-lg border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)] flex items-center justify-center"
+                    >
+                      <p className="text-[rgba(255,255,255,0.20)] text-xs">Coming Soon</p>
+                    </div>
+                  )
+                })}
               </div>
             </div>
-          )}
 
-          {/* Related videos placeholder */}
-          <div className="w-full">
-            <h4 className="text-[rgba(255,255,255,0.70)] text-xs tracking-[0.14em] uppercase mb-4 font-semibold">Related Videos</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {/* Show other videos from this industry, fill rest with Coming Soon */}
-              {[0, 1, 2].map((slot) => {
-                const relatedIndex = videos
-                  .map((_, i) => i)
-                  .filter(i => i !== activeIndex)[slot]
-                const relatedVideo = relatedIndex !== undefined ? videos[relatedIndex] : null
-                return relatedVideo ? (
-                  <button
-                    key={slot}
-                    onClick={() => setActiveIndex(relatedIndex!)}
-                    className="aspect-video rounded-lg border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.03)] flex items-center justify-center cursor-pointer hover:border-[rgba(139,92,246,0.40)] transition-colors duration-200 group"
-                  >
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="w-8 h-8 rounded-full border border-[rgba(255,255,255,0.20)] flex items-center justify-center group-hover:border-[rgba(139,92,246,0.60)] transition-colors">
-                        <span style={{ width: 0, height: 0, borderTop: '5px solid transparent', borderBottom: '5px solid transparent', borderLeft: '9px solid rgba(255,255,255,0.60)', marginLeft: '2px', display: 'block' }} />
-                      </div>
-                      <p className="text-[rgba(255,255,255,0.45)] text-[10px] tracking-[0.14em] uppercase">Film {relatedIndex! + 1}</p>
-                    </div>
-                  </button>
-                ) : (
-                  <div
-                    key={slot}
-                    className="aspect-video rounded-lg border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)] flex items-center justify-center"
-                  >
-                    <p className="text-[rgba(255,255,255,0.20)] text-xs">Coming Soon</p>
-                  </div>
-                )
-              })}
+            {/* Label */}
+            <div className="flex items-center gap-3 mt-6">
+              <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">AQ Studio</span>
+              <span className="w-1 h-1 rounded-full bg-[rgba(139,92,246,0.70)]" />
+              <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">{industryName}</span>
             </div>
-          </div>
 
-          {/* Label */}
-          <div className="flex items-center gap-3 mt-6">
-            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">AQ Studio</span>
-            <span className="w-1 h-1 rounded-full bg-[rgba(139,92,246,0.70)]" />
-            <span className="text-[9px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.65)] font-semibold">{industryName}</span>
           </div>
         </motion.div>
       </motion.div>
