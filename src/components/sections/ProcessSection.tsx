@@ -69,19 +69,19 @@ export default function ProcessSection() {
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-[20%] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-purple-600/[0.035] blur-[150px]" />
 
-      <div className="relative z-10 mx-auto px-5 sm:px-6" style={{ width: '100%', maxWidth: '960px' }}>
+      <div className="relative z-10 mx-auto px-5 sm:px-8 md:px-10 lg:px-12" style={{ width: '100%', maxWidth: '1100px' }}>
 
         {/* ── Header ── */}
-        <div className="grid items-end gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+        <div className="grid items-end gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={reveal}>
-            <div className="mb-7 flex items-center gap-3">
+            <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-8 bg-purple-500" />
               <span className="text-[10px] font-medium uppercase tracking-[0.32em] text-purple-400">
                 Process
               </span>
             </div>
-            <h2 className="max-w-[800px] text-[clamp(1.75rem,5vw,5rem)] font-medium leading-[0.98] tracking-[-0.055em]">
+            <h2 className="text-[clamp(1.75rem,5vw,4rem)] font-medium leading-[1.05] tracking-[-0.055em]">
               From brief to
               <br />
               <span className="font-serif font-normal italic tracking-[-0.04em] text-zinc-500">
@@ -126,10 +126,10 @@ export default function ProcessSection() {
                   className="group relative outline-none"
                 >
                   <div
-                    className={`relative grid min-h-[140px] items-center border-t border-white/[0.08] py-7 transition-all duration-500 lg:grid-cols-[1fr_280px_70px] lg:gap-8 ${isActive ? 'border-white/[0.14]' : ''}`}
+                    className={`relative grid min-h-[140px] items-start gap-4 border-t border-white/[0.08] py-7 transition-all duration-500 lg:grid-cols-[1fr_240px_70px] lg:items-center lg:gap-8 ${isActive ? 'border-white/[0.14]' : ''}`}
                   >
                     {/* Title + description + tags */}
-                    <div>
+                    <div className="pr-4">
                       <div className="flex items-center gap-4">
                         <h3
                           className={`text-lg font-medium tracking-[-0.03em] transition-all duration-500 sm:text-xl ${isActive ? 'translate-x-1 text-white' : 'text-white opacity-90'}`}
