@@ -163,7 +163,7 @@ function VideoModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-[200] overflow-y-auto flex items-center justify-center"
+        className="fixed inset-0 z-[200] overflow-y-auto"
         style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(12px)' }}
         onClick={onClose}
       >
@@ -172,20 +172,20 @@ function VideoModal({
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full flex flex-col items-center py-8 px-4"
-          style={{ maxWidth: '800px', marginTop: '60px' }}
+          className="relative flex flex-col items-center py-10 px-4 mx-auto"
+          style={{ maxWidth: '560px', marginTop: '40px', marginBottom: '40px' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase z-10"
+            className="self-end mb-3 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase"
           >
             Close ✕
           </button>
 
           {/* Main video */}
-          <div className="relative w-full overflow-hidden rounded-2xl mb-6" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 80px rgba(139,92,246,0.12), 0 40px 80px rgba(0,0,0,0.8)' }}>
+          <div className="relative w-full overflow-hidden rounded-2xl mb-5" style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 0 60px rgba(139,92,246,0.10), 0 24px 60px rgba(0,0,0,0.8)' }}>
             <video
               ref={videoRef}
               src={currentVideo.path}
@@ -193,6 +193,7 @@ function VideoModal({
               playsInline
               autoPlay
               className="w-full h-auto block bg-black"
+              style={{ maxHeight: '55vh' }}
             />
           </div>
 
