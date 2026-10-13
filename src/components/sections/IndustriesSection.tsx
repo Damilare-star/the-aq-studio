@@ -163,7 +163,7 @@ function VideoModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-[200] overflow-y-auto"
+        className="fixed inset-0 z-[200] overflow-y-auto flex justify-center"
         style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(12px)' }}
         onClick={onClose}
       >
@@ -172,7 +172,7 @@ function VideoModal({
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex flex-col items-center py-10 px-4 mx-auto"
+          className="relative flex flex-col items-center w-full px-4"
           style={{ maxWidth: '560px', marginTop: '40px', marginBottom: '40px' }}
           onClick={(e) => e.stopPropagation()}
         >
