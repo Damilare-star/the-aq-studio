@@ -80,8 +80,8 @@ const INDUSTRIES = [
     tagline: 'Restraint is the loudest statement.',
     gradient: 'from-[#0a0a06] via-[#141410] to-[#050505]',
     accent: 'rgba(212,212,180,0.30)',
-    thumbnail: null as string | null, // Add your thumbnail path here
-    videos: [] as VideoWithDescription[], // Add your video paths here
+    thumbnail: '/luxury%20tumbnail.png',
+    videos: [] as VideoWithDescription[],
     projectMatch: (p: Project) => p.industry === 'Luxury',
   },
   {
@@ -89,8 +89,8 @@ const INDUSTRIES = [
     tagline: 'Wellness and culture made aspirational.',
     gradient: 'from-[#031008] via-[#051a0c] to-[#050505]',
     accent: 'rgba(52,211,153,0.38)',
-    thumbnail: null as string | null, // Add your thumbnail path here
-    videos: [] as VideoWithDescription[], // Add your video paths here
+    thumbnail: '/lifestyle%20tumbnaill.png',
+    videos: [] as VideoWithDescription[],
     projectMatch: (p: Project) => p.industry === 'Lifestyle',
   },
 ] as const
