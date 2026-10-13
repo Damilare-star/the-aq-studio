@@ -230,8 +230,8 @@ function VideoModal({
 
             {/* Video info */}
             {currentVideo.description && (
-              <div className="w-full mt-5 mb-6">
-                <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed">
+              <div className="w-full mt-6 mb-8">
+                <p className="text-[rgba(255,255,255,0.60)] text-sm leading-[1.8] whitespace-pre-line">
                   {truncatedDescription}
                   {shouldTruncate && (
                     <button
