@@ -231,17 +231,26 @@ function VideoModal({
             {/* Video info */}
             {currentVideo.description && (
               <div className="w-full mt-6 mb-8">
-                <p className="text-[rgba(255,255,255,0.60)] text-sm leading-[1.8] whitespace-pre-line">
-                  {truncatedDescription}
-                  {shouldTruncate && (
-                    <button
-                      onClick={() => setShowFullDescription(!showFullDescription)}
-                      className="ml-2 text-[rgba(139,92,246,0.80)] hover:text-[#8B5CF6] transition-colors cursor-pointer"
-                    >
-                      {showFullDescription ? 'See less' : 'See more'}
-                    </button>
-                  )}
-                </p>
+                <div 
+                  className="rounded-lg p-5"
+                  style={{ 
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                >
+                  <p className="text-[rgba(255,255,255,0.65)] text-sm leading-[1.8] whitespace-pre-line">
+                    {truncatedDescription}
+                    {shouldTruncate && (
+                      <button
+                        onClick={() => setShowFullDescription(!showFullDescription)}
+                        className="ml-2 text-[rgba(139,92,246,0.85)] hover:text-[#8B5CF6] transition-colors cursor-pointer font-medium"
+                      >
+                        {showFullDescription ? 'See less' : 'See more'}
+                      </button>
+                    )}
+                  </p>
+                </div>
               </div>
             )}
 
