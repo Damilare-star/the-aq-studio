@@ -86,7 +86,12 @@ const INDUSTRIES = [
     gradient: 'from-[#0a0a06] via-[#141410] to-[#050505]',
     accent: 'rgba(212,212,180,0.30)',
     thumbnail: '/luxury%20tumbnail.png',
-    videos: [] as VideoWithDescription[],
+    videos: [
+      {
+        path: '/luxury%201.mp4',
+        description: '', // Add description when ready
+      }
+    ],
     projectMatch: (p: Project) => p.industry === 'Luxury',
   },
   {
