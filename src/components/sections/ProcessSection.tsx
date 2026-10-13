@@ -72,10 +72,10 @@ export default function ProcessSection() {
       <div className="relative z-10 mx-auto px-5 sm:px-8 md:px-10 lg:px-12" style={{ width: '100%', maxWidth: '1100px' }}>
 
         {/* ── Header ── */}
-        <div className="grid items-end gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+        <div className="grid items-end gap-8 lg:gap-16 text-center lg:text-left">
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={reveal}>
-            <div className="mb-6 flex items-center gap-3">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={reveal} className="mx-auto lg:mx-0">
+            <div className="mb-6 flex items-center gap-3 justify-center lg:justify-start">
               <span className="h-px w-8 bg-purple-500" />
               <span className="text-[10px] font-medium uppercase tracking-[0.32em] text-purple-400">
                 Process
@@ -94,13 +94,13 @@ export default function ProcessSection() {
             initial="hidden" whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
             variants={reveal}
-            className="max-w-[470px] lg:ml-auto"
+            className="mx-auto lg:ml-auto lg:mr-0 max-w-[470px]"
           >
             <p className="text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
               A focused five-phase production process designed to move from creative
               direction to a finished commercial with clarity, speed and cinematic quality.
             </p>
-            <div className="mt-7 flex items-center gap-3">
+            <div className="mt-7 flex items-center gap-3 justify-center lg:justify-start">
               <span className="h-px w-10 bg-zinc-800" />
               <span className="text-[9px] uppercase tracking-[0.25em] text-zinc-400">5 PHASES</span>
             </div>
