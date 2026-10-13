@@ -30,6 +30,11 @@ export default function ShowreelSection() {
               <span className="italic font-light text-[rgba(255,255,255,0.60)]" style={{ fontFamily: 'Playfair Display, serif' }}>Advertising built to capture attention.</span>
             </motion.h2>
           </div>
+          <motion.div variants={fadeUp} className="md:max-w-xs shrink-0">
+            <p className="text-[rgba(255,255,255,0.55)] text-[10px] tracking-[0.16em] uppercase mb-2">Project Type: AI Product Commercial</p>
+            <p className="text-[rgba(255,255,255,0.40)] text-[10px] tracking-[0.16em] uppercase mb-3">Category: Beverage & FMCG Advertising</p>
+            <p className="text-[rgba(255,255,255,0.40)] text-sm leading-relaxed">A spec ad concept that reimagines Coca-Cola through cinematic visuals and immersive product storytelling. Designed to capture attention, evoke desire, and demonstrate how AI-powered video advertising can help beverage brands create memorable campaigns.</p>
+          </motion.div>
         </motion.div>
 
         <motion.div
