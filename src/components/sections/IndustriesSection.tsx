@@ -105,6 +105,7 @@ function VideoModal({
   onClose: () => void 
 }) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [showFullDescription, setShowFullDescription] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -132,15 +133,23 @@ function VideoModal({
     return () => window.removeEventListener('keydown', handler)
   }, [onClose])
 
-  // When switching video, replay
+  // When switching video, replay and reset description
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load()
       videoRef.current.play()
     }
+    setShowFullDescription(false)
   }, [activeIndex])
 
   const currentVideo = videos[activeIndex]
+  
+  // Truncate description to ~2 lines (~14 words, ~7 words per line)
+  const words = currentVideo.description.split(' ')
+  const shouldTruncate = words.length > 14
+  const truncatedDescription = shouldTruncate && !showFullDescription 
+    ? words.slice(0, 14).join(' ') + '...'
+    : currentVideo.description
 
   return (
     <AnimatePresence>
@@ -149,7 +158,7 @@ function VideoModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-[200] overflow-y-auto"
+        className="fixed inset-0 z-[200] overflow-y-auto flex items-center justify-center"
         style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(12px)' }}
         onClick={onClose}
       >
@@ -159,7 +168,7 @@ function VideoModal({
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full flex flex-col items-center py-8 px-4"
-          style={{ maxWidth: '1200px', margin: '0 auto' }}
+          style={{ maxWidth: '800px' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close */}
@@ -179,15 +188,28 @@ function VideoModal({
               playsInline
               autoPlay
               className="w-full h-auto block bg-black"
-              style={{ maxHeight: '70vh' }}
             />
           </div>
 
-          {/* Video info section */}
-          <div className="w-full mb-6">
-            <h3 className="text-white text-lg font-semibold mb-2">{industryName} — Film {activeIndex + 1}</h3>
-            <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed whitespace-pre-line">{currentVideo.description}</p>
-          </div>
+          {/* Video info section - only show title if multiple videos */}
+          {currentVideo.description && (
+            <div className="w-full mb-6">
+              {videos.length > 1 && (
+                <h3 className="text-white text-lg font-semibold mb-2">{industryName} — Film {activeIndex + 1}</h3>
+              )}
+              <p className="text-[rgba(255,255,255,0.60)] text-sm leading-relaxed">
+                {truncatedDescription}
+                {shouldTruncate && (
+                  <button
+                    onClick={() => setShowFullDescription(!showFullDescription)}
+                    className="ml-2 text-[rgba(139,92,246,0.80)] hover:text-[#8B5CF6] transition-colors cursor-pointer"
+                  >
+                    {showFullDescription ? 'See less' : 'See more'}
+                  </button>
+                )}
+              </p>
+            </div>
+          )}
 
           {/* Video selector tabs */}
           {videos.length > 1 && (
