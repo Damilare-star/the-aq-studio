@@ -69,7 +69,7 @@ export default function ProcessSection() {
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-[20%] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-purple-600/[0.035] blur-[150px]" />
 
-      <div className="relative z-10 mx-auto" style={{ width: '90%' }}>
+      <div className="relative z-10 mx-auto px-5 sm:px-6" style={{ width: '100%', maxWidth: '960px' }}>
 
         {/* ── Header ── */}
         <div className="grid items-end gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
