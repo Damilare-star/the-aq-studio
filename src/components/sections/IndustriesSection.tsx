@@ -31,8 +31,13 @@ const INDUSTRIES = [
     tagline: 'Editorial quality. Commercial speed.',
     gradient: 'from-[#0e0412] via-[#180a1e] to-[#050505]',
     accent: 'rgba(167,139,250,0.45)',
-    thumbnail: null as string | null, // Add your thumbnail path here
-    videos: [] as VideoWithDescription[], // Add your video paths here
+    thumbnail: '/fashion%20tumbnail.png',
+    videos: [
+      {
+        path: '/fashion%201.mp4',
+        description: 'Project Title: VESTIGE | Luxury Leather Goods Product Walk. This commercial showcases VESTIGE through an elegant product-focused narrative, capturing the handbag as the centerpiece of everyday luxury. The creative combines natural movement, warm cafe ambiance, and deliberate camera work to elevate a structured leather accessory into a statement of refined taste. The visual direction prioritizes the product\'s craftsmanship — gold hardware, geometric handle, cognac leather texture — through dynamic camera follow and soft-focus framing that keeps the bag sharp while the world around it softens. Warm ambient lighting and genuine human presence create a lifestyle context without narrative interference. Creative Approach: The advertisement strips away unnecessary storytelling to let the product\'s design communicate its own value. Every frame is composed to highlight the bag\'s construction quality and visual appeal, using warm color grading and intimate cafe setting to position luxury as something worn with ease, not performed. The approach emphasizes commercial clarity: a woman carrying an exceptional product, naturally, confidently. No artificial drama — just the quiet authority that comes from owning something beautifully made.',
+      }
+    ],
     projectMatch: (p: Project) => p.industry === 'Fashion',
   },
   {
