@@ -111,7 +111,7 @@ const INDUSTRIES: Industry[] = [
     videos: [
       {
         path: 'https://res.cloudinary.com/wnoxdm9s/video/upload/v1791935182/luxury_1.mp4',
-        description: '', // Add description when ready
+        description: 'Project Title: MJAY GOLD | The Art of Gold — A Cinematic Jewelry Commercial. Turning jewelry into a statement of elegance, identity, and desire. This project explores how gold jewelry can be presented as more than an accessory. Through cinematic product shots, elegant styling, detailed close-ups, and lifestyle visuals, the commercial highlights the beauty and appeal of MJAY GOLD\'s jewelry collection. The creative direction brings together product-focused storytelling and aspirational visuals to create an advertisement designed to capture attention, showcase the collection, and strengthen the brand\'s premium appeal.',
       }
     ],
     projectMatch: (p: Project) => p.industry === 'Luxury',
@@ -232,7 +232,7 @@ function VideoModal({
                 playsInline
                 autoPlay
                 className="w-full h-auto block bg-black"
-                style={{ maxHeight: '55vh' }}
+                style={{ maxHeight: '55vh', maxWidth: '100%', objectFit: 'contain' }}
               />
             </div>
           </div>
