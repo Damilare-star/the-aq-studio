@@ -48,12 +48,13 @@ export default function ShowreelSection() {
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full mx-auto overflow-hidden rounded-xl"
+          className="relative mx-auto overflow-hidden rounded-xl"
           style={{ 
-            aspectRatio: '16/9', 
+            aspectRatio: '9/16', 
             background: '#090909', 
             border: '1px solid rgba(255,255,255,0.07)',
-            maxWidth: '100%'
+            maxWidth: '500px',
+            width: '100%'
           }}
         >
           <video
@@ -61,7 +62,6 @@ export default function ShowreelSection() {
             src="https://res.cloudinary.com/wnoxdm9s/video/upload/v1791935213/coca_cola.mp4"
             loop playsInline muted
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ maxWidth: '100%', height: 'auto' }}
           />
 
           {!playing && <div className="absolute inset-0 bg-[rgba(5,5,5,0.45)] pointer-events-none" />}
