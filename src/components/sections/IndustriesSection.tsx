@@ -34,12 +34,12 @@ const INDUSTRIES: Industry[] = [
         description: 'A beauty commercial for TRP Face Serum, built around the connection between everyday rituals, natural ingredients, and radiant skin. Warm cinematic lighting, rich botanical details, and intimate lifestyle moments give the product a natural place within the story, while carefully composed product shots keep the serum at the centre of attention. The creative direction brings together lifestyle storytelling and premium product presentation to create a beauty campaign that feels warm, aspirational, and commercially appealing.',
       },
       {
-        path: '',
-        description: 'Beauty Film 2 - Coming Soon',
+        path: 'https://res.cloudinary.com/wnoxdm9s/video/upload/v1791935581/beauty_2.mp4',
+        description: 'Beauty Film 2 - Add description here',
       },
       {
-        path: '',
-        description: 'Beauty Film 3 - Coming Soon',
+        path: 'https://res.cloudinary.com/wnoxdm9s/video/upload/v1791935840/beauty_3.mp4',
+        description: 'Beauty Film 3 - Add description here',
       },
       {
         path: '',
