@@ -52,7 +52,7 @@ export default function ShowreelSection() {
         >
           <video
             ref={videoRef}
-            src="/coca cola.mp4"
+            src="https://res.cloudinary.com/wnoxdm9s/video/upload/v1791935213/coca_cola.mp4"
             loop playsInline muted
             className="absolute inset-0 w-full h-full object-cover"
           />

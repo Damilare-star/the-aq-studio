@@ -30,7 +30,7 @@ const INDUSTRIES: Industry[] = [
     thumbnail: '/beauty%20tumbnail.jpeg',
     videos: [
       {
-        path: '/beauty%201.mp4',
+        path: 'https://res.cloudinary.com/wnoxdm9s/video/upload/v1791935819/beauty_4.mp4',
         description: 'A beauty commercial for TRP Face Serum, built around the connection between everyday rituals, natural ingredients, and radiant skin. Warm cinematic lighting, rich botanical details, and intimate lifestyle moments give the product a natural place within the story, while carefully composed product shots keep the serum at the centre of attention. The creative direction brings together lifestyle storytelling and premium product presentation to create a beauty campaign that feels warm, aspirational, and commercially appealing.',
       }
     ],
@@ -84,7 +84,7 @@ const INDUSTRIES: Industry[] = [
     thumbnail: '/technology%20tumbnail.png',
     videos: [
       {
-        path: '/technology%201.mp4',
+        path: 'https://res.cloudinary.com/wnoxdm9s/video/upload/v1791934751/technology_1.mp4',
         description: 'Project Type: Cinematic Product Commercial. Category: Consumer Electronics & Technology. A dark, futuristic product showcase that transforms abstract motion into a striking reveal of the Oraimo OpenSnap N2 earbuds. Combining fluid visual effects, dramatic lighting, and precision-focused product shots, the commercial presents the earbuds as a premium listening experience. The creative direction is designed to capture attention, build curiosity, highlight product features, and make the product more desirable to potential buyers. By combining cinematic storytelling with compelling product visuals, it demonstrates how AI-powered video advertising can help technology brands stand out, communicate product value, and create stronger reasons for customers to consider a purchase.',
       }
     ],
@@ -98,7 +98,7 @@ const INDUSTRIES: Industry[] = [
     thumbnail: '/luxury%20tumbnail.png',
     videos: [
       {
-        path: '/luxury%201.mp4',
+        path: 'https://res.cloudinary.com/wnoxdm9s/video/upload/v1791935182/luxury_1.mp4',
         description: '', // Add description when ready
       }
     ],
