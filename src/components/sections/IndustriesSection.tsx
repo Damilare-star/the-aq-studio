@@ -210,14 +210,13 @@ function VideoModal({
           exit={{ scale: 0.92, opacity: 0, y: 20 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="relative flex flex-col w-full h-full"
-          style={{ maxWidth: '560px', paddingTop: '10px' }}
+          style={{ maxWidth: '560px', paddingTop: '20px' }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close button in the 10px top space */}
+          {/* Close button in the top space */}
           <button
             onClick={onClose}
-            className="absolute top-0 right-4 flex items-center gap-2 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer text-[10px] tracking-[0.18em] uppercase"
-            style={{ height: '10px', lineHeight: '10px', paddingTop: '0px' }}
+            className="absolute top-2 right-4 flex items-center gap-2 text-[rgba(255,255,255,0.60)] hover:text-white transition-colors duration-200 cursor-pointer text-[10px] tracking-[0.18em] uppercase"
           >
             Close ✕
           </button>
@@ -431,7 +430,7 @@ export default function IndustriesSection() {
                     <img
                       src={industry.thumbnail}
                       alt={industry.name}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-contain sm:object-cover"
                       style={{ opacity: isHov ? 0.55 : 0.35, transition: 'opacity 0.45s ease', objectPosition: 'center' }}
                     />
                     {/* Dark overlay so text stays readable */}
